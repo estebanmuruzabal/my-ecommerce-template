@@ -208,7 +208,7 @@ server.use(async function (req, res, next) {
 //
 // b) Start server
 //
-const host = '0.0.0.0';
+const host = 'localhost';
 const port = 3000;
 server.listen(port, host);
 debug('Storefront Isomorphic Server running. Host: %s, Port: %s', host, port);
