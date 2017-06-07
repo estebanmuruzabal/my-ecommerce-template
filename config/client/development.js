@@ -10,7 +10,7 @@ export default {
     },
     api: {
         atlas: {
-            baseUrl: 'http://localhost:8000/v1'
+            baseUrl: 'http://107.170.56.213/v1'
         }
     },
     googleAnalytics: {
