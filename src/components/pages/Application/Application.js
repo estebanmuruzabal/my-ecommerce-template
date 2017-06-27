@@ -114,7 +114,7 @@ class Application extends React.Component {
         }
 
         // Check if user logged-in is an Admin
-        let isAdmin = this.context.getStore(AccountStore).isAuthorized(['admin']);
+        //let isAdmin = this.context.getStore(AccountStore).isAuthorized(['admin']);
 
         // Return
         return (

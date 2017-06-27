@@ -30,9 +30,9 @@ class ArticleSuggestions extends React.Component {
         // Component styles
         require('./ArticleSuggestions.scss');
     }
-    
+
     //*** Template ***//
-    
+
     render() {
         let intlStore = this.context.getStore(IntlStore);
         let routeParams = {locale: intlStore.getCurrentLocale()}; // Base route params

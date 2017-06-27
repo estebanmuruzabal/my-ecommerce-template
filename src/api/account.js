@@ -41,6 +41,7 @@ class AccountAPI {
     login(payload) {
         return new Promise((resolve, reject) => {
             let request = superagent.post(`${this.baseUrl}/account/login`).send(payload);
+            
             this._wrapAndRequest(request, resolve, reject);
         });
     }
