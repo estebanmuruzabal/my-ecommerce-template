@@ -10,7 +10,7 @@ export default {
     },
     api: {
         atlas: {
-            baseUrl: 'http://107.170.56.213/v1'
+            baseUrl: 'http://tienda765.com/v1'
         }
     },
     googleAnalytics: {

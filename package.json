@@ -18,6 +18,7 @@
     "babel": "5.8.38",
     "css-loader": "0.18.0",
     "debug": "2.2.0",
+    "dotenv": "^4.0.0",
     "expose-loader": "0.7.0",
     "express": "4.13.3",
     "file-loader": "0.8.4",
