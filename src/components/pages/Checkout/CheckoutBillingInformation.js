@@ -13,6 +13,7 @@ import AddressPreview from '../../common/forms/AddressPreview';
 import Checkbox from '../../common/forms/Checkbox';
 import InputField from '../../common/forms/InputField';
 import RadioSelect from '../../common/forms/RadioSelect';
+import Heading from '../../common/typography/Heading';
 
 import CheckoutSection from './CheckoutSection';
 
@@ -111,7 +112,7 @@ class CheckoutBillingInformation extends React.Component {
                         <InputField placeholder={intlStore.getMessage(intlData, 'phoneNumber')}
                                     onChange={this.handleInstrumentParamChange.bind(null, 'phone')}
                                     error={this.state.fieldErrors.phone} />
-                    </div>  
+                    </div>
                 );
             }
             return option;
@@ -155,6 +156,12 @@ class CheckoutBillingInformation extends React.Component {
                             :
                             null
                         }
+                        <div className="checkout-summary__warning">
+                            <Heading size="small">
+                                <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationShipping')}
+                                                  locales={intlStore.getCurrentLocale()} />
+                            </Heading>
+                        </div>
                     </div>
                 }
             </div>

@@ -11,6 +11,7 @@ import IntlStore from '../../../stores/Application/IntlStore';
 import AddressField from '../../common/forms/AddressField';
 import AddressPreview from '../../common/forms/AddressPreview';
 import RadioSelect from '../../common/forms/RadioSelect';
+import Heading from '../../common/typography/Heading';
 
 import CheckoutSection from './CheckoutSection';
 
@@ -97,8 +98,15 @@ class CheckoutShippingInformation extends React.Component {
                             :
                             null
                         }
+
                     </div>
                 }
+                <div className="checkout-summary__warning">
+                    <Heading size="small">
+                        <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationZones')}
+                                          locales={intlStore.getCurrentLocale()} />
+                    </Heading>
+                </div>
             </div>
         );
     }

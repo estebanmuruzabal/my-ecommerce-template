@@ -1,6 +1,7 @@
 export default {
     en: {
         back: 'Back',
+        delete: 'Delete item',
         categories: 'Categories',
         collections: 'Collections',
         currency: 'Currency',
@@ -25,8 +26,10 @@ export default {
     },
     es: {
         back: 'Volver',
+        delete: 'Borrar item',
         categories: 'Categorias',
         collections: 'Colecciones',
+        currency: 'Currency',
         deleteProductModalTitle: 'Confirma la eliminacion?',
         description: 'Descripción',
         enabled: 'Activo',

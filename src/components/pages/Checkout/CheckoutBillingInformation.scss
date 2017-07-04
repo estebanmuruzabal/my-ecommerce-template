@@ -1,3 +1,6 @@
+@import '../../../styles/mixins/breakpoints.scss';
+@import '../../../styles/variables.scss';
+
 .checkout-billing-information__use-shipping-address {
     background-color: #eee;
     padding: 10px;
@@ -12,4 +15,14 @@
     margin-top: 10px;
     padding: 15px;
     border: 1px solid #eee;
+}
+
+.checkout-summary__warning {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: $color-secondary;
+    border-radius: $border-radius-default;
 }
