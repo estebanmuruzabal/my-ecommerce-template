@@ -158,7 +158,7 @@ class CheckoutBillingInformation extends React.Component {
                         }
                         <div className="checkout-summary__warning">
                             <Heading size="small">
-                                <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationShipping')}
+                                <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationBilling')}
                                                   locales={intlStore.getCurrentLocale()} />
                             </Heading>
                         </div>

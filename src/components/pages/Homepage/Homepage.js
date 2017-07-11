@@ -178,7 +178,7 @@ class Homepage extends React.Component {
                     :
                     null
                 }
-
+                <div className="homepage__banner"></div>
                 <div className="homepage__products">
                     <ProductList title={featuredProductsTitle()}
                                  filters={productFilters()}

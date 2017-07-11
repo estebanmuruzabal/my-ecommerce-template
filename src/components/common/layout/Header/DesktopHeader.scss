@@ -50,7 +50,14 @@
  */
 
 .desktop-header__logo {
-    font: 300 25px 'Oswald', sans-serif;
+    width: 100%;
+    min-width: 169px;
+    max-width: 169px;
+    height: 47px;
+    background: url('./logo-tienda765.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 8px;
 }
 
 .desktop-header__logo-link {

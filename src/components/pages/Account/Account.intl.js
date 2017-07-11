@@ -2,6 +2,7 @@ export default {
     en: {
         address: 'Address',
         addresses: 'Addresses',
+        addressLine2: 'Comment or notes for delivery',
         cancel: 'Cancel',
         changePassword: 'Change Password',
         city: 'City',
@@ -34,6 +35,7 @@ export default {
     es: {
         address: 'Dirección',
         addresses: 'Direcciones',
+        addressLine2: 'Comentario o nota para el delivery',
         cancel: 'Cancelar',
         changePassword: 'Cambiar contraseña',
         city: 'Ciudad',

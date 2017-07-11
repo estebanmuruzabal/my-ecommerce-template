@@ -63,6 +63,10 @@ class AdminOrdersSendEmail extends React.Component {
         this.setState({template: value});
     };
 
+    handlePaymentLinkChange = (value) => {
+        this.setState({paymentlink: value});
+    };
+
     handleEmailAddressChange = (value) => {
         this.setState({email: value});
     };
@@ -85,13 +89,17 @@ class AdminOrdersSendEmail extends React.Component {
         if (!this.state.subject) {
             fieldErrors.subject = intlStore.getMessage(intlData, 'fieldRequired');
         }
+        if (!this.state.paymentlink) {
+            fieldErrors.subject = intlStore.getMessage(intlData, 'fieldRequired');
+        }
         this.setState({fieldErrors: fieldErrors});
 
         if (Object.keys(fieldErrors).length === 0) {
             this.props.onSubmitClick({
                 template: this.state.template,
                 email: this.state.email,
-                subject: this.state.subject
+                subject: this.state.subject,
+                paymentlink: this.state.paymentlink
             });
         }
     };
@@ -110,14 +118,20 @@ class AdminOrdersSendEmail extends React.Component {
         let emailTemplateOptions = [
             {name: intlStore.getMessage(intlData, 'orderCreated'), value: 'order.created'},
             {name: intlStore.getMessage(intlData, 'orderPaid'), value: 'order.paid'},
-            {name: intlStore.getMessage(intlData, 'orderPendingPayment'), value: 'order.pendingPayment'}
+            {name: intlStore.getMessage(intlData, 'orderPendingPayment'), value: 'order.pendingPayment'},
+            {name: intlStore.getMessage(intlData, 'orderPendingPaymentPaypal'), value: 'order.pendingPaymentPaypal'},
+            {name: intlStore.getMessage(intlData, 'orderPendingPaymentMercadoPago'), value: 'order.pendingPaymentMercadoPago'}
 
         ];
         if (this.props.order.status === 'paid') {
             emailTemplateOptions.push({name: intlStore.getMessage(intlData, 'orderPaid'), value: 'order.paid'});
         }
         if (this.props.order.status === 'pendingPayment') {
-            emailTemplateOptions.push({name: intlStore.getMessage(intlData, 'orderPendingPayment'), value: 'order.pendingPayment'});
+            emailTemplateOptions.push(
+                                      {name: intlStore.getMessage(intlData, 'orderPendingPayment'), value: 'order.pendingPayment'},
+                                      {name: intlStore.getMessage(intlData, 'orderPendingPaymentPaypal'), value: 'order.pendingPaymentPaypal'},
+                                      {name: intlStore.getMessage(intlData, 'orderPendingPaymentMercadoPago'), value: 'order.pendingPaymentMercadoPago'}
+                                );
         }
 
         //
@@ -136,6 +150,11 @@ class AdminOrdersSendEmail extends React.Component {
                     <InputField label={intlStore.getMessage(intlData, 'emailAddress')}
                                 onChange={this.handleEmailAddressChange}
                                 error={this.state.fieldErrors.email}/>
+                </div>
+                <div className="admin-orders-payment-link__form-item">
+                    <InputField label={intlStore.getMessage(intlData, 'paymentLink')}
+                                onChange={this.handlePaymentLinkChange}
+                                error={this.state.fieldErrors.paymentlink}/>
                 </div>
                 <div className="admin-orders-send-email__form-item">
                     <InputField label={intlStore.getMessage(intlData, 'subject')}

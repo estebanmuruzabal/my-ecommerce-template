@@ -98,6 +98,10 @@ class AddressField extends React.Component {
             {name: 'Argentina', value: 'Argentina'}
         ];
 
+        let provinceOptions = [
+            {name: 'Chaco', value: 'Chaco'}
+        ];
+
         let addressOptions;
         if (this.props.savedAddresses && this.props.savedAddresses.length > 0) {
             addressOptions = this.props.savedAddresses.map(function (address, idx) {
@@ -151,7 +155,8 @@ class AddressField extends React.Component {
                                 error={this.state.fieldErrors['addressLine1']} />
                 </div>
                 <div className="address-field__address-line2">
-                    <InputField labelWeight={this.props.labelWeight}
+                    <InputField label={intlStore.getMessage(intlData, 'addressLine2')}
+                                labelWeight={this.props.labelWeight}
                                 value={this.state.address.addressLine2}
                                 onChange={this.handleFieldChange.bind(null, 'addressLine2')}
                                 error={this.state.fieldErrors['addressLine2']} />
@@ -172,11 +177,13 @@ class AddressField extends React.Component {
                 </div>
                 <div className="address-field__item">
                     <InlineItems>
-                        <InputField label={intlStore.getMessage(intlData, 'state')}
-                                    labelWeight={this.props.labelWeight}
-                                    value={this.state.address.state}
-                                    onChange={this.handleFieldChange.bind(null, 'state')}
-                                    error={this.state.fieldErrors['state']} />
+                        <Select label={intlStore.getMessage(intlData, 'state')}
+                                placeholder
+                                options={provinceOptions}
+                                labelWeight={this.props.labelWeight}
+                                value={this.state.address.city}
+                                onChange={this.handleFieldChange.bind(null, 'state')}
+                                error={this.state.fieldErrors['state']} />
                         <Select label={intlStore.getMessage(intlData, 'country')}
                                 placeholder
                                 options={countryOptions}

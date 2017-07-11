@@ -352,7 +352,8 @@ class Account extends React.Component {
                                         error={this.state.fieldErrors['addressLine1']} />
                         </div>
                         <div className="account__modal-address-line2">
-                            <InputField onChange={this.handleAddressFieldChange.bind(null, 'addressLine2')}
+                            <InputField label={intlStore.getMessage(intlData, 'addressLine2')}
+                                        onChange={this.handleAddressFieldChange.bind(null, 'addressLine2')}
                                         value={this.state.address.addressLine2}
                                         error={this.state.fieldErrors['addressLine2']} />
                         </div>

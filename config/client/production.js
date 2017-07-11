@@ -5,7 +5,7 @@ export default {
         title: 'Tienda 765',
         locale: {
             available: ['en', 'es'],
-            default: 'en'
+            default: 'es'
         }
     },
     api: {

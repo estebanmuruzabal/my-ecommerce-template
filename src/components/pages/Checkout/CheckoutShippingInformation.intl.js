@@ -2,11 +2,13 @@ export default {
     en: {
         save: 'Save',
         shippingMethodLabel: 'Select Shipping Method',
-        aclarationZones: 'Note: Zone 1 from here to there'
+        aclarationZones: '(*) Zone 1 from here to there',
+        aclarationShipping: '(**) Deliveries are on Mon and Wed. From 14 to 15 and 20 to 22'
     },
     es: {
         save: 'Guardar',
         shippingMethodLabel: 'Selecione Método de Envio',
-        aclarationZones: 'Nota: Zona 1 de aca alla'
+        aclarationZones: '(*) Zona 1 de aca alla',
+        aclarationShipping: '(**) Las entregas son los lunes y miercoles. De 14 a 16 y 20 a 22'
     }
 };

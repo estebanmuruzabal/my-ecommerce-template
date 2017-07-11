@@ -33,7 +33,6 @@
 .homepage__banners {
     align-self: center;
     width: 100%;
-    height: 100%;
     max-width: inherit;
     max-height: inherit;
     @include breakpoint(handhelds) {
@@ -95,6 +94,18 @@
 
  .homepage__products {
      margin-top: 30px;
+     @include breakpoint(handhelds) {
+         margin-top: 0;
+     }
+ }
+
+ .homepage__banner {
+     background: url('./banner-pasos.jpg');
+     background-size: 100%;
+     height: 90px;
+     width: 100%;
+     background-repeat: no-repeat;
+
      @include breakpoint(handhelds) {
          margin-top: 0;
      }

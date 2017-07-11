@@ -6,9 +6,12 @@ export default {
         orderCreated: 'Order Created',
         orderPaid: 'Payment Confirmation',
         orderPendingPayment: 'Payment Reminder',
+        orderPendingPaymentPaypal: 'Payment Reminder with Paypal',
+        orderPendingPaymentMercadoPago: 'Payment Reminder with Mercado Pago',
         subject: 'Subject',
         submit: 'Send',
-        template: 'Template'
+        template: 'Template',
+        paymentLink: 'Payment Link'
     },
     es: {
         cancel: 'Cancelar',
@@ -17,8 +20,11 @@ export default {
         orderCreated: 'Pedido creado',
         orderPaid: 'Confirmación de Pago',
         orderPendingPayment: 'Recordatorio de Pago',
+        orderPendingPaymentPaypal: 'Recordatorio de Pago con Paypal',
+        orderPendingPaymentMercadoPago: 'Recordatorio de Pago con Mercado Pago',
         subject: 'Asunto',
         submit: 'Enviar',
-        template: 'Template'
+        template: 'Template',
+        paymentLink: 'Link de pago'
     }
 };

@@ -2,6 +2,7 @@ export default {
     en: {
         address: 'Address',
         cancel: 'Cancel',
+        addressLine2: 'Comment or notes for delivery',
         city: 'City',
         country: 'Country',
         fieldRequired: 'This field is required',
@@ -16,6 +17,7 @@ export default {
     es: {
         address: 'Dirección',
         cancel: 'Cancelar',
+        addressLine2: 'Comentario o nota para el delivery',
         city: 'Ciudad',
         country: 'País',
         fieldRequired: 'Este campo es obligatorio',

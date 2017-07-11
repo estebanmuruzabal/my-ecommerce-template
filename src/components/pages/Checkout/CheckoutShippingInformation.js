@@ -12,6 +12,8 @@ import AddressField from '../../common/forms/AddressField';
 import AddressPreview from '../../common/forms/AddressPreview';
 import RadioSelect from '../../common/forms/RadioSelect';
 import Heading from '../../common/typography/Heading';
+import MapZonesImages from '../../common/MapZonesImages/MapZonesImages';
+MapZonesImages
 
 import CheckoutSection from './CheckoutSection';
 
@@ -98,12 +100,16 @@ class CheckoutShippingInformation extends React.Component {
                             :
                             null
                         }
-
+                          
                     </div>
                 }
                 <div className="checkout-summary__warning">
-                    <Heading size="small">
+                    <Heading size="small" align="left">
                         <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationZones')}
+                                          locales={intlStore.getCurrentLocale()} />
+                    </Heading>
+                    <Heading size="small" align="left">
+                        <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationShipping')}
                                           locales={intlStore.getCurrentLocale()} />
                     </Heading>
                 </div>

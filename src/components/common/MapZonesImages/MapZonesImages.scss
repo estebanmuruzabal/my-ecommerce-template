@@ -1,0 +1,72 @@
+.map-zone-ul-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-zone-image-container {
+  margin: 2px;
+}
+
+.image-zone-one {
+    width: 183px;
+    height: 183px;
+    cursor: pointer;
+    background: url('./map-zone-one.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    &:hover {
+      border: 1px solid red;
+      border-radius: 3px;
+    }
+}
+
+.image-zone-two {
+    width: 183px;
+    height: 183px;
+    cursor: pointer;
+    background: url('./map-zone-three.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    &:hover {
+      border: 1px solid red;
+      border-radius: 3px;
+    }
+}
+
+.image-zone-three {
+    width: 183px;
+    height: 183px;
+    cursor: pointer;
+    background: url('./map-zone-three.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    &:hover {
+      border: 1px solid red;
+      border-radius: 3px;
+    }
+}
+
+
+.image-zone-one-full {
+    width: 540px;
+    height: 600px;
+    background: url('./map-zone-one.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.image-zone-two-full {
+    width: 540px;
+    height: 600px;
+    background: url('./map-zone-one.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.image-zone-three-full {
+    width: 540px;
+    height: 600px;
+    background: url('./map-zone-one.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
