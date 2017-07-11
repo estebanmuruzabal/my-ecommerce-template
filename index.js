@@ -11,6 +11,11 @@ require('babel/register')({
 require('./src/utils/intlServerPolyfill');
 
 /**
+ * Get environment variables
+ */
+require('dotenv').config();
+
+/**
  * Start application server.
  */
 require('./src/server');
