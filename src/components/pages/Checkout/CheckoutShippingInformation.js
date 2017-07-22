@@ -13,7 +13,8 @@ import AddressPreview from '../../common/forms/AddressPreview';
 import RadioSelect from '../../common/forms/RadioSelect';
 import Heading from '../../common/typography/Heading';
 import MapZonesImages from '../../common/MapZonesImages/MapZonesImages';
-MapZonesImages
+import InlineItems from '../../common/forms/InlineItems';
+import Select from '../../common/forms/Select';
 
 import CheckoutSection from './CheckoutSection';
 
@@ -68,9 +69,30 @@ class CheckoutShippingInformation extends React.Component {
             };
         }) : null;
 
-        //
-        // Return
-        //
+        let dayOptions = [
+            {name: 'Lunes', value: 'Lunes'},
+            {name: 'Martes', value: 'Martes'},
+            {name: 'Miércoles', value: 'Miércoles'},
+            {name: 'Jueves', value: 'Jueves'},
+            {name: 'Viernes', value: 'Viernes'}
+        ];
+
+        let timeOptions = [
+            {name: '09:00', value: '09:00'},
+            {name: '10:00', value: '10:00'},
+            {name: '11:00', value: '11:00'},
+            {name: '12:00', value: '12:00'},
+            {name: '13:00', value: '13:00'},
+            {name: '14:00', value: '14:00'},
+            {name: '15:00', value: '15:00'},
+            {name: '16:00', value: '16:00'},
+            {name: '17:00', value: '17:00'},
+            {name: '18:00', value: '18:00'},
+            {name: '19:00', value: '19:00'},
+            {name: '20:00', value: '20:00'},
+            {name: '21:00', value: '21:00'}
+        ];
+
         return (
             <div className="checkout-shipping-information">
                 {this.props.editingAddress ?
@@ -100,7 +122,23 @@ class CheckoutShippingInformation extends React.Component {
                             :
                             null
                         }
-                          
+
+                          <div className="checkout-shipping-information__select-method">
+                              <InlineItems>
+                                  <Select label={intlStore.getMessage(intlData, 'day')}
+                                          placeholder
+                                          options={dayOptions}
+                                          labelWeight={this.props.labelWeight}
+                                          value={this.props.shippingDay}
+                                          onChange={this.props.handleShippingDayChange} />
+                                  <Select label={intlStore.getMessage(intlData, 'time')}
+                                          placeholder
+                                          options={timeOptions}
+                                          labelWeight={this.props.labelWeight}
+                                          value={this.props.shippingTime}
+                                          onChange={this.props.handleShippingTimeChange} />
+                              </InlineItems>
+                          </div>
                     </div>
                 }
                 <div className="checkout-summary__warning">
@@ -124,7 +162,8 @@ class CheckoutShippingInformation extends React.Component {
 CheckoutShippingInformation.defaultProps = {
     onAddressSubmit: function (value) { debug(`onAddressSubmit not defined. Value: ${value}`); },
     onAddressEditClick: function () { debug('onAddressEditClick not defined'); },
-    onShippingOptionChange: function (value) { debug(`onShippingOptionChange not defined. Value: ${value}`); }
+    onShippingOptionChange: function (value) { debug(`onShippingOptionChange not defined. Value: ${value}`); },
+    handleShippingScheduleOptionChange: function (value) { debug(`handleShippingScheduleOptionChange not defined. Value: ${value}`); }
 };
 
 /**

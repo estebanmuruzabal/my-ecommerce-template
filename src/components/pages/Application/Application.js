@@ -105,6 +105,10 @@ class Application extends React.Component {
           {
               name: 'Productos',
               to: 'products'
+          },
+          {
+              name: 'Fotocopias',
+              to: 'fotocopias'
           }
         ];
 

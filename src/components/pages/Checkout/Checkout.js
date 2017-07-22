@@ -240,6 +240,28 @@ class Checkout extends React.Component {
         this.context.executeAction(updateCheckout, payload);
     };
 
+    handleShippingDayChange = (value) => {
+        let payload = {
+            checkoutId: this.state.checkout.id,
+            cartAccessToken: this.state.cart.accessToken,
+            data: {
+                shippingDay: value
+            }
+        };
+        this.context.executeAction(updateCheckout, payload);
+    };
+
+    handleShippingTimeChange = (value) => {
+        let payload = {
+            checkoutId: this.state.checkout.id,
+            cartAccessToken: this.state.cart.accessToken,
+            data: {
+                shippingTime: value
+            }
+        };
+        this.context.executeAction(updateCheckout, payload);
+    };
+
     //
     // Billing
     //
@@ -458,6 +480,10 @@ class Checkout extends React.Component {
                                                              onAddressSubmit={this.handleShippingAddressSubmit}
                                                              onAddressEditClick={this.handleShippingAddressEditClick}
                                                              shippingOptions={this.state.checkout.shippingOptions}
+                                                             shippingTime={this.state.checkout.shippingTime}
+                                                             shippingDay={this.state.checkout.shippingDay}
+                                                             handleShippingTimeChange={this.handleShippingTimeChange}
+                                                             handleShippingDayChange={this.handleShippingDayChange}
                                                              shippingMethod={this.state.checkout.shippingMethod}
                                                              onShippingOptionChange={this.handleShippingOptionChange}
                                                              loading={this.state.checkoutLoading} />

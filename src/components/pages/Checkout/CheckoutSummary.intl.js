@@ -6,6 +6,7 @@ export default {
         paymentMethod: 'Payment Method',
         shippingAddress: 'Shipping Address',
         shippingMethod: 'Shipping Method',
+        shippingSchedule: 'Shipping Schedule',
         whatsMissing: 'What\'s missing?'
     },
     es: {
@@ -15,6 +16,7 @@ export default {
         paymentMethod: 'Método de Pago',
         shippingAddress: 'Dirección de Envío',
         shippingMethod: 'Método de Envío',
+        shippingSchedule: 'Día y hora de envío',
         whatsMissing: 'Qué falta para poder finalizar?'
     }
 };

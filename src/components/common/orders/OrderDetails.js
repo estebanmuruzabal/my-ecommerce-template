@@ -197,6 +197,17 @@ class OrderDetails extends React.Component {
                                                  style="currency"
                                                  currency={this.props.order.checkout.currency} />
                             </Text>
+                            <br />
+                            <br />
+                            <Text size="medium" weight="bold">
+                                <FormattedMessage message={intlStore.getMessage(intlData, 'shippingSchedule')}
+                                                  locales={intlStore.getCurrentLocale()} />:
+                            </Text>
+                            <br />
+                            <Text size="medium">
+                                <Text size="medium">{this.props.order.checkout.shippingDay} </Text>
+                                <Text size="medium">{this.props.order.checkout.shippingTime}</Text>
+                            </Text>
                         </div>
                     </div>
                 </div>

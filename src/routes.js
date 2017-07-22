@@ -24,6 +24,7 @@ import RegisterConfirm from './components/pages/Account/RegisterConfirm';
 import Reset from './components/pages/Account/Reset';
 import ResetConfirm from './components/pages/Account/ResetConfirm';
 import Services from './components/pages/Services/Services';
+import Fotocopias from './components/pages/Fotocopias/Fotocopias';
 
 import StoresPage from './components/pages/StaticContent/StoresPage';
 import InfoPage from './components/pages/StaticContent/InfoPage';
@@ -69,6 +70,7 @@ const routes = (
         <Route name="product-slug" path="products/:productId/:productSlug/?" handler={ProductPage} />
         <Route name="checkout" handler={Checkout} />
         <Route name="services" path="services" handler={Services} />
+        <Route name="fotocopias" path="fotocopias" handler={Fotocopias} />
         <Route name="stores" handler={StoresPage} />
         <Route name="info" handler={InfoPage} />
         <Route name="articles" path="articles/?" handler={ArticlesListingPage} />

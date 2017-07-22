@@ -22,6 +22,7 @@ class BaseHtml extends React.Component {
                     <link rel="icon" type="image/png" href={`${this.props.staticURL}/favicon.ico`} />
                     <link rel="apple-touch-icon" href={`${this.props.staticURL}/apple_touch_icon.png`} />
                     <link rel="stylesheet" href={`${this.props.staticURL}/vendor/font-awesome-4.6.3/css/font-awesome.min.css`} />
+                    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700' type="text/css" />
                     {this.props.css.map((href, idx) => <link key={idx} rel="stylesheet" type="text/css" href={href} />)}
                 </head>
                 <body>

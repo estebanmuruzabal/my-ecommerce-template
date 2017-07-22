@@ -1,0 +1,82 @@
+@import '../../../styles/variables.scss';
+
+/*
+ * Header
+ */
+
+.fotocopias-page__header {
+    display: flex;
+}
+
+.fotocopias-page__title {
+    width: 100%;
+    align-self: center;
+}
+
+.fotocopias-page__toolbar {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: flex-end;
+}
+
+.fotocopias-page__toolbar-button {
+    width: 130px;
+
+    &:not(:first-child) {
+        margin-left: 10px;
+    }
+}
+
+/*
+ * Loader
+ */
+
+.fotocopias-page__spinner {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/*
+ * List
+ */
+
+.fotocopias-page__list {
+    margin-top: 30px;
+}
+
+.fotocopias-page__link {
+    & > a {
+        color: $color-primary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.fotocopias-page__labels {
+    display: flex;
+}
+
+.fotocopias-page__label {
+    &:not(:first-child) {
+        margin-left: 5px;
+    }
+}
+
+.fotocopias-page__no-results {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: $color-secondary;
+    border-radius: 4px;
+}
+
+.admin-collection-edit__form-item {
+
+    &:not(:first-child) {
+        margin-top: 30px;
+    }
+}

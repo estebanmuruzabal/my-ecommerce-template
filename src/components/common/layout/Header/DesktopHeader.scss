@@ -3,9 +3,9 @@
 .desktop-header {
     display: flex;
     justify-content: center;
-    border-top: solid 3px $color-primary;
-    border-bottom: solid 3px $color-primary;
-    background-color: #f4efe1;
+    border-top: solid 3px #c20030;
+    border-bottom: solid 3px #c20030;
+    background-color: transparent;
 }
 
 /*
@@ -105,7 +105,7 @@
 
 .desktop-header__login-button,
 .desktop-header__account-button {
-    padding: 10px;
+    padding: 5px;
     margin-left: 10px;
     border: 1px solid red;
     border-radius: 3px;

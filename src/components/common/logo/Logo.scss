@@ -1,0 +1,134 @@
+@import "compass/css3";
+
+.logo {
+  background: #000 url( "http://stash.rachelnabors.com/codepen/badge/dark_wall.png");
+  @include border-radius(100%);
+  margin: 2em auto;
+  position: relative;
+  text-align: center;
+  width: 14em; height: 14em;
+  img {
+    height: 4em;
+  }
+  /* Ribbon inspired by http://thecodeplayer.com/walkthrough/single-element-pure-css3-double-fold-ribbon */
+  &:before {
+    content: '';
+    position: absolute;
+    top: 6em;
+    left: -4em;
+    z-index: -1;
+    width: 22em;
+    height: 0;
+    border: 1.25em solid rgba(0, 0, 0, 0);
+    border-left: 1.25em solid #fff;
+    border-right: 1.25em solid #fff;
+    /*Same color as the container which is the body in this case*/
+    @include background-image(
+		/*2 green borders*/
+		linear-gradient(
+			transparent 8%,
+			rgba(#ced92e, 0.8) 8%,
+			rgba(#ced92e, 1) 15%,
+			transparent 15%,
+			transparent 86%,
+			rgba(#ced92e, 1) 86%,
+			rgba(#ced92e, 0.8) 92%,
+			transparent 92%
+		),
+		/* grey base*/
+		linear-gradient(#666, #555));
+    @include box-sizing(border-box);
+    /*Fix to make the borders appear on the ribbon ends also*/
+    background-origin: border-box;
+  }
+  &:after {
+    content: "";
+    border: .1em dashed #fff;
+    @include border-radius(100%);
+    position: absolute;
+    top: .2em; left: .2em;
+    width: 13.5em; height: 13.5em;
+  }
+}
+
+/* Set Text on a Circle from https://css-tricks.com/set-text-on-a-circle/ */
+@mixin rotated-text($num-letters: 9, $angle-span: 180deg, $angle-offset: -100deg) {
+  $angle-per-char: $angle-span / $num-letters;
+  @for $i from 1 through $num-letters {
+    .char#{$i} {
+      @include rotate($angle-offset + $angle-per-char * $i);
+    }
+  }
+}
+
+.upper, .lower {
+  color: #fff;
+  font-family: "Josefin Slab", serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  span {
+    position: absolute;
+    width: 1em; height: 8.5em;
+    left: 50%; top: .45em;
+    margin-left: -.5em;
+    @include transform-origin(bottom center);
+  }
+}
+
+.upper {
+  @include rotated-text(9, 120deg, -70deg);
+}
+
+.lower {
+  @include rotated-text(12, 180deg, -280deg);
+  span {top: .35em;}
+}
+
+/* 12 point star from http://www.css3shapes.com/ with rounded corners because I like it. */
+.star {
+  $bgcolor: #ced92e;
+  $rounded-corners: .75em;
+  $side: 6.8em;
+  background: $bgcolor;
+  @include border-radius($rounded-corners);
+  position: absolute;
+  left: 50%; top: 50%;
+  margin: -3.4em 0 0 -3.4em;
+  height: $side; width: $side;
+  &:before {
+    @include border-radius($rounded-corners);
+    background: $bgcolor;
+    content:"";
+    position: absolute;
+    top: 0; left: 0;
+    @include rotate(30deg);
+    width: $side; height: $side;
+    z-index: 0;
+  }
+  &:after {
+    background: $bgcolor;
+    @include border-radius($rounded-corners);
+    content:"";
+    position: absolute;
+    top: 0; left: 0;
+    @include rotate(-30deg);
+    width: $side; height: $side;
+    z-index: 0;
+  }
+}
+
+.seal {
+  border: .15em dotted #fff;
+  @include border-radius(100%);
+  padding: .25em;
+  position: relative;
+  width: 6em; height: 6em;
+  z-index: 1;
+}
+.face {
+  background: #fff;
+  @include border-radius(100%);
+  padding: 1em;
+  width: 4em; height: 4em;
+}

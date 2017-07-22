@@ -87,7 +87,7 @@ class CheckoutSummary extends React.Component {
                 <div className="checkout-summary__row checkout-summary__submit">
                     <div className="checkout-summary__submit-button">
                         <Button type="primary" disabled={!this.props.readyForCheckout} onClick={this.props.onCheckoutClick}>
-                            <FormattedMessage message={intlStore.getMessage(intlData, 'checkout')} 
+                            <FormattedMessage message={intlStore.getMessage(intlData, 'checkout')}
                                               locales={intlStore.getCurrentLocale()} />
                         </Button>
                     </div>

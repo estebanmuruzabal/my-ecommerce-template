@@ -20,7 +20,7 @@ export default function updateCheckout(context, payload, done) {
     // Send hit to Google Analytics
     try {
         let checkout = context.getStore(CheckoutStore).getCheckout();
-        if (payload.data.hasOwnProperty('customer') || payload.data.hasOwnProperty('paymentMethod') || payload.data.hasOwnProperty('shippingMethod')) {
+        if (payload.data.hasOwnProperty('customer') || payload.data.hasOwnProperty('paymentMethod') || payload.data.hasOwnProperty('shippingMethod') || payload.data.hasOwnProperty('shippingSchedule')) {
             checkout.cart.products.forEach(function (product) {
                 let categoryName;
                 if (product.details.metadata.mainCollection) {
@@ -41,6 +41,8 @@ export default function updateCheckout(context, payload, done) {
                 ga.plugin.execute('ec', 'setAction', 'checkout', {step: 1});
             } else if (payload.data.shippingMethod) {
                 ga.plugin.execute('ec', 'setAction', 'checkout', {step: 2});
+              } else if (payload.data.shippingSchedule) {
+                  ga.plugin.execute('ec', 'setAction', 'checkout', {step: 2.2});
             } else if (payload.data.paymentMethod) {
                 ga.plugin.execute('ec', 'setAction', 'checkout', {
                     step: 3,
