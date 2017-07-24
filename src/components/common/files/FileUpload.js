@@ -12,9 +12,8 @@ let debug = require('debug')('tienda765');
 import IntlStore from '../../../stores/Application/IntlStore';
 import intlData from './FileUpload.intl';
 
-/**
- * Component
- */
+import {FormattedMessage} from 'react-intl';
+
 class FileUpload extends React.Component {
 
     static contextTypes = {
@@ -23,15 +22,19 @@ class FileUpload extends React.Component {
     };
 
     state = {
-        file: undefined,
-        fieldErrors: {}
+      files: undefined,
+      image: undefined,
     };
 
     //*** Component Lifecycle ***//
 
     componentDidMount() {
-        // Component styles
+
         require('./FileUpload.scss');
+
+        this.setState({
+            image: require('./image_placeholder.png')
+        });
     }
 
     //*** View Controllers ***//
@@ -41,37 +44,25 @@ class FileUpload extends React.Component {
     };
 
     handleFileChange = (evt) => {
-        let file = evt.target.files[0];
-
-        var reader = new FileReader();
-
-        reader.readAsDataURL(file);
-        this.setState({file: file});
-
+        this.setState({files: evt.target.files[0]});
     };
 
 
+    handleSubmitClick = () => {
+          this.props.onSubmit(this.state.files);
+    };
 
-  handleSubmitClick = () => {
-      let intlStore = this.context.getStore(IntlStore);
+    handleFileChange = (evt) => {
+        let files = evt.target.files[0];
+        var reader = new FileReader();
+        // let img = new Image();
+        // img = require('./file_image.png'):
+        // this.setState({image: img});
 
-      this.setState({fieldErrors: {}});
-      let fieldErrors = {};
-      if (!this.state.type) {
-          fieldErrors.type = intlStore.getMessage(intlData, 'fieldRequired');
-      }
-      if (!this.state.file) {
-          fieldErrors.file = intlStore.getMessage(intlData, 'fieldRequired');
-      }
-      this.setState({fieldErrors: fieldErrors});
+        reader.readAsDataURL(files);
+        this.setState({files: files});
+    };
 
-      if (Object.keys(fieldErrors).length === 0) {
-          this.props.onSubmitClick({
-              resource: this.state.type,
-              file: this.state.file
-          });
-      }
-  };
 
     //*** Template ***//
 
@@ -80,25 +71,16 @@ class FileUpload extends React.Component {
       let routeParams = {locale: this.context.getStore(IntlStore).getCurrentLocale()}; // Base route params
 
         return (
-            <div className="image-upload">
-
-              <div className="fotocopias-page-upload__form-item">
-                  <input ref="input" type="file" className="fotocopias-page-upload__input" onChange={this.handleFileChange} />
-                  {this.state.fieldErrors.file ?
-                      <div className="fotocopias-page-upload__error">
-                          <Text size="small">{this.state.fieldErrors.file}</Text>
-                      </div>
-                      :
-                      null
-                  }
-              </div>
-
-              <div className="image-upload__actions">
-                  <Button type="primary" onClick={this.handleSubmitClick}>
-                      Subir
-                  </Button>
-              </div>
-
+            <div className="file-upload">
+                <input ref="input" type="file" className="file-upload__input" onChange={this.handleFileChange} />
+                <div className="file-upload__placeholder" onClick={this.handlePlaceholderClick}>
+                    <img src={this.state.image} />
+                </div>
+                <div className="file-upload__actions">
+                    <Button type="primary" disabled={this.props.disabled === true || !this.state.files} onClick={this.handleSubmitClick}>
+                        Upload
+                    </Button>
+                </div>
             </div>
         );
     }
@@ -108,7 +90,7 @@ class FileUpload extends React.Component {
  * Default Props
  */
 FileUpload.defaultProps = {
-    onSubmit: function (file) { debug('onSubmit not defined.', file); }
+    onSubmit: function (files) { debug('onSubmit not defined.', files); }
 };
 
 /**

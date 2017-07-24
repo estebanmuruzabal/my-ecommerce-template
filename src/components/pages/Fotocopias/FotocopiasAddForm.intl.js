@@ -1,18 +1,28 @@
 export default {
     en: {
-        add: 'Add',
-        cancel: 'Cancel',
+        title: 'Fotocopias Page',
+        pagetype: 'Page type',
+        files: 'File',
+        name: 'Name of the order',
+        oficio: 'Office page',
         fieldRequired: 'This field is required',
-        name: 'Name',
-        sku: 'SKU',
-        type: 'Type'
+        a4: 'A4',
+        description: 'Description',
+        phone: 'Phone number',
+        send: 'Send',
+        copiesnum: 'Copies number',
     },
     es: {
-        add: 'Agregar',
-        cancel: 'Cancelar',
+        title: 'Pedido de impresión',
+        pagetype: 'Tipo de hója',
+        files: 'Archivo',
+        name: 'Nombre del pedido',
+        oficio: 'Oficio',
         fieldRequired: 'Este campo es obligatorio',
-        name: 'Nombre',
-        sku: 'SKU',
-        type: 'Tipo'
+        a4: 'A4',
+        description: 'Descripción',
+        send: 'Enviar',
+        phone: 'Número de teléfono',
+        copiesnum: 'Número de cópias',
     }
 };

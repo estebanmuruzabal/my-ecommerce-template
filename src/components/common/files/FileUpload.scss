@@ -1,12 +1,12 @@
-.image-upload {
+.file-upload {
     width: 140px;
 }
 
-.image-upload__input {
+.file-upload__input {
     display: none;
 }
 
-.image-upload__placeholder {
+.file-upload__placeholder {
     border: 1px solid #eee;
     border-radius: 3px;
     cursor: pointer;
@@ -17,6 +17,6 @@
     }
 }
 
-.image-upload__actions {
+.file-upload__actions {
     margin-top: 5px;
 }

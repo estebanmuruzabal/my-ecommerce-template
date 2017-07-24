@@ -18,7 +18,6 @@ import Badge from '../../indicators/Badge';
 import CollectionTreeMenu from '../../navigation/CollectionTreeMenu';
 import MainNavigation from '../../navigation/MainNavigation';
 import Text from '../../typography/Text';
-import Logo from '../../logo/Logo';
 
 // Translation data for this component
 import intlData from './DesktopHeader.intl';
@@ -83,9 +82,7 @@ class DesktopHeader extends React.Component {
                     <div className="desktop-header__row">
                         <div className="desktop-header__container-left-column">
                             <Link className="desktop-header__logo-link" to='homepage' params={routeParams}>
-
-                                  <Logo />
-
+                              <div className="desktop-header__tienda">Tienda</div><div className="desktop-header__765"> 765</div>
                             </Link>
                             <div className="desktop-header__navigation">
                                 <MainNavigation links={this.props.collections} />

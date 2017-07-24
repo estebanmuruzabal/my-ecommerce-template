@@ -117,9 +117,6 @@ class AdminProducts extends React.Component {
 
     render() {
 
-        //
-        // Helper methods & variables
-        //
 
         let intlStore = this.context.getStore(IntlStore);
         let routeParams = {locale: this.context.getStore(IntlStore).getCurrentLocale()}; // Base route params
