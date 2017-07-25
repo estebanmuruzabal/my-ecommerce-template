@@ -38,7 +38,6 @@ class Fotocopias extends React.Component {
     //*** Initial State ***//
 
     state = {
-        copies: {},
         fieldErrors: {},
         loading: false
     };
@@ -60,12 +59,10 @@ class Fotocopias extends React.Component {
         return (
           <div>
             <div className="fotocopias-page__header">
-                <div className="fotocopias-page__title">
-                    <Heading size="medium">
-                        <FormattedMessage
-                            message={intlStore.getMessage(intlData, 'title')}
-                            locales={intlStore.getCurrentLocale()} />
-                    </Heading>
+                <div className="fotocopias-page__title">  
+                  <FormattedMessage
+                      message={intlStore.getMessage(intlData, 'title')}
+                      locales={intlStore.getCurrentLocale()} />
                 </div>
             </div>
             <FotocopiasAddForm onSubmitClick={this.handleCreateCopiesSubmitClick} />

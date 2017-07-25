@@ -3,14 +3,14 @@ export default {
         copies: 'Copies',
         cancel: 'Cancel',
         fieldRequired: 'This field is required',
-        submit: 'Submit',
+        submit: 'Upload',
         content: 'Content Type'
     },
     es: {
         copies: 'Copias',
         cancel: 'Cancelar',
         fieldRequired: 'Este campo es obligatorio',
-        submit: 'Ingresar',
+        submit: 'Subir',
         content: 'Contenido'
     }
 };

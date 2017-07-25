@@ -33,7 +33,7 @@ class FileUpload extends React.Component {
         require('./FileUpload.scss');
 
         this.setState({
-            image: require('./image_placeholder.png')
+            image: require('./file_placeholder.png')
         });
     }
 
@@ -43,24 +43,16 @@ class FileUpload extends React.Component {
         this.refs.input.getDOMNode().click();
     };
 
-    handleFileChange = (evt) => {
-        this.setState({files: evt.target.files[0]});
-    };
-
-
     handleSubmitClick = () => {
           this.props.onSubmit(this.state.files);
     };
 
     handleFileChange = (evt) => {
-        let files = evt.target.files[0];
-        var reader = new FileReader();
-        // let img = new Image();
-        // img = require('./file_image.png'):
-        // this.setState({image: img});
+      let files = evt.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(files);
+      this.setState({files: files});
 
-        reader.readAsDataURL(files);
-        this.setState({files: files});
     };
 
 
@@ -78,7 +70,9 @@ class FileUpload extends React.Component {
                 </div>
                 <div className="file-upload__actions">
                     <Button type="primary" disabled={this.props.disabled === true || !this.state.files} onClick={this.handleSubmitClick}>
-                        Upload
+                      <FormattedMessage
+                          message={intlStore.getMessage(intlData, 'submit')}
+                          locales={intlStore.getCurrentLocale()} />
                     </Button>
                 </div>
             </div>

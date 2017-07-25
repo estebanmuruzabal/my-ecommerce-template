@@ -60,7 +60,7 @@ class FilesLibraryManager extends React.Component {
         // Check if a file was uploaded
         if (this.state.fileUpload.loading && !nextProps._fileUpload.loading && !nextProps._fileUpload.error) {
             let files = this.props.files;
-            files.push(nextProps._fileUpload.files);
+            files.push(nextProps._fileUpload.file);
             this.props.onChange(files);
         }
 
@@ -75,7 +75,7 @@ class FilesLibraryManager extends React.Component {
     handleFileSubmit = (files) => {
         this.context.executeAction(uploadFile, {
             resource: 'copies',
-            files: files
+            file: files
         });
     };
 

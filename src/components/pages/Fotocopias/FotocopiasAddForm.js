@@ -103,13 +103,6 @@ class FotocopiasAddForm extends React.Component {
 
         this.setState({fieldErrors: fieldErrors});
 
-        // if (Object.keys(fieldErrors).length === 0) {
-        //     let product = this.state.product;
-        //     this.context.executeAction(createCopies, {
-        //         data: {
-        //
-        //         }
-        //     });
         if (Object.keys(fieldErrors).length === 0) {
             this.props.onSubmitClick({
               phone: this.state.phone,
@@ -140,47 +133,44 @@ class FotocopiasAddForm extends React.Component {
           <div className="fotocopias-page">
               <div className="fotocopias-page__form">
                   <div className="fotocopias-page__left-column">
-                  <div className="fotocopias-page__form-item">
-                      <Select label={intlStore.getMessage(intlData, 'pagetype')}
-                              placeholder
-                              options={pageTypeOptions}
-                              onChange={this.handlePageTypeChange}
-                              error={fieldError('pagetype')} />
-                  </div>
-                  <div className="fotocopias-page__form-item">
-                      <Textarea label={intlStore.getMessage(intlData, 'description')}
-                                rows="5"
-                                onChange={this.handleDescriptionFieldChange}
-                                value={this.state.description}
-                                error={fieldError('description')} />
-                  </div>
-                  <div className="fotocopias-page__form-item">
-                      <FilesLibraryManager files={this.state.files}
-                                           onChange={this.handleFileLibraryChange} />
-                  </div>
-
+                    <div className="fotocopias-page__form-item">
+                      <InputField label={intlStore.getMessage(intlData, 'name')}
+                                  onChange={this.handleNameChange}
+                                  value={this.state.name}
+                                  error={fieldError('name')} />
+                    </div>
+                    <div className="fotocopias-page__form-item">
+                      <InputField label={intlStore.getMessage(intlData, 'copiesnum')}
+                                  onChange={this.handleCopiesNumChange}
+                                  value={this.state.copiesnum}
+                                  error={fieldError('copiesnum')} />
+                    </div>
+                    <div className="fotocopias-page__form-item">
+                      <InputField label={intlStore.getMessage(intlData, 'phone')}
+                                  onChange={this.handlePhoneChange}
+                                  value={this.state.phone}
+                                  error={fieldError('phone')} />
+                    </div>
+                    <div className="fotocopias-page__form-item">
+                        <Select label={intlStore.getMessage(intlData, 'pagetype')}
+                                placeholder
+                                options={pageTypeOptions}
+                                onChange={this.handlePageTypeChange}
+                                error={fieldError('pagetype')} />
+                    </div>
                   </div>
                   <div className="fotocopias-page__right-column">
-
-                      <div className="fotocopias-page__form-item">
-                        <InputField label={intlStore.getMessage(intlData, 'name')}
-                                    onChange={this.handleNameChange}
-                                    value={this.state.name}
-                                    error={fieldError('name')} />
-                      </div>
-                      <div className="fotocopias-page__form-item">
-                        <InputField label={intlStore.getMessage(intlData, 'copiesnum')}
-                                    onChange={this.handleCopiesNumChange}
-                                    value={this.state.copiesnum}
-                                    error={fieldError('copiesnum')} />
-                      </div>
-                      <div className="fotocopias-page__form-item">
-                        <InputField label={intlStore.getMessage(intlData, 'phone')}
-                                    onChange={this.handlePhoneChange}
-                                    value={this.state.phone}
-                                    error={fieldError('phone')} />
-                      </div>
-
+                    <div className="fotocopias-page__form-item">
+                        <Textarea label={intlStore.getMessage(intlData, 'description')}
+                                  rows="5"
+                                  onChange={this.handleDescriptionFieldChange}
+                                  value={this.state.description}
+                                  error={fieldError('description')} />
+                    </div>
+                    <div className="fotocopias-page__form-item">
+                        <FilesLibraryManager files={this.state.files}
+                                             onChange={this.handleFileLibraryChange} />
+                    </div>
                   </div>
               </div>
               <div className="fotocopias-page__button">

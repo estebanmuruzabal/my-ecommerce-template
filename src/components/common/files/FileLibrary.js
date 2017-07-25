@@ -25,24 +25,28 @@ class FileLibrary extends React.Component {
         getStore: React.PropTypes.func.isRequired
     };
 
-    //*** Component Lifecycle ***//
+    state = {
+      image: undefined
+    };
 
     componentDidMount() {
-
-        // Component styles
         require('./FileLibrary.scss');
+
+        this.setState({
+            image: require('./file_image.png')
+        });
     }
 
     //*** View Controllers ***//
 
     handleViewURLClick = (idx) => {
-        alert(this.props.images[idx].url);
+        alert(this.props.files[idx].url);
     };
 
     handleRemoveClick = (idx) => {
-        let images = this.props.images;
-        images.splice(idx, 1);
-        this.props.onChange(images);
+        let files = this.props.files;
+        files.splice(idx, 1);
+        this.props.onChange(files);
     };
 
     //*** Template ***//
@@ -54,6 +58,7 @@ class FileLibrary extends React.Component {
                 {this.props.files.map((idx) => {
                     return (
                         <div key={idx} className="image-library__placeholder">
+                        <img src={this.state.image} />
                             <div className="image-library__placeholder-overlay">
                                 <div className="image-library__placeholder-overlay-content">
                                     <div className="image-library__button">
@@ -67,7 +72,7 @@ class FileLibrary extends React.Component {
                                             <FormattedMessage message={intlStore.getMessage(intlData, 'delete')}
                                                               locales={intlStore.getCurrentLocale()} />
                                         </Button>
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +87,7 @@ class FileLibrary extends React.Component {
  * Default Props
  */
 FileLibrary.defaultProps = {
-    onChange: function (files) { debug('onChange not defined.', images); }
+    onChange: function (files) { debug('onChange not defined.', files); }
 };
 
 /**
