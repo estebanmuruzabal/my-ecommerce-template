@@ -58,9 +58,42 @@ class OrderDetails extends React.Component {
             <FormattedMessage message={intlStore.getMessage(intlData, 'quantityHeading')}
                               locales={intlStore.getCurrentLocale()} />,
             <FormattedMessage message={intlStore.getMessage(intlData, 'priceHeading')}
+                              locales={intlStore.getCurrentLocale()} />,
+            <FormattedMessage message={intlStore.getMessage(intlData, 'pagetypeHeading')}
+                              locales={intlStore.getCurrentLocale()} />,
+            <FormattedMessage message={intlStore.getMessage(intlData, 'pagenumHeading')}
+                              locales={intlStore.getCurrentLocale()} />,
+            <FormattedMessage message={intlStore.getMessage(intlData, 'filesHeading')}
+                              locales={intlStore.getCurrentLocale()} />,
+            <FormattedMessage message={intlStore.getMessage(intlData, 'anilladoHeading')}
                               locales={intlStore.getCurrentLocale()} />
         ];
+
         let rows = this.props.order.checkout.cart.products.map((product) => {
+          if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
+            return {
+                data: [
+                    <Text size="medium">
+                        <FormattedMessage message={intlStore.getMessage(product.details.name)}
+                                          locales={intlStore.getCurrentLocale()} />
+                    </Text>,
+                    <span className="order-details__link">
+                        <Link to="product" params={Object.assign({productId: product.id}, routeParams)}>
+                            <Text size="small">{product.id}</Text>
+                        </Link>
+                    </span>,
+                    <Text size="medium">{product.details.sku}</Text>,
+                    <Text size="medium">{product.quantity}</Text>,
+                    <FormattedNumber value={product.details.pricing.retail}
+                                     style="currency"
+                                     currency={this.props.order.checkout.currency} />,
+                    <Text size="medium">{product.details.copies.pagetype}</Text>,
+                    <Text size="medium">{product.details.copies.pagesnum}</Text>,
+                    <Text size="medium">{product.details.copies.files}</Text>,
+                    <Text size="medium">{product.details.copies.anillado.toString()}</Text>
+                ]
+            };
+          } else {
             return {
                 data: [
                     <Text size="medium">
@@ -77,14 +110,9 @@ class OrderDetails extends React.Component {
                     <FormattedNumber value={product.details.pricing.retail}
                                      style="currency"
                                      currency={this.props.order.checkout.currency} />
-
-                    //  if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
-                    //    subTotal.value += product.details.copies.price * product.quantity;
-                    //  } else {
-                    //    subTotal.value += product.details.pricing.retail * product.quantity;
-                    //  }
                 ]
             };
+          }
         });
 
         //

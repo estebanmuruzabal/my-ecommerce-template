@@ -426,6 +426,10 @@ class ProductPage extends React.Component {
                                     </Text>
                                 </div>
                                 <div className="product-page__quantity">
+                                    <Text size="medium" weight="bold">
+                                       <FormattedMessage message={intlStore.getMessage(intlData, 'quantityFotocopias')}
+                                                      locales={intlStore.getCurrentLocale()} />
+                                    </Text>
                                     <QuantitySelector value={this.state.quantity}
                                                       onChange={this.handleQuantityChange} />
                                 </div>
@@ -471,7 +475,14 @@ class ProductPage extends React.Component {
                                         </div>
                                     </div>
                                     :
-                                    null
+                                    <div className="product-page__quantity">
+                                        <Text size="medium" weight="bold">
+                                           <FormattedMessage message={intlStore.getMessage(intlData, 'quantity')}
+                                                          locales={intlStore.getCurrentLocale()} />
+                                        </Text>
+                                        <QuantitySelector value={this.state.quantity}
+                                                          onChange={this.handleQuantityChange} />
+                                    </div>
                                 }
                                 <div className="product-page__add">
 

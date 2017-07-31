@@ -18,7 +18,11 @@ export default {
         status: 'Status',
         subTotal: 'Sub-total',
         total: 'Total',
-        vat: 'VAT'
+        vat: 'VAT',
+        pagetypeHeading: 'Page type',
+        pagenumHeading: 'Page qty.',
+        filesHeading: 'File',
+        anilladoHeading: 'Anillado'
     },
     es: {
         billingDetails: 'Dados de facturacción',
@@ -39,6 +43,10 @@ export default {
         status: 'Estado',
         subTotal: 'Sub-total',
         total: 'Total',
-        vat: 'IVA'
+        vat: 'IVA',
+        pagetypeHeading: 'Hoja',
+        pagenumHeading: 'Cant hojas',
+        filesHeading: 'Archivo',
+        anilladoHeading: 'Anillado'
     }
 };
