@@ -77,6 +77,12 @@ class OrderDetails extends React.Component {
                     <FormattedNumber value={product.details.pricing.retail}
                                      style="currency"
                                      currency={this.props.order.checkout.currency} />
+
+                    //  if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
+                    //    subTotal.value += product.details.copies.price * product.quantity;
+                    //  } else {
+                    //    subTotal.value += product.details.pricing.retail * product.quantity;
+                    //  }
                 ]
             };
         });

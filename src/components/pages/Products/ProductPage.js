@@ -216,13 +216,8 @@ class ProductPage extends React.Component {
         // Client-side validation checked, trigger update request
         if (Object.keys(fieldErrors).length === 0) {
             let product = this.state.product;
-
             let copyPriceTotal = 0;
-            if (product.copies.anillado === true) {
-              copyPriceTotal = product.pricing.retail * product.copies.pagesnum + 20;
-            } else {
-              copyPriceTotal = product.pricing.retail * product.copies.pagesnum;
-            }
+            copyPriceTotal = product.pricing.retail * product.copies.pagesnum;
 
             this.context.executeAction(updateProduct, {
                 id: product.id,

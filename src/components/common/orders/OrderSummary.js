@@ -47,11 +47,13 @@ class OrderSummary extends React.Component {
                 }
 
                 if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
-                  subTotal.value += product.details.copies.price * product.quantity;
-                } else {
-                  subTotal.value += product.details.pricing.retail * product.quantity;
-                }
-
+                  if (product.details.copies.anillado) {
+                    subTotal.value += product.details.copies.price * product.quantity;
+                    subTotal.value += 20;
+                  } else {
+                    subTotal.value += product.details.pricing.retail * product.quantity;
+                  }
+                }  
             });
         }
 
