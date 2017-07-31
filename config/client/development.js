@@ -14,18 +14,18 @@ export default {
         }
     },
     googleAnalytics: {
-        enabled: false,
+        enabled: true,
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID, // Development Property
         options: {
             debug: true
         }
     },
     facebookPixel: {
-        enabled: false,
+        enabled: true,
         id: process.env.FACEBOOK_PIXEL_ID
     },
     crisp: {
-        enabled: false,
+        enabled: true,
         websiteID: process.env.CRISP_WEBSITE_ID // TODO: This is still hardcoded in the vendor file
     },
     mailChimp: {

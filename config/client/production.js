@@ -25,7 +25,7 @@ export default {
         id: process.env.FACEBOOK_PIXEL_ID
     },
     crisp: {
-        enabled: false,
+        enabled: true,
         websiteID: process.env.CRISP_WEBSITE_ID // TODO: This is still hardcoded in the vendor file
     },
     mailChimp: {
