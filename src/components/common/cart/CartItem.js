@@ -70,31 +70,45 @@ class CartItem extends React.Component {
                     </Link>
                 </div>
                 <div className="cart-item__details">
-                    <div className="name">
-                        <Text size="small">
-                            <Link className="cart-item__link"
-                                  to="product" params={linkParams}
-                                  onClick={this.handleLinkClick}>
-                                <FormattedMessage message={intlStore.getMessage(product.name)}
-                                                  locales={intlStore.getCurrentLocale()} />
-                            </Link>
-                        </Text>
-                    </div>
                     { product.copies.price ?
-                      <div className="cart-item__price">
-                          <Text size="small" weight="bold">
-                              <FormattedNumber value={product.copies.price}
-                                               style="currency"
-                                               currency={product.pricing.currency} />
-                          </Text>
-                      </div>
+                        <div>
+                          <div className="name">
+                              <Text size="small">
+                                  <Link className="cart-item__link"
+                                        to="product" params={linkParams}
+                                        onClick={this.handleLinkClick}>
+                                      <FormattedMessage message={intlStore.getMessage(product.name)}
+                                                        locales={intlStore.getCurrentLocale()} />
+                                  </Link>
+                              </Text>
+                          </div>
+                          <div className="cart-item__price">
+                              <Text size="small" weight="bold">
+                                  <FormattedNumber value={product.copies.price}
+                                                   style="currency"
+                                                   currency={product.pricing.currency} />
+                              </Text>
+                          </div>
+                        </div>
                         :
-                        <div className="cart-item__price">
-                            <Text size="small" weight="bold">
-                                <FormattedNumber value={product.pricing.retail}
-                                                 style="currency"
-                                                 currency={product.pricing.currency} />
-                            </Text>
+                        <div>
+                          <div className="name">
+                              <Text size="small">
+                                  <Link className="cart-item__link"
+                                        to="product" params={linkParams}
+                                        onClick={this.handleLinkClick}>
+                                      <FormattedMessage message={intlStore.getMessage(product.name)}
+                                                        locales={intlStore.getCurrentLocale()} />
+                                  </Link>
+                              </Text>
+                          </div>
+                          <div className="cart-item__price">
+                              <Text size="small" weight="bold">
+                                  <FormattedNumber value={product.pricing.retail}
+                                                   style="currency"
+                                                   currency={product.pricing.currency} />
+                              </Text>
+                          </div>
                         </div>
                      }
                     <div className="cart-item__quantity">
