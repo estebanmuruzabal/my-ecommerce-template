@@ -21,6 +21,7 @@ import clearSuggestionsList from '../../../actions/Products/clearSuggestionsList
 import fetchProductContent from '../../../actions/Products/fetchProductContent';
 import fetchProductSuggestions from '../../../actions/Products/fetchProductSuggestions';
 import fetchProductAndCheckIfFound from '../../../actions/Products/fetchProductAndCheckIfFound';
+import updateProduct from '../../../actions/Admin/updateProduct';
 import triggerDrawer from '../../../actions/Application/triggerDrawer';
 
 // Required components
@@ -30,9 +31,16 @@ import Button from '../../common/buttons/Button';
 import Heading from '../../common/typography/Heading';
 import ImageGallery from '../../common/images/ImageGallery';
 import NotFound from '../../pages/NotFound/NotFound';
+import InputField from '../../common/forms/InputField';
 import ProductSuggestions from '../../common/products/ProductSuggestions';
 import QuantitySelector from '../../common/forms/QuantitySelector';
+import ToggleSwitch from '../../common/buttons/ToggleSwitch';
+import Select from '../../common/forms/Select';
+import Textarea from '../../common/forms/Textarea';
 import Text from '../../common/typography/Text';
+import FotocopiasAddForm from '../Fotocopias/FotocopiasAddForm';
+import RadioSelect from '../../common/forms/RadioSelect';
+import FilesLibraryManager from '../../containers/files/FilesLibraryManager';
 
 // Translation data for this component
 import intlData from './ProductPage.intl';
@@ -101,7 +109,13 @@ class ProductPage extends React.Component {
         suggestions: this.context.getStore(ProductSuggestionsStore).getProducts(),
         suggestionsLoading: this.context.getStore(ProductSuggestionsStore).isLoading(),
         placeholderImage: undefined,
-        quantity: 1
+        quantity: 1,
+        fieldErrors: {},
+        isFotocopia: false,
+        pagetype: undefined,
+        pagesnum: undefined,
+        files: [],
+        anillado: false
     };
 
     //*** Component Lifecycle ***//
@@ -121,6 +135,10 @@ class ProductPage extends React.Component {
             this.context.executeAction(fetchProductSuggestions, this.state.product);
         } else {
             this.context.executeAction(clearSuggestionsList);
+        }
+
+        if (this.state.product && this.state.product.tags.indexOf('fotocopias') !== -1) {
+          this.setState({isFotocopia: true});
         }
     }
 
@@ -151,38 +169,128 @@ class ProductPage extends React.Component {
             this.context.executeAction(triggerDrawer, 'cart');
         }
 
+        let fieldErrors = {};
+        if (nextProps._error && nextProps._error.validation && nextProps._error.validation.keys) {
+            nextProps._error.validation.keys.forEach(function (field) {
+                if (field === 'comments') {
+                    fieldErrors['comments'] = nextProps._error.validation.details[field];
+                } else {
+                    fieldErrors[field] = nextProps._error.validation.details[field];
+                }
+            });
+        }
+
+
         this.setState({
             cartLoading: nextProps._cartLoading,
             cartProducts: nextProps._cartProducts,
             product: nextProps._product,
             contents: nextProps._contents,
             suggestions: nextProps._suggestions,
-            suggestionsLoading: nextProps._suggestionsLoading
+            suggestionsLoading: nextProps._suggestionsLoading,
+            fieldErrors: fieldErrors
         });
     }
 
     //*** View Controllers ***//
 
     handleAddToCartClick = () => {
+      if (this.state.isFotocopia) {
+        //*** First update the  ***//
+        let intlStore = this.context.getStore(IntlStore);
+
+        // Client-side validations
+        this.setState({fieldErrors: {}});
+        let fieldErrors = {};
+        if (!this.state.pagesnum) {
+            fieldErrors.pagesnum = intlStore.getMessage(intlData, 'fieldRequired');
+        }
+        if (!this.state.pagetype) {
+            fieldErrors.pagetype = intlStore.getMessage(intlData, 'fieldRequired');
+        }
+        if (!this.state.files) {
+            fieldErrors.files = intlStore.getMessage(intlData, 'fieldRequired');
+        }
+
+        this.setState({fieldErrors: fieldErrors});
+        // Client-side validation checked, trigger update request
+        if (Object.keys(fieldErrors).length === 0) {
+            let product = this.state.product;
+
+            let copyPriceTotal = 0;
+            if (product.copies.anillado === true) {
+              copyPriceTotal = product.pricing.retail * product.copies.pagesnum + 20;
+            } else {
+              copyPriceTotal = product.pricing.retail * product.copies.pagesnum;
+            }
+
+            this.context.executeAction(updateProduct, {
+                id: product.id,
+                data: {
+                    enabled: product.enabled,
+                    sku: product.sku,
+                    name: product.name,
+                    description: product.description,
+                    images: product.images,
+                    pricing: {
+                        currency: product.pricing.currency,
+                        list: parseFloat(product.pricing.list),
+                        retail: parseFloat(product.pricing.retail),
+                        vat: parseInt(product.pricing.vat)
+                    },
+                    stock: parseInt(product.stock),
+                    tags: product.tags,
+                    collections: product.collections,
+                    copies: {
+                        pagetype: this.state.pagetype,
+                        pagesnum: parseFloat(this.state.pagesnum),
+                        files: this.state.files,
+                        comments: product.copies.comments,
+                        price: copyPriceTotal,
+                        anillado: this.state.anillado
+                    },
+                    metadata: product.metadata
+                }
+            });
+
+            let payload = Object.assign({details: this.state.product}, {
+                id: this.state.product.id,
+                quantity: this.getQuantityInCart() + this.state.quantity
+            });
+            this.setState({addingToCart: true});
+            this.context.executeAction(addToCart, payload);
+          }
+      } else {
         let payload = Object.assign({details: this.state.product}, {
             id: this.state.product.id,
             quantity: this.getQuantityInCart() + this.state.quantity
         });
         this.setState({addingToCart: true});
         this.context.executeAction(addToCart, payload);
+      }
+
     };
 
     handleQuantityChange = (value) => {
         this.setState({quantity: value});
     };
 
+    handleCopiesChange = (param, value) => {
+        let product = this.state.product;
+        product.copies[param] = value;
+        this.state[param] = value;
+        this.setState({product: product});
+    };
+
+    handleAnilladoChange = () => {
+        let product = this.state.product;
+        product.copies.anillado = !(product.copies.anillado === true);
+        this.setState({product: product, anillado: true});
+    };
+
     //*** Template ***//
 
     render() {
-
-        //
-        // Helper methods & variables
-        //
 
         let intlStore = this.context.getStore(IntlStore);
         let routeParams = {locale: intlStore.getCurrentLocale()}; // Base route params
@@ -235,9 +343,15 @@ class ProductPage extends React.Component {
             }
         }
 
-        //
-        // Return
-        //
+        let pageTypeOptions = [
+            {name: intlStore.getMessage(intlData, 'oficio'), value: 'oficio'},
+            {name: intlStore.getMessage(intlData, 'a4'), value: 'a4'}
+        ];
+
+        let fieldError = (field) => {
+            return this.state.fieldErrors[field];
+        };
+
         return (
             <div className="product-page">
                 {!this.state.product ?
@@ -275,6 +389,22 @@ class ProductPage extends React.Component {
                                             locales={intlStore.getCurrentLocale()} />
                                     </Heading>
                                 </div>
+                                <div className="product-page__description">
+                                    <div className="product-page__description-label">
+                                        <Heading size="medium">
+                                            <FormattedMessage
+                                                message={intlStore.getMessage(intlData, 'descriptionLabel')}
+                                                locales={intlStore.getCurrentLocale()} />
+                                        </Heading>
+                                    </div>
+                                    <div className="product-page__description-content" itemProp="description">
+                                        <Text size="small">
+                                            <FormattedMessage
+                                                message={intlStore.getMessage(this.state.product.description)}
+                                                locales={intlStore.getCurrentLocale()} />
+                                        </Text>
+                                    </div>
+                                </div>
                                 {this.state.product.pricing ?
                                     <div className="product-page__price" itemProp="offers" itemScope itemType="http://schema.org/Offer">
                                         <div style={{display: 'none'}} itemProp="price">
@@ -300,11 +430,56 @@ class ProductPage extends React.Component {
                                         Ref: <span itemProp="sku">{this.state.product.sku}</span>
                                     </Text>
                                 </div>
-                                <div className="product-page__add">
-                                    <div className="product-page__quantity">
-                                        <QuantitySelector value={this.state.quantity}
-                                                          onChange={this.handleQuantityChange} />
+                                <div className="product-page__quantity">
+                                    <QuantitySelector value={this.state.quantity}
+                                                      onChange={this.handleQuantityChange} />
+                                </div>
+
+                                { this.state.isFotocopia ?
+                                    <div className="fotocopias-page__copies-form">
+                                       <div className="fotocopias-page__form-item">
+                                         <InputField label={intlStore.getMessage(intlData, 'pagesnum')}
+                                                     value={this.state.pagesnum}
+                                                     onChange={this.handleCopiesChange.bind(null, 'pagesnum')}
+                                                     error={fieldError('pagesnum')} />
+                                       </div>
+                                       <div className="fotocopias-page__form-item-row">
+                                          <div className="fotocopias-page__form-item-one">
+                                               <Text size="medium" weight="bold">
+                                                  <FormattedMessage message={intlStore.getMessage(intlData, 'pagetype')}
+                                                                 locales={intlStore.getCurrentLocale()} />
+                                               </Text>
+                                               <RadioSelect options={pageTypeOptions}
+                                                            onChange={this.handleCopiesChange.bind(null, 'pagetype')}
+                                                            value={this.state.pagetype}
+                                                            error={fieldError('pagetype')} />
+                                           </div>
+                                           <div className="fotocopias-page__form-item-one">
+                                                <ToggleSwitch label={intlStore.getMessage(intlData, 'anillado')}
+                                                          enabled={this.state.anillado === true}
+                                                          onChange={this.handleAnilladoChange} />
+                                            </div>
+                                       </div>
+                                       <div className="fotocopias-page__form-item">
+                                           <Textarea label={intlStore.getMessage(intlData, 'comments')}
+                                                     rows="5"
+                                                     onChange={this.handleCopiesChange.bind(null, 'comments')}
+                                                     error={fieldError('comments')} />
+                                       </div>
+                                       <div className="fotocopias-page__form-item">
+                                         <Text size="medium" weight="bold">
+                                            <FormattedMessage message={intlStore.getMessage(intlData, 'filestitle')}
+                                                           locales={intlStore.getCurrentLocale()} />
+                                         </Text>
+                                          <FilesLibraryManager files={this.state.files}
+                                                                onChange={this.handleCopiesChange.bind(null, 'files')} />
+                                        </div>
                                     </div>
+                                    :
+                                    null
+                                }
+                                <div className="product-page__add">
+
                                     <div className="product-page__add-buttons">
                                         {this.state.product.stock > 0 ?
                                             <Button type="primary"
@@ -324,23 +499,6 @@ class ProductPage extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="product-page__description">
-                                    <div className="product-page__description-label">
-                                        <Heading size="medium">
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(intlData, 'descriptionLabel')}
-                                                locales={intlStore.getCurrentLocale()} />
-                                        </Heading>
-                                    </div>
-                                    <div className="product-page__description-content" itemProp="description">
-                                        <Text size="small">
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(this.state.product.description)}
-                                                locales={intlStore.getCurrentLocale()} />
-                                        </Text>
-                                    </div>
-                                </div>
-
                                 {this.state.contents.map(function (content) {
                                     return (
                                         <div className="product-page__content">
@@ -348,8 +506,7 @@ class ProductPage extends React.Component {
                                         </div>
                                     );
                                 })}
-                            </div>
-                            
+                              </div>
                             {!this.state.suggestionsLoading && this.state.suggestions.length === 0 ?
                                 <div className="product-page__suggestions product-page__suggestions--no-border"></div>
                                 :

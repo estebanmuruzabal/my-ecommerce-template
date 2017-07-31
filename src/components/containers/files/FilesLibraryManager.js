@@ -84,13 +84,13 @@ class FilesLibraryManager extends React.Component {
     render() {
         let intlStore = this.context.getStore(IntlStore);
         return (
-            <div className="image-library-manager">
-                <div className="image-library-manager__gallery">
-                    <div className="image-library-manager__upload">
+            <div className="file-library-manager">
+                <div className="file-library-manager__gallery">
+                    <div className="file-library-manager__upload">
                         <FileUpload onSubmit={this.handleFileSubmit}
                                      disabled={this.state.fileUpload.loading} />
                     </div>
-                    <div className="image-library-manager__images">
+                    <div className="file-library-manager__images">
                         <FileLibrary files={this.props.files}
                                       onChange={this.props.onChange} />
                     </div>

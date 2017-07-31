@@ -9,6 +9,14 @@
     }
 }
 
+.fotocopias-page__copies-form {
+    margin: 5px;
+
+    @include breakpoint(handhelds) {
+        margin-bottom: 5px;
+    }
+}
+
 /*
  * Header
  */
@@ -35,6 +43,24 @@
     @include breakpoint(handhelds) {
         flex-direction: column;
         margin-top: 0;
+    }
+}
+
+.fotocopias-page__form-item {
+    &:not(:first-child) {
+        margin-top: 30px;
+    }
+}
+
+.fotocopias-page__form-item-one {
+  padding: 0 10px 0 10px;
+}
+
+.fotocopias-page__form-item-row {
+    display: flex;
+    flex-direction: row;
+    &:not(:first-child) {
+        margin-top: 30px;
     }
 }
 

@@ -65,9 +65,7 @@ class FileUpload extends React.Component {
         return (
             <div className="file-upload">
                 <input ref="input" type="file" className="file-upload__input" onChange={this.handleFileChange} />
-                <div className="file-upload__placeholder" onClick={this.handlePlaceholderClick}>
-                    <img src={this.state.image} />
-                </div>
+
                 <div className="file-upload__actions">
                     <Button type="primary" disabled={this.props.disabled === true || !this.state.files} onClick={this.handleSubmitClick}>
                       <FormattedMessage

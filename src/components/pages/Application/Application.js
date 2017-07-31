@@ -99,16 +99,8 @@ class Application extends React.Component {
 
         let tabs = [
           {
-              name: 'Servicios',
-              to: 'services'
-          },
-          {
               name: 'Productos',
               to: 'products'
-          },
-          {
-              name: 'Fotocopias',
-              to: 'fotocopias'
           }
         ];
 

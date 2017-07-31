@@ -10,7 +10,7 @@ export default {
         description: 'Comments',
         phone: 'Contact phone',
         send: 'Send',
-        copiesnum: 'Copies number',
+        pagenum: 'Cantidad de hojas que tiene tu document (tiene que ser exacto para calcular el precio)'
     },
     es: {
         title: 'Pedido de impresión',
@@ -23,6 +23,6 @@ export default {
         description: 'Comentario sobre el pedido',
         send: 'Enviar',
         phone: 'Teléfono de contacto',
-        copiesnum: 'Número de cópias',
+        pagenum: 'Cantidad de hojas que tiene tu document (tiene que ser exacto para calcular el precio)'
     }
 };

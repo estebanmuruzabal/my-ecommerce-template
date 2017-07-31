@@ -16,3 +16,27 @@
     background-color: $color-secondary;
     border-radius: $border-radius-default;
 }
+
+.checkout-shipping-information__row {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-shipping-zones {
+    width: 183px;
+    height: 155px;
+    cursor: pointer;
+    background: url('./shipping-zones-image.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 15 0 0 15;
+    &:hover {
+      border: 1px solid red;
+      border-radius: 3px;
+    }
+}
+
+.checkout-shipping-information__column {
+    display: flex;
+    flex-direction: row;
+}

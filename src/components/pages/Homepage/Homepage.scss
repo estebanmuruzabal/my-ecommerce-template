@@ -31,13 +31,11 @@
 }
 
 .homepage__banners {
-    align-self: center;
-    width: 100%;
-    max-width: inherit;
-    max-height: inherit;
-    @include breakpoint(handhelds) {
-        order: 1;
-    }
+  align-self: center;
+  width: 100%;
+  @include breakpoint(handhelds) {
+      order: 1;
+  }
 }
 
 /*

@@ -12,9 +12,9 @@ import AddressField from '../../common/forms/AddressField';
 import AddressPreview from '../../common/forms/AddressPreview';
 import RadioSelect from '../../common/forms/RadioSelect';
 import Heading from '../../common/typography/Heading';
-import MapZonesImages from '../../common/MapZonesImages/MapZonesImages';
 import InlineItems from '../../common/forms/InlineItems';
 import Select from '../../common/forms/Select';
+import Modal from '../../common/modals/Modal';
 
 import CheckoutSection from './CheckoutSection';
 
@@ -33,6 +33,9 @@ class CheckoutShippingInformation extends React.Component {
         getStore: React.PropTypes.func.isRequired
     };
 
+    state = {
+        showModal: false
+    };
     //*** Component Lifecycle ***//
 
     componentDidMount() {
@@ -40,6 +43,14 @@ class CheckoutShippingInformation extends React.Component {
         // Component styles
         require('./CheckoutShippingInformation.scss');
     }
+
+    handleOpenModalClick = () => {
+        this.setState({showModal: true});
+    };
+
+    handleCloseModal = () => {
+        this.setState({showModal: false});
+    };
 
     //*** Template ***//
 
@@ -70,31 +81,42 @@ class CheckoutShippingInformation extends React.Component {
         }) : null;
 
         let dayOptions = [
-            {name: 'Lunes', value: 'Lunes'},
-            {name: 'Martes', value: 'Martes'},
-            {name: 'Miércoles', value: 'Miércoles'},
-            {name: 'Jueves', value: 'Jueves'},
-            {name: 'Viernes', value: 'Viernes'}
+            {name: 'Lunes 7 Agosto', value: 'Lunes 7 Agosto'},
+            {name: 'Martes 8 Agosto', value: 'Martes 8 Agosto'},
+            {name: 'Miércoles 9 Agosto', value: 'Miércoles 9 Agosto'},
+            {name: 'Jueves 10 Agosto', value: 'Jueves 10 Agosto'},
+            {name: 'Viernes 11 Agosto', value: 'Viernes 11 Agosto'}
         ];
 
         let timeOptions = [
-            {name: '09:00', value: '09:00'},
-            {name: '10:00', value: '10:00'},
-            {name: '11:00', value: '11:00'},
-            {name: '12:00', value: '12:00'},
-            {name: '13:00', value: '13:00'},
-            {name: '14:00', value: '14:00'},
-            {name: '15:00', value: '15:00'},
-            {name: '16:00', value: '16:00'},
-            {name: '17:00', value: '17:00'},
-            {name: '18:00', value: '18:00'},
-            {name: '19:00', value: '19:00'},
-            {name: '20:00', value: '20:00'},
-            {name: '21:00', value: '21:00'}
+            {name: 'Entre 09:00 y 10:00', value: '09:00-10:00'},
+            {name: 'Entre 10:00 y 11:00', value: '10:00-11:00'},
+            {name: 'Entre 11:00 y 12:00', value: '11:00-12:00'},
+            {name: 'Entre 12:00 y 13:00', value: '12:00-13:00'},
+            {name: 'Entre 13:00 y 14:00', value: '13:00-14:00'},
+            {name: 'Entre 14:00 y 15:00', value: '14:00-15:00'},
+            {name: 'Entre 15:00 y 16:00', value: '15:00-16:00'},
+            {name: 'Entre 16:00 y 17:00', value: '16:00-17:00'},
+            {name: 'Entre 17:00 y 18:00', value: '17:00-18:00'},
+            {name: 'Entre 18:00 y 19:00', value: '18:00-19:00'},
+            {name: 'Entre 19:00 y 20:00', value: '19:00-20:00'},
+            {name: 'Entre 20:00 y 21:00', value: '20:00-21:00'}
         ];
+
+        let showModal = () => {
+            if (this.state.showModal === true) {
+                return (
+                    <Modal title={intlStore.getMessage(intlData, 'modalTitle')}
+                            onCloseClick={this.handleCloseModal}>
+                      <iframe src="https://www.google.com/maps/d/embed?mid=1D5L1sLC-E3JYa5ix8gSt3uPOEUU" width="480" height="480"></iframe>
+                    </Modal>
+                );
+            }
+        };
 
         return (
             <div className="checkout-shipping-information">
+              {showModal()}
                 {this.props.editingAddress ?
                     <div className="checkout-shipping-information__content">
                         <AddressField labelWeight="normal"
@@ -112,45 +134,48 @@ class CheckoutShippingInformation extends React.Component {
                         </div>
                         {shippingOptions ?
                             <div className="checkout-shipping-information__select-method">
-                                <CheckoutSection number="2.1"
-                                                 size="small"
-                                                 title={intlStore.getMessage(intlData, 'shippingMethodLabel')} />
-                                <RadioSelect options={shippingOptions}
-                                             onChange={this.props.onShippingOptionChange}
-                                             value={this.props.shippingMethod} />
+                              <div className="checkout-shipping-information__column">
+                                  <div className="checkout-shipping-information__row">
+                                    <CheckoutSection number="2.1"
+                                                   size="small"
+                                                   title={intlStore.getMessage(intlData, 'shippingMethodLabel')} />
+                                    <RadioSelect options={shippingOptions}
+                                                 onChange={this.props.onShippingOptionChange}
+                                                 value={this.props.shippingMethod} />
+                                   </div>
+                                   <div className="checkout-shipping-information__row">
+                                       <div className="image-zone-image-container" onClick={this.handleOpenModalClick}>
+                                         <div className="image-shipping-zones"></div>
+                                       </div>
+                                   </div>
+                              </div>
                             </div>
                             :
                             null
                         }
 
-                          <div className="checkout-shipping-information__select-method">
-                              <InlineItems>
-                                  <Select label={intlStore.getMessage(intlData, 'day')}
-                                          placeholder
-                                          options={dayOptions}
-                                          labelWeight={this.props.labelWeight}
-                                          value={this.props.shippingDay}
-                                          onChange={this.props.handleShippingDayChange} />
-                                  <Select label={intlStore.getMessage(intlData, 'time')}
-                                          placeholder
-                                          options={timeOptions}
-                                          labelWeight={this.props.labelWeight}
-                                          value={this.props.shippingTime}
-                                          onChange={this.props.handleShippingTimeChange} />
-                              </InlineItems>
-                          </div>
+                        {this.props.shippingMethod === 'free-pickup' ?
+                            null
+                            :
+                            <div className="checkout-shipping-information__select-method">
+                                <InlineItems>
+                                    <Select label={intlStore.getMessage(intlData, 'day')}
+                                            placeholder
+                                            options={dayOptions}
+                                            labelWeight={this.props.labelWeight}
+                                            value={this.props.shippingDay}
+                                            onChange={this.props.handleShippingDayChange} />
+                                    <Select label={intlStore.getMessage(intlData, 'time')}
+                                            placeholder
+                                            options={timeOptions}
+                                            labelWeight={this.props.labelWeight}
+                                            value={this.props.shippingTime}
+                                            onChange={this.props.handleShippingTimeChange} />
+                                </InlineItems>
+                            </div>
+                        }
                     </div>
                 }
-                <div className="checkout-summary__warning">
-                    <Heading size="small" align="left">
-                        <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationZones')}
-                                          locales={intlStore.getCurrentLocale()} />
-                    </Heading>
-                    <Heading size="small" align="left">
-                        <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationShipping')}
-                                          locales={intlStore.getCurrentLocale()} />
-                    </Heading>
-                </div>
             </div>
         );
     }

@@ -90,7 +90,13 @@ class SideCart extends React.Component {
                 if (!subTotal.currency) {
                     subTotal.currency = product.details.pricing.currency;
                 }
-                subTotal.value += product.details.pricing.retail * product.quantity;
+
+                if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
+                  subTotal.value += product.details.copies.price * product.quantity;
+                } else {
+                  subTotal.value += product.details.pricing.retail * product.quantity;
+                }
+
             });
         }
 

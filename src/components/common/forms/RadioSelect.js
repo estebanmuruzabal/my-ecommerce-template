@@ -33,6 +33,11 @@ class RadioSelect extends React.Component {
 
     render() {
         let groupId = `radio-select-${this.context.getStore(ApplicationStore).uniqueId()}`;
+        let inputClass = 'input-field__input';
+
+        if (this.props.error) {
+            inputClass += ' input-field__input--error';
+        }
         return (
             <div className="radio-select">
                 {this.props.options.map((option, idx) => {
@@ -70,6 +75,13 @@ class RadioSelect extends React.Component {
                         </div>
                     );
                 })}
+                {this.props.error ?
+                    <div className="input-field__error">
+                        <Text size="small">{this.props.error}</Text>
+                    </div>
+                    :
+                    null
+                }
             </div>
         );
     }

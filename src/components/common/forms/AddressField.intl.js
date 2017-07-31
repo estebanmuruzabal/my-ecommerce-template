@@ -27,6 +27,6 @@ export default {
         savedAddresses: 'Elija una de sus direcciones guardadas',
         state: 'Estado/Provincia',
         submit: 'Enviar',
-        dni: 'Número de Documento de Identidad'
+        dni: 'Número de DNI'
     }
 };

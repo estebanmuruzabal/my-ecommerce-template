@@ -80,13 +80,23 @@ class CartItem extends React.Component {
                             </Link>
                         </Text>
                     </div>
-                    <div className="cart-item__price">
-                        <Text size="small" weight="bold">
-                            <FormattedNumber value={product.pricing.retail}
-                                             style="currency"
-                                             currency={product.pricing.currency} />
-                        </Text>
-                    </div>
+                    { product.copies.price ?
+                      <div className="cart-item__price">
+                          <Text size="small" weight="bold">
+                              <FormattedNumber value={product.copies.price}
+                                               style="currency"
+                                               currency={product.pricing.currency} />
+                          </Text>
+                      </div>
+                        :
+                        <div className="cart-item__price">
+                            <Text size="small" weight="bold">
+                                <FormattedNumber value={product.pricing.retail}
+                                                 style="currency"
+                                                 currency={product.pricing.currency} />
+                            </Text>
+                        </div>
+                     }
                     <div className="cart-item__quantity">
                         <QuantitySelector value={this.props.product.quantity}
                                           onChange={this.props.onQuantityChange} />

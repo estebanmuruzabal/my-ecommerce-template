@@ -4,6 +4,7 @@ export default {
         homepage: 'Homepage',
         imagesHeading: 'Images',
         nameHeading: 'Name',
+        fotocopias: 'Fotocopias',
         new: 'New',
         newModalTitle: 'Add new product',
         noResults: 'No results',
@@ -17,6 +18,7 @@ export default {
     es: {
         enabledHeading: 'Activar',
         homepage: 'Página Principal',
+        fotocopias: 'Fotocopias',
         imagesHeading: 'Imagenes',
         nameHeading: 'Nombre',
         new: 'Nuevo',

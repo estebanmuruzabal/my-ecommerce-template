@@ -69,9 +69,9 @@ class HandheldsHeader extends React.Component {
                         <div className="handhelds-header__close-button" onClick={this.handleBtnClick.bind(null, 'menu')}></div>
                     }
                 </div>
-                <div className="handhelds-header__title">
+                <div className="handhelds-header__logo-link">
                     <Link to='homepage' params={routeParams}>
-                        <div className="handhelds-header__logo"></div>
+                        <div className="handhelds-header__tienda">Tienda</div><div className="handhelds-header__765"> 765</div>
                     </Link>
                 </div>
                 <div className="handhelds-header__right-actions">

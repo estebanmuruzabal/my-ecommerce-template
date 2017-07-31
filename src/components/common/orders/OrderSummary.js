@@ -34,15 +34,27 @@ class OrderSummary extends React.Component {
     //*** Template ***//
 
     render() {
-
-        //
-        // Helper methods & variables
-        //
         let intlStore = this.context.getStore(IntlStore);
 
-        //
-        // Return
-        //
+        // Process Subtotal
+        let subTotal = {value: 0, currency: undefined};
+        let total = {value: 0, currency: undefined};
+
+        if (this.props.checkout.cart && this.props.checkout.cart.products.length > 0) {
+            this.props.checkout.cart.products.forEach(function (product) {
+                if (!subTotal.currency) {
+                    subTotal.currency = product.details.pricing.currency;
+                }
+
+                if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
+                  subTotal.value += product.details.copies.price * product.quantity;
+                } else {
+                  subTotal.value += product.details.pricing.retail * product.quantity;
+                }
+
+            });
+        }
+
         return (
             <div className="order-summary">
                 <div className="order-summary__list">
@@ -89,26 +101,53 @@ class OrderSummary extends React.Component {
                                         </Text>
                                     </Breakpoint>
                                 </div>
-                                <div className="order-summary__list-quantity-price">
-                                    <Text>
-                                        {product.quantity}
-                                    </Text>
-                                    &nbsp;x&nbsp;
-                                    <Text>
-                                        <FormattedNumber
-                                            value={product.details.pricing.retail}
-                                            style="currency"
-                                            currency={product.details.pricing.currency} />
-                                    </Text>
-                                </div>
-                                <div className="order-summary__list-total">
-                                    <Text>
-                                        <FormattedNumber
-                                            value={product.quantity * product.details.pricing.retail}
-                                            style="currency"
-                                            currency={product.details.pricing.currency} />
-                                    </Text>
-                                </div>
+                                { product.details.copies.price ?
+                                    <div>
+                                      <div className="order-summary__list-quantity-price">
+                                          <Text>
+                                              {product.quantity}
+                                          </Text>
+                                          &nbsp;x&nbsp;
+                                          <Text>
+                                              <FormattedNumber
+                                                  value={product.details.copies.price}
+                                                  style="currency"
+                                                  currency={product.details.pricing.currency} />
+                                          </Text>
+                                      </div>
+                                      <div className="order-summary__list-total">
+                                          <Text>
+                                              <FormattedNumber
+                                                  value={product.quantity * product.details.copies.price}
+                                                  style="currency"
+                                                  currency={product.details.pricing.currency} />
+                                          </Text>
+                                      </div>
+                                    </div>
+                                    :
+                                    <div>
+                                      <div className="order-summary__list-quantity-price">
+                                          <Text>
+                                              {product.quantity}
+                                          </Text>
+                                          &nbsp;x&nbsp;
+                                          <Text>
+                                              <FormattedNumber
+                                                  value={product.details.pricing.retail}
+                                                  style="currency"
+                                                  currency={product.details.pricing.currency} />
+                                          </Text>
+                                      </div>
+                                      <div className="order-summary__list-total">
+                                          <Text>
+                                              <FormattedNumber
+                                                  value={product.quantity * product.details.pricing.retail}
+                                                  style="currency"
+                                                  currency={product.details.pricing.currency} />
+                                          </Text>
+                                      </div>
+                                    </div>
+                                }
                             </div>
                         );
                     })}
@@ -126,9 +165,9 @@ class OrderSummary extends React.Component {
                         <div className="order-summary__totals-value">
                             <Text>
                                 <FormattedNumber
-                                    value={this.props.checkout.subTotal}
+                                    value={subTotal.value}
                                     style="currency"
-                                    currency={this.props.checkout.currency} />
+                                    currency={subTotal.currency} />
                             </Text>
                         </div>
                     </div>
@@ -162,12 +201,21 @@ class OrderSummary extends React.Component {
                             </Text>
                         </div>
                         <div className="order-summary__totals-value">
+                            {this.props.checkout.hasOwnProperty('shippingCost') ?
                             <Text weight="bold">
                                 <FormattedNumber
-                                    value={this.props.checkout.total}
+                                    value={subTotal.value + this.props.checkout.shippingCost}
                                     style="currency"
                                     currency={this.props.checkout.currency} />
                             </Text>
+                                :
+                                <Text weight="bold">
+                                    <FormattedNumber
+                                        value={subTotal.value}
+                                        style="currency"
+                                        currency={this.props.checkout.currency} />
+                                </Text>
+                            }
                         </div>
                     </div>
                 </div>

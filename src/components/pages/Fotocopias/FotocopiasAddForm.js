@@ -59,14 +59,6 @@ class FotocopiasAddForm extends React.Component {
       this.setState({pagetype: value});
     };
 
-    handleNameChange = (value) => {
-        this.setState({name: value});
-    };
-
-    handlePhoneChange = (value) => {
-        this.setState({phone: value});
-    };
-
     handleDescriptionFieldChange = (value) => {
       this.setState({description: value});
     };
@@ -105,12 +97,10 @@ class FotocopiasAddForm extends React.Component {
 
         if (Object.keys(fieldErrors).length === 0) {
             this.props.onSubmitClick({
-              phone: this.state.phone,
-              name: this.state.name,
-              files: this.state.files,
-              pagetype: this.state.pagetype,
-              description: this.state.description,
-              copiesnum: this.state.copiesnum
+              files: this.state.copies.files,
+              pagetype: this.state.copies.pagetype,
+              description: this.state.copies.description,
+              pagenum: this.state.copies.pagenum
             });
         }
     };
@@ -124,59 +114,20 @@ class FotocopiasAddForm extends React.Component {
             return this.props.error ? this.props.error[field] : this.state.fieldErrors[field];
         };
 
-        let pageTypeOptions = [
-            {name: intlStore.getMessage(intlData, 'oficio'), value: 'oficio'},
-            {name: intlStore.getMessage(intlData, 'a4'), value: 'a4'}
-        ];
+
 
         return (
-          <div className="fotocopias-page">
-              <div className="fotocopias-page__form">
-                  <div className="fotocopias-page__left-column">
-                    <div className="fotocopias-page__form-item">
-                      <InputField label={intlStore.getMessage(intlData, 'name')}
-                                  onChange={this.handleNameChange}
-                                  value={this.state.name}
-                                  error={fieldError('name')} />
-                    </div>
-                    <div className="fotocopias-page__form-item">
-                      <InputField label={intlStore.getMessage(intlData, 'copiesnum')}
-                                  onChange={this.handleCopiesNumChange}
-                                  value={this.state.copiesnum}
-                                  error={fieldError('copiesnum')} />
-                    </div>
-                    <div className="fotocopias-page__form-item">
-                      <InputField label={intlStore.getMessage(intlData, 'phone')}
-                                  onChange={this.handlePhoneChange}
-                                  value={this.state.phone}
-                                  error={fieldError('phone')} />
-                    </div>
-                    <div className="fotocopias-page__form-item">
-                        <Select label={intlStore.getMessage(intlData, 'pagetype')}
-                                placeholder
-                                options={pageTypeOptions}
-                                onChange={this.handlePageTypeChange}
-                                error={fieldError('pagetype')} />
-                    </div>
-                  </div>
-                  <div className="fotocopias-page__right-column">
-                    <div className="fotocopias-page__form-item">
-                        <Textarea label={intlStore.getMessage(intlData, 'description')}
-                                  rows="5"
-                                  onChange={this.handleDescriptionFieldChange}
-                                  value={this.state.description}
-                                  error={fieldError('description')} />
-                    </div>
-                    <div className="fotocopias-page__form-item">
-                        <FilesLibraryManager files={this.state.files}
-                                             onChange={this.handleFileLibraryChange} />
-                    </div>
-                  </div>
-              </div>
+          <div>
+
+            <div className="fotocopias-page__form-item">
+                
+            </div>
+
+
               <div className="fotocopias-page__button">
                   <Button type="primary" onClick={this.handleSubmitClick}>
                       <FormattedMessage
-                          message={intlStore.getMessage(intlData, 'send')}
+                          message={intlStore.getMessage(intlData, 'Conti')}
                           locales={intlStore.getCurrentLocale()} />
                   </Button>
               </div>

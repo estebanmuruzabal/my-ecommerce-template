@@ -53,6 +53,14 @@ class AddressField extends React.Component {
         this.setState({address: address});
     };
 
+    setCountryAndProvince = () => {
+        let address = this.state.address;
+        address.state = "Chaco";
+        address.country = "Argentina";
+        address.postalCode = 3500;
+        this.setState({address: address});
+    };
+
     handleSubmitClick = () => {
 
         let intlStore = this.context.getStore(IntlStore);
@@ -63,27 +71,24 @@ class AddressField extends React.Component {
         if (!this.state.address.name) {
             fieldErrors.name = intlStore.getMessage(intlData, 'fieldRequired');
         }
-
+        if (!this.state.address.phone) {
+            fieldErrors.phone = intlStore.getMessage(intlData, 'fieldRequired');
+        }
+        if (!this.state.address.dni) {
+            fieldErrors.dni = intlStore.getMessage(intlData, 'fieldRequired');
+        }
         if (!this.state.address.addressLine1) {
             fieldErrors.addressLine1 = intlStore.getMessage(intlData, 'fieldRequired');
         }
-
-        if (!this.state.address.postalCode) {
-            fieldErrors.postalCode = intlStore.getMessage(intlData, 'fieldRequired');
-        }
-
         if (!this.state.address.city) {
             fieldErrors.city = intlStore.getMessage(intlData, 'fieldRequired');
-        }
-
-        if (!this.state.address.country) {
-            fieldErrors.country = intlStore.getMessage(intlData, 'fieldRequired');
         }
 
         this.setState({fieldErrors: fieldErrors});
 
         // Validation passed, trigger request
         if (Object.keys(fieldErrors).length === 0) {
+            this.setCountryAndProvince();
             this.props.onSubmit(this.state.address);
         }
     };
@@ -94,12 +99,11 @@ class AddressField extends React.Component {
 
         let intlStore = this.context.getStore(IntlStore);
 
-        let countryOptions = [
-            {name: 'Argentina', value: 'Argentina'}
-        ];
-
-        let provinceOptions = [
-            {name: 'Chaco', value: 'Chaco'}
+        let cityOptions = [
+            {name: 'Resistencia', value: 'Resistencia'},
+            {name: 'Barranqueras', value: 'Barranqueras'},
+            {name: 'Vilelas', value: 'Vilelas'},
+            {name: 'Fontana', value: 'Fontana'},
         ];
 
         let addressOptions;
@@ -141,13 +145,6 @@ class AddressField extends React.Component {
                     </InlineItems>
                 </div>
                 <div className="address-field__item">
-                    <InputField label={intlStore.getMessage(intlData, 'dni')}
-                                labelWeight={this.props.labelWeight}
-                                value={this.state.address.dni}
-                                onChange={this.handleFieldChange.bind(null, 'dni')}
-                                error={this.state.fieldErrors['dni']} />
-                </div>
-                <div className="address-field__item">
                     <InputField label={intlStore.getMessage(intlData, 'address')}
                                 labelWeight={this.props.labelWeight}
                                 value={this.state.address.addressLine1}
@@ -163,34 +160,18 @@ class AddressField extends React.Component {
                 </div>
                 <div className="address-field__item">
                     <InlineItems>
-                        <InputField label={intlStore.getMessage(intlData, 'postalCode')}
+                        <InputField label={intlStore.getMessage(intlData, 'dni')}
                                     labelWeight={this.props.labelWeight}
-                                    value={this.state.address.postalCode}
-                                    onChange={this.handleFieldChange.bind(null, 'postalCode')}
-                                    error={this.state.fieldErrors['postalCode']} />
-                        <InputField label={intlStore.getMessage(intlData, 'city')}
+                                    value={this.state.address.dni}
+                                    onChange={this.handleFieldChange.bind(null, 'dni')}
+                                    error={this.state.fieldErrors['dni']} />
+                       <Select label={intlStore.getMessage(intlData, 'city')}
+                                    placeholder
+                                    options={cityOptions}
                                     labelWeight={this.props.labelWeight}
                                     value={this.state.address.city}
                                     onChange={this.handleFieldChange.bind(null, 'city')}
                                     error={this.state.fieldErrors['city']} />
-                    </InlineItems>
-                </div>
-                <div className="address-field__item">
-                    <InlineItems>
-                        <Select label={intlStore.getMessage(intlData, 'state')}
-                                placeholder
-                                options={provinceOptions}
-                                labelWeight={this.props.labelWeight}
-                                value={this.state.address.city}
-                                onChange={this.handleFieldChange.bind(null, 'state')}
-                                error={this.state.fieldErrors['state']} />
-                        <Select label={intlStore.getMessage(intlData, 'country')}
-                                placeholder
-                                options={countryOptions}
-                                labelWeight={this.props.labelWeight}
-                                value={this.state.address.country}
-                                onChange={this.handleFieldChange.bind(null, 'country')}
-                                error={this.state.fieldErrors['country']} />
                     </InlineItems>
                 </div>
                 {this.props.onCancel || this.props.onSubmit ?

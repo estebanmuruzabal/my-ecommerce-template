@@ -20,6 +20,7 @@ import createCart from '../../../actions/Cart/createCart';
 import createCheckout from '../../../actions/Checkout/createCheckout';
 import createOrder from '../../../actions/Orders/createOrder';
 import updateCheckout from '../../../actions/Checkout/updateCheckout';
+import updateProduct from '../../../actions/Admin/updateProduct';
 
 // Required components
 import Button from '../../common/buttons/Button';
@@ -335,7 +336,43 @@ class Checkout extends React.Component {
             }
         };
         this.context.executeAction(createOrder, payload);
+
+        if (this.state.checkout.cart && this.state.checkout.cart.products.length > 0) {
+            this.state.checkout.cart.products.forEach(function (product) {
+                if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
+                  context.executeAction(updateProduct, {
+                      id: product.id,
+                      data: {
+                          enabled: product.details.enabled,
+                          sku: product.details.sku,
+                          name: product.details.name,
+                          description: product.details.description,
+                          images: product.details.images,
+                          pricing: {
+                              currency: product.details.pricing.currency,
+                              list: parseFloat(product.details.pricing.list),
+                              retail: parseFloat(product.details.pricing.retail),
+                              vat: parseInt(product.details.pricing.vat)
+                          },
+                          stock: parseInt(product.details.stock),
+                          tags: product.details.tags,
+                          collections: product.details.collections,
+                          copies: {
+                              pagetype: '',
+                              pagesnum: 0,
+                              files: [],
+                              comments: '',
+                              price: 0,
+                              anillado: false
+                          },
+                          metadata: product.details.metadata
+                      }
+                  });
+                }
+            });
+        }
     };
+
 
     //
     // Order
@@ -480,6 +517,7 @@ class Checkout extends React.Component {
                                                              onAddressSubmit={this.handleShippingAddressSubmit}
                                                              onAddressEditClick={this.handleShippingAddressEditClick}
                                                              shippingOptions={this.state.checkout.shippingOptions}
+                                                             deliveryOptionSelected={this.state.checkout.shippingOptions}
                                                              shippingTime={this.state.checkout.shippingTime}
                                                              shippingDay={this.state.checkout.shippingDay}
                                                              handleShippingTimeChange={this.handleShippingTimeChange}

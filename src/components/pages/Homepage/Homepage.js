@@ -157,27 +157,6 @@ class Homepage extends React.Component {
                       })} />
                   </div>
                 </div>
-
-                {this.state.articles.length > 0 ?
-                    <div className="homepage__articles">
-                        {this.state.articles.map((content, idx) => {
-                            let articleRouteParams = Object.assign({
-                                contentId: content.id,
-                                contentSlug: slugify(intlStore.getMessage(content.name))
-                            }, routeParams);
-                            return (
-                                <div key={idx} className="homepage__article-item">
-                                    <Link className="homepage__article-link" to="article-slug"
-                                          params={articleRouteParams}>
-                                        <ArticleSummary key={idx} size="small" content={content} hideLink={true} />
-                                    </Link>
-                                </div>
-                            );
-                        })}
-                    </div>
-                    :
-                    null
-                }
                 <div className="homepage__banner"></div>
                 <div className="homepage__products">
                     <ProductList title={featuredProductsTitle()}

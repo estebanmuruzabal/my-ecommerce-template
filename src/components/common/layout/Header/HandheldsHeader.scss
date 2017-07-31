@@ -1,3 +1,5 @@
+@import '../../../../styles/variables.scss';
+
 .handhelds-header {
     display: flex;
     padding: 15px;
@@ -17,6 +19,44 @@
 /*
  * Logo
  */
+
+ .handhelds-header__logo-link {
+     border: 1px solid #eee;
+     border-radius: 40px;
+     cursor: pointer;
+     background-color: #ff4056;
+     padding: 8px;
+
+     &:hover {
+         span {
+             color: $color-primary;
+         }
+     }
+ }
+
+ .handhelds-header__tienda {
+   display: inline;
+   font-size: 30px;
+   letter-spacing: 1px;
+   text-decoration: none;
+   vertical-align: baseline;
+   background: transparent;
+   color: white;
+   font-weight: 700;
+
+ }
+
+ .handhelds-header__765 {
+   display: inline;
+   font-size: 30px;
+   letter-spacing: 1px;
+   vertical-align: baseline;
+   background: transparent;
+   color: white;
+   font-family: $font-family-heading;
+   text-decoration: none;
+   font-weight: 700;
+ }
 
 .handhelds-header__title {
     display: flex;

@@ -20,7 +20,6 @@ import InputField from '../../common/forms/InputField';
 import NotFound from '../NotFound/NotFound';
 import Select from '../../common/forms/Select';
 import Textarea from '../../common/forms/Textarea';
-import ToggleSwitch from '../../common/buttons/ToggleSwitch';
 
 // Translation data for this component
 import intlData from './Fotocopias.intl';
@@ -59,7 +58,7 @@ class Fotocopias extends React.Component {
         return (
           <div>
             <div className="fotocopias-page__header">
-                <div className="fotocopias-page__title">  
+                <div className="fotocopias-page__title">
                   <FormattedMessage
                       message={intlStore.getMessage(intlData, 'title')}
                       locales={intlStore.getCurrentLocale()} />

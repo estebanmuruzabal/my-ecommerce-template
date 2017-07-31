@@ -54,20 +54,14 @@ class FileLibrary extends React.Component {
     render() {
         let intlStore = this.context.getStore(IntlStore);
         return (
-            <div className="image-library">
+            <div className="file-library">
                 {this.props.files.map((idx) => {
                     return (
-                        <div key={idx} className="image-library__placeholder">
+                        <div key={idx} className="file-library__placeholder">
                         <img src={this.state.image} />
-                            <div className="image-library__placeholder-overlay">
-                                <div className="image-library__placeholder-overlay-content">
-                                    <div className="image-library__button">
-                                        <Button type="default" onClick={this.handleViewURLClick.bind(null, idx)}>
-                                            <FormattedMessage message={intlStore.getMessage(intlData, 'viewURL')}
-                                                              locales={intlStore.getCurrentLocale()} />
-                                        </Button>
-                                    </div>
-                                    <div className="image-library__button">
+                            <div className="file-library__placeholder-overlay">
+                                <div className="file-library__placeholder-overlay-content">
+                                    <div className="file-library__button">
                                         <Button type="primary" onClick={this.handleRemoveClick.bind(null, idx)}>
                                             <FormattedMessage message={intlStore.getMessage(intlData, 'delete')}
                                                               locales={intlStore.getCurrentLocale()} />
