@@ -98,10 +98,7 @@ class Application extends React.Component {
         });
 
         let tabs = [
-          {
-              name: 'Productos',
-              to: 'products'
-          }
+          
         ];
 
         // Compute CSS classes for the overlay
