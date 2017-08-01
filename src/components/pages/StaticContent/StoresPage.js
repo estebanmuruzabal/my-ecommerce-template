@@ -34,7 +34,7 @@ class StoresPage extends React.Component {
           <div>
             <p className="stores-page__address">
                 <strong>Direccion:</strong><br />
-                Güemes 765 <a href="https://www.google.pt/maps/place/Arrabida+Shopping/@41.1412417,-8.6388583,17z/data=!3m1!4b1!4m2!3m1!1s0xd246514bd568699:0x58e4800a92a23109?hl=en" target="_blank">Google Maps</a><br />
+                Güemes 765 <a href="https://goo.gl/maps/iCGwsKYjQXq" target="_blank">Ver en Google Maps</a><br />
                 CP 3500 - Resistencia Chaco<br />
             </p>
             <p className="stores-page__schedule">

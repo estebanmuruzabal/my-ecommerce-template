@@ -25,7 +25,7 @@ export default {
         outOfStock: 'Sin Stock',
         productsList: 'Productos',
         quantity: 'Cantidad',
-        quantityFotocopias: 'Cantidad de juegos',
+        quantityFotocopias: 'Cant. de juegos',
         filestitle: 'Subi el archivo a imprimir (un archivo por pedido)',
         anillado: 'Anillado (+$20)',
         fieldRequired: 'Este campo es obligatorio',

@@ -279,8 +279,10 @@ class ProductPage extends React.Component {
 
     handleAnilladoChange = () => {
         let product = this.state.product;
+        let anillado = this.state.anillado;
         product.copies.anillado = !(product.copies.anillado === true);
-        this.setState({product: product, anillado: true});
+        anillado = !(product.copies.anillado === true);
+        this.setState({product: product, anillado});
     };
 
     //*** Template ***//
@@ -425,17 +427,17 @@ class ProductPage extends React.Component {
                                         Ref: <span itemProp="sku">{this.state.product.sku}</span>
                                     </Text>
                                 </div>
-                                <div className="product-page__quantity">
-                                    <Text size="medium" weight="bold">
-                                       <FormattedMessage message={intlStore.getMessage(intlData, 'quantityFotocopias')}
-                                                      locales={intlStore.getCurrentLocale()} />
-                                    </Text>
-                                    <QuantitySelector value={this.state.quantity}
-                                                      onChange={this.handleQuantityChange} />
-                                </div>
 
                                 { this.state.isFotocopia ?
                                     <div className="fotocopias-page__copies-form">
+                                        <div className="product-page__quantity">
+                                            <Text size="medium" weight="bold">
+                                               <FormattedMessage message={intlStore.getMessage(intlData, 'quantityFotocopias')}
+                                                              locales={intlStore.getCurrentLocale()} />
+                                            </Text>
+                                            <QuantitySelector value={this.state.quantity}
+                                                              onChange={this.handleQuantityChange} />
+                                        </div>
                                        <div className="fotocopias-page__form-item">
                                          <InputField label={intlStore.getMessage(intlData, 'pagesnum')}
                                                      value={this.state.pagesnum}
