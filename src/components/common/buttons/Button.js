@@ -58,7 +58,7 @@ class Button extends React.Component {
         }
 
         return (
-            <button className={buttonClass} onClick={() => this._handleClick}>
+            <button className={buttonClass} onClick={this.handleClick}>
                 {this.props.children}
             </button>
         );
