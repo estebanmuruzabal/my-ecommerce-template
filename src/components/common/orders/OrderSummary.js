@@ -52,9 +52,9 @@ class OrderSummary extends React.Component {
                     subTotal.value += 20;
                   } else if (product.details.copies) {
                     subTotal.value += product.details.copies.price * product.quantity;
-                  } else {
-                    subTotal.value += product.details.pricing.retail * product.quantity;
                   }
+                } else {
+                  subTotal.value += product.details.pricing.retail * product.quantity;
                 }
             });
         }
