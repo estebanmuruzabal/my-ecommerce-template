@@ -94,7 +94,7 @@ class SideCart extends React.Component {
                 if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
                     if (product.details.copies.anillado) {
                     subTotal.value += product.details.copies.price * product.quantity;
-                    subTotal.value += 20;
+                    subTotal.value += 35;
                     } else if (product.details.copies) {
                     subTotal.value += product.details.copies.price * product.quantity;
                    }

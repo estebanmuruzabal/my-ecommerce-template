@@ -138,10 +138,11 @@ class CheckoutShippingInformation extends React.Component {
                                   <div className="checkout-shipping-information__row">
                                     <CheckoutSection number="2.1"
                                                    size="small"
-                                                   title={intlStore.getMessage(intlData, 'shippingMethodLabel')} />
-                                    <RadioSelect options={shippingOptions}
-                                                 onChange={this.props.onShippingOptionChange}
-                                                 value={this.props.shippingMethod} />
+                                                   title={intlStore.getMessage(intlData, 'shippingMethodLabel')}>
+                                       <RadioSelect options={shippingOptions}
+                                                    onChange={this.props.onShippingOptionChange}
+                                                    value={this.props.shippingMethod} />
+                                    </CheckoutSection>
                                    </div>
                                    <div className="checkout-shipping-information__row">
                                        <div className="image-zone-image-container" onClick={this.handleOpenModalClick}>
@@ -158,7 +159,10 @@ class CheckoutShippingInformation extends React.Component {
                             null
                             :
                             <div className="checkout-shipping-information__select-method">
-                                <InlineItems>
+                                <CheckoutSection number="2.2"
+                                               size="small"
+                                               title={intlStore.getMessage(intlData, 'shippingDateLabel')}>
+                                  <InlineItems>
                                     <Select label={intlStore.getMessage(intlData, 'day')}
                                             placeholder
                                             options={dayOptions}
@@ -171,7 +175,8 @@ class CheckoutShippingInformation extends React.Component {
                                             labelWeight={this.props.labelWeight}
                                             value={this.props.shippingTime}
                                             onChange={this.props.handleShippingTimeChange} />
-                                </InlineItems>
+                                    </InlineItems>
+                                </CheckoutSection>
                             </div>
                         }
                     </div>

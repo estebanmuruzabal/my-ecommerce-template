@@ -39,7 +39,7 @@ class OrderSummary extends React.Component {
         // Process Subtotal
         let subTotal = {value: 0, currency: undefined};
         let total = {value: 0, currency: undefined};
-
+        let anilladoProduct = undefined;
         if (this.props.checkout.cart && this.props.checkout.cart.products.length > 0) {
             this.props.checkout.cart.products.forEach(function (product) {
                 if (!subTotal.currency) {
@@ -49,7 +49,8 @@ class OrderSummary extends React.Component {
                 if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
                   if (product.details.copies.anillado) {
                     subTotal.value += product.details.copies.price * product.quantity;
-                    subTotal.value += 20;
+                    subTotal.value += 35;
+                    anilladoProduct = true;
                   } else if (product.details.copies) {
                     subTotal.value += product.details.copies.price * product.quantity;
                   }
@@ -87,68 +88,128 @@ class OrderSummary extends React.Component {
                     </div>
                     {this.props.checkout.cart.products.map(function (product, idx) {
                         return (
-                            <div key={idx} className="order-summary__row order-summary__item">
-                                <div className="order-summary__list-name">
-                                    <Breakpoint point="handhelds">
-                                        <Text size="small">
-                                            {intlStore.getMessage(product.details.name)}
-                                        </Text>
-                                    </Breakpoint>
-                                    <Breakpoint point="medium-screens">
-                                        <Text>
-                                            {intlStore.getMessage(product.details.name)}
-                                        </Text>
-                                    </Breakpoint>
-                                    <Breakpoint point="wide-screens">
-                                        <Text>
-                                            {intlStore.getMessage(product.details.name)}
-                                        </Text>
-                                    </Breakpoint>
-                                </div>
-                                { product.details.copies.price ?
-                                    <div>
-                                      <div className="order-summary__list-quantity-price">
-                                          <Text>
-                                              {product.quantity}
-                                          </Text>
-                                          &nbsp;x&nbsp;
-                                          <Text>
-                                              <FormattedNumber
-                                                  value={product.details.copies.price}
-                                                  style="currency"
-                                                  currency={product.details.pricing.currency} />
-                                          </Text>
-                                      </div>
-                                      <div className="order-summary__list-total">
-                                          <Text>
-                                              <FormattedNumber
-                                                  value={product.quantity * product.details.copies.price}
-                                                  style="currency"
-                                                  currency={product.details.pricing.currency} />
-                                          </Text>
-                                      </div>
+                              <div>
+                              { product.details.copies.price ?
+                                  <div>
+                                       <div key={idx} className="order-summary__row order-summary__item">
+                                            <div className="order-summary__list-name">
+                                                <Breakpoint point="handhelds">
+                                                    <Text size="small">
+                                                        {intlStore.getMessage(product.details.name)}
+                                                    </Text>
+                                                </Breakpoint>
+                                                <Breakpoint point="medium-screens">
+                                                    <Text>
+                                                        {intlStore.getMessage(product.details.name)}
+                                                    </Text>
+                                                </Breakpoint>
+                                                <Breakpoint point="wide-screens">
+                                                    <Text>
+                                                        {intlStore.getMessage(product.details.name)}
+                                                    </Text>
+                                                </Breakpoint>
+                                            </div>
+                                            <div className="order-summary__list-quantity-price">
+                                                <Text>
+                                                    {product.quantity}
+                                                </Text>
+                                                &nbsp;x&nbsp;
+                                                <Text>
+                                                    <FormattedNumber
+                                                        value={product.details.copies.price}
+                                                        style="currency"
+                                                        currency={product.details.pricing.currency} />
+                                                </Text>
+                                            </div>
+                                            <div className="order-summary__list-total">
+                                                <Text>
+                                                    <FormattedNumber
+                                                        value={product.quantity * product.details.copies.price}
+                                                        style="currency"
+                                                        currency={product.details.pricing.currency} />
+                                                </Text>
+                                            </div>
+                                        </div>
+                                        <div key={idx+1} className="order-summary__row order-summary__item">
+                                             <div className="order-summary__list-name">
+                                                 <Breakpoint point="handhelds">
+                                                     <Text size="small">
+                                                         {intlStore.getMessage(intlData, 'anillado')}
+                                                     </Text>
+                                                 </Breakpoint>
+                                                 <Breakpoint point="medium-screens">
+                                                     <Text>
+                                                         {intlStore.getMessage(intlData, 'anillado')}
+                                                     </Text>
+                                                 </Breakpoint>
+                                                 <Breakpoint point="wide-screens">
+                                                     <Text>
+                                                         {intlStore.getMessage(intlData, 'anillado')}
+                                                     </Text>
+                                                 </Breakpoint>
+                                             </div>
+                                             <div className="order-summary__list-quantity-price">
+                                                 <Text>
+                                                     {1}
+                                                 </Text>
+                                                 &nbsp;x&nbsp;
+                                                 <Text>
+                                                     <FormattedNumber
+                                                         value={35}
+                                                         style="currency"
+                                                         currency={product.details.pricing.currency} />
+                                                 </Text>
+                                             </div>
+                                             <div className="order-summary__list-total">
+                                                 <Text>
+                                                     <FormattedNumber
+                                                         value={35}
+                                                         style="currency"
+                                                         currency={product.details.pricing.currency} />
+                                                 </Text>
+                                             </div>
+                                        </div>
                                     </div>
                                     :
                                     <div>
-                                      <div className="order-summary__list-quantity-price">
-                                          <Text>
-                                              {product.quantity}
-                                          </Text>
-                                          &nbsp;x&nbsp;
-                                          <Text>
-                                              <FormattedNumber
-                                                  value={product.details.pricing.retail}
-                                                  style="currency"
-                                                  currency={product.details.pricing.currency} />
-                                          </Text>
-                                      </div>
-                                      <div className="order-summary__list-total">
-                                          <Text>
-                                              <FormattedNumber
-                                                  value={product.quantity * product.details.pricing.retail}
-                                                  style="currency"
-                                                  currency={product.details.pricing.currency} />
-                                          </Text>
+                                      <div key={idx} className="order-summary__row order-summary__item">
+                                        <div className="order-summary__list-name">
+                                            <Breakpoint point="handhelds">
+                                                <Text size="small">
+                                                    {intlStore.getMessage(product.details.name)}
+                                                </Text>
+                                            </Breakpoint>
+                                            <Breakpoint point="medium-screens">
+                                                <Text>
+                                                    {intlStore.getMessage(product.details.name)}
+                                                </Text>
+                                            </Breakpoint>
+                                            <Breakpoint point="wide-screens">
+                                                <Text>
+                                                    {intlStore.getMessage(product.details.name)}
+                                                </Text>
+                                            </Breakpoint>
+                                        </div>
+                                        <div className="order-summary__list-quantity-price">
+                                            <Text>
+                                                {product.quantity}
+                                            </Text>
+                                            &nbsp;x&nbsp;
+                                            <Text>
+                                                <FormattedNumber
+                                                    value={product.details.pricing.retail}
+                                                    style="currency"
+                                                    currency={product.details.pricing.currency} />
+                                            </Text>
+                                        </div>
+                                        <div className="order-summary__list-total">
+                                            <Text>
+                                                <FormattedNumber
+                                                    value={product.quantity * product.details.pricing.retail}
+                                                    style="currency"
+                                                    currency={product.details.pricing.currency} />
+                                            </Text>
+                                        </div>
                                       </div>
                                     </div>
                                 }
