@@ -115,7 +115,8 @@ class ProductPage extends React.Component {
         pagetype: undefined,
         pagesnum: undefined,
         files: [],
-        anillado: false
+        anillado: false,
+        doblefaz: true
     };
 
     //*** Component Lifecycle ***//
@@ -208,7 +209,8 @@ class ProductPage extends React.Component {
         if (!this.state.pagetype) {
             fieldErrors.pagetype = intlStore.getMessage(intlData, 'fieldRequired');
         }
-        if (!this.state.files) {
+
+        if (!this.state.files[0]) {
             fieldErrors.files = intlStore.getMessage(intlData, 'fieldRequired');
         }
 
@@ -242,7 +244,8 @@ class ProductPage extends React.Component {
                         files: this.state.files,
                         comments: product.copies.comments,
                         price: copyPriceTotal,
-                        anillado: this.state.anillado
+                        anillado: this.state.anillado,
+                        doblefaz: this.state.doblefaz
                     },
                     metadata: product.metadata
                 }
@@ -285,6 +288,13 @@ class ProductPage extends React.Component {
         this.setState({product: product, anillado});
     };
 
+    handleDobleFazChange = () => {
+        let product = this.state.product;
+        let doblefaz = this.state.doblefaz;
+        product.copies.doblefaz = !(product.copies.doblefaz === true);
+        doblefaz = !(product.copies.doblefaz === true);
+        this.setState({product: product, doblefaz});
+    };
     //*** Template ***//
 
     render() {
@@ -460,6 +470,11 @@ class ProductPage extends React.Component {
                                                           enabled={this.state.anillado === true}
                                                           onChange={this.handleAnilladoChange} />
                                             </div>
+                                            <div className="fotocopias-page__form-item-one">
+                                                <ToggleSwitch label={intlStore.getMessage(intlData, 'doblefaz')}
+                                                        enabled={this.state.doblefaz === true}
+                                                        onChange={this.handleDobleFazChange} />
+                                            </div>
                                        </div>
                                        <div className="fotocopias-page__form-item">
                                            <Textarea label={intlStore.getMessage(intlData, 'comments')}
@@ -473,7 +488,8 @@ class ProductPage extends React.Component {
                                                            locales={intlStore.getCurrentLocale()} />
                                          </Text>
                                           <FilesLibraryManager files={this.state.files}
-                                                                onChange={this.handleCopiesChange.bind(null, 'files')} />
+                                                                onChange={this.handleCopiesChange.bind(null, 'files')}
+                                                                error={fieldError('files')} />
                                         </div>
                                     </div>
                                     :

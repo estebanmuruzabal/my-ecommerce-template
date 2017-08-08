@@ -363,7 +363,8 @@ class Checkout extends React.Component {
                               files: [],
                               comments: '',
                               price: 0,
-                              anillado: false
+                              anillado: false,
+                              doblefaz: true
                           },
                           metadata: product.details.metadata
                       }
@@ -372,11 +373,6 @@ class Checkout extends React.Component {
             });
         }
     };
-
-
-    //
-    // Order
-    //
 
     handleOrderErrorModalCloseClick = () => {
         this.setState({showOrderErrorModal: false});
@@ -389,11 +385,6 @@ class Checkout extends React.Component {
     //*** Template ***//
 
     render() {
-
-        //
-        // Helper methods & variables
-        //
-
         let intlStore = this.context.getStore(IntlStore);
         let routeParams = {locale: this.context.getStore(IntlStore).getCurrentLocale()}; // Base route params
 
@@ -420,11 +411,44 @@ class Checkout extends React.Component {
                     <Modal title={intlStore.getMessage(intlData, 'orderModalTitle')}>
                         <div className="checkout__order-created">
                             <div className="checkout__order-created-item">
-                                <Text size="medium">
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'orderCreatedSuccessfully')}
-                                        locales={intlStore.getCurrentLocale()} />
-                                </Text>
+                            {this.state.checkout.shippingMethod == 'free-pickup' ?
+                                <div>
+                                  <Text size="medium">
+                                      <FormattedMessage
+                                          message={intlStore.getMessage(intlData, 'orderCreatedSuccessfullyWithPickUp')}
+                                          locales={intlStore.getCurrentLocale()} />
+
+                                  </Text>
+                                  <div className="checkout__order-created-item">
+                                      <Text size="medium">
+                                        {this.state.checkout.shippingDay}
+                                      </Text>
+                                  </div>
+                                  <Text size="medium">
+                                      <FormattedMessage
+                                          message={intlStore.getMessage(intlData, 'contactenosString')}
+                                          locales={intlStore.getCurrentLocale()} />
+                                  </Text>
+                                </div>
+                                :
+                                <div>
+                                  <Text size="medium">
+                                      <FormattedMessage
+                                          message={intlStore.getMessage(intlData, 'orderCreatedSuccessfullyDelivery')}
+                                          locales={intlStore.getCurrentLocale()} />
+                                  </Text>
+                                  <div className="checkout__order-created-item">
+                                      <Text size="medium">
+                                        {this.state.checkout.shippingDay}
+                                      </Text>
+                                  </div>
+                                  <Text size="medium">
+                                      <FormattedMessage
+                                          message={intlStore.getMessage(intlData, 'contactenosString')}
+                                          locales={intlStore.getCurrentLocale()} />
+                                  </Text>
+                                </div>
+                            }
                             </div>
                             <div className="checkout__order-created-item">
                                 <Text size="medium">
@@ -517,14 +541,14 @@ class Checkout extends React.Component {
                                                              onAddressSubmit={this.handleShippingAddressSubmit}
                                                              onAddressEditClick={this.handleShippingAddressEditClick}
                                                              shippingOptions={this.state.checkout.shippingOptions}
-                                                             deliveryOptionSelected={this.state.checkout.shippingOptions}
                                                              shippingTime={this.state.checkout.shippingTime}
                                                              shippingDay={this.state.checkout.shippingDay}
                                                              handleShippingTimeChange={this.handleShippingTimeChange}
                                                              handleShippingDayChange={this.handleShippingDayChange}
                                                              shippingMethod={this.state.checkout.shippingMethod}
                                                              onShippingOptionChange={this.handleShippingOptionChange}
-                                                             loading={this.state.checkoutLoading} />
+                                                             loading={this.state.checkoutLoading}
+                                                             checkout={this.state.checkout} />
                             </CheckoutSection>
                             <CheckoutSection className="checkout__section" number="3" title={intlStore.getMessage(intlData, 'billingInformation')}>
                                 <CheckoutBillingInformation user={this.state.user}

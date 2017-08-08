@@ -7,16 +7,14 @@ import {FormattedMessage} from 'react-intl';
 
 // Flux
 import FileUploadStore from '../../../stores/Files/FileUploadStore';
-
 import IntlStore from '../../../stores/Application/IntlStore';
-
 import uploadFile from '../../../actions/Admin/uploadFile';
 
 // Required components
 import FormLabel from '../../common/forms/FormLabel';
 import FileUpload from '../../common/files/FileUpload';
 import FileLibrary from '../../common/files/FileLibrary';
-
+import Text from '../../common/typography/Text';
 
 // Translation data for this component
 import intlData from './FilesLibraryManager.intl';
@@ -83,6 +81,12 @@ class FilesLibraryManager extends React.Component {
 
     render() {
         let intlStore = this.context.getStore(IntlStore);
+        let inputClass = 'input-field__input';
+
+        if (this.props.error) {
+            inputClass += ' input-field__input--error';
+        }
+
         return (
             <div className="file-library-manager">
                 <div className="file-library-manager__gallery">
@@ -95,6 +99,13 @@ class FilesLibraryManager extends React.Component {
                                       onChange={this.props.onChange} />
                     </div>
                 </div>
+                {this.props.error ?
+                    <div className="input-field__error">
+                        <Text size="small">{this.props.error}</Text>
+                    </div>
+                    :
+                    null
+                }
             </div>
         );
     }

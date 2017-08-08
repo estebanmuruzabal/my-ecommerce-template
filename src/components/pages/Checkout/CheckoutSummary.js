@@ -65,7 +65,7 @@ class CheckoutSummary extends React.Component {
         return (
             <div className="checkout-summary">
                 <div className="checkout-summary__order">
-                    <OrderSummary checkout={this.props.checkout} />
+                    <OrderSummary checkout={this.props.checkout} containsVerduras={this.props.containsVerduras} handleVerdurasChange={this.props.handleVerdurasChange}/>
                 </div>
                 {missingInfo.length > 0 ?
                     <div className="checkout-summary__warning">

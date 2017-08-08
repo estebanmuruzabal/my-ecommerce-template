@@ -15,10 +15,11 @@ export default {
         pagetype: 'Tipo de hoja',
         pagesnum: 'Cantidad de hojas del archivo (Número preciso para calcular el precio a pagar)',
         oficio: 'Hoja oficio',
-        a4: 'Hoja A4'
+        a4: 'Hoja A4',
+        doblefaz: 'Doble Faz',
     },
     es: {
-        addToCart: 'Pagar',
+        addToCart: 'Comprar',
         crossSell: 'Otros productos de esta colección',
         descriptionLabel: 'Descripción',
         homepage: 'Página Principal',
@@ -33,6 +34,7 @@ export default {
         pagetype: 'Tipo de hoja',
         pagesnum: 'Cantidad de hojas del archivo (Número preciso para calcular el precio a pagar)',
         oficio: 'Hoja oficio',
-        a4: 'Hoja A4'
+        a4: 'Hoja A4',
+        doblefaz: 'Doble Faz',
     }
 };
