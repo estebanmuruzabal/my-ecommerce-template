@@ -39,7 +39,7 @@ class OrderSummary extends React.Component {
         // Process Subtotal
         let subTotal = {value: 0, currency: undefined};
         let total = {value: 0, currency: undefined};
-        let anilladoProduct = undefined;
+        let anilladoProduct = false;
         if (this.props.checkout.cart && this.props.checkout.cart.products.length > 0) {
             this.props.checkout.cart.products.forEach(function (product) {
                 if (!subTotal.currency) {
@@ -59,6 +59,52 @@ class OrderSummary extends React.Component {
                 }
             });
         }
+
+        let anilladoDiv = () => {
+            if (anilladoProduct) {
+                return (
+                  <div key={5} className="order-summary__row order-summary__item">
+                       <div className="order-summary__list-name">
+                           <Breakpoint point="handhelds">
+                               <Text size="small">
+                                   {intlStore.getMessage(intlData, 'anillado')}
+                               </Text>
+                           </Breakpoint>
+                           <Breakpoint point="medium-screens">
+                               <Text>
+                                   {intlStore.getMessage(intlData, 'anillado')}
+                               </Text>
+                           </Breakpoint>
+                           <Breakpoint point="wide-screens">
+                               <Text>
+                                   {intlStore.getMessage(intlData, 'anillado')}
+                               </Text>
+                           </Breakpoint>
+                       </div>
+                       <div className="order-summary__list-quantity-price">
+                           <Text>
+                               {1}
+                           </Text>
+                           &nbsp;x&nbsp;
+                           <Text>
+                               <FormattedNumber
+                                   value={35}
+                                   style="currency"
+                                   currency="ARS" />
+                           </Text>
+                       </div>
+                       <div className="order-summary__list-total">
+                           <Text>
+                               <FormattedNumber
+                                   value={35}
+                                   style="currency"
+                                   currency="ARS" />
+                           </Text>
+                       </div>
+                  </div>
+                );
+            }
+        };
 
         return (
             <div className="order-summary">
@@ -130,45 +176,7 @@ class OrderSummary extends React.Component {
                                                 </Text>
                                             </div>
                                         </div>
-                                        <div key={idx+1} className="order-summary__row order-summary__item">
-                                             <div className="order-summary__list-name">
-                                                 <Breakpoint point="handhelds">
-                                                     <Text size="small">
-                                                         {intlStore.getMessage(intlData, 'anillado')}
-                                                     </Text>
-                                                 </Breakpoint>
-                                                 <Breakpoint point="medium-screens">
-                                                     <Text>
-                                                         {intlStore.getMessage(intlData, 'anillado')}
-                                                     </Text>
-                                                 </Breakpoint>
-                                                 <Breakpoint point="wide-screens">
-                                                     <Text>
-                                                         {intlStore.getMessage(intlData, 'anillado')}
-                                                     </Text>
-                                                 </Breakpoint>
-                                             </div>
-                                             <div className="order-summary__list-quantity-price">
-                                                 <Text>
-                                                     {1}
-                                                 </Text>
-                                                 &nbsp;x&nbsp;
-                                                 <Text>
-                                                     <FormattedNumber
-                                                         value={35}
-                                                         style="currency"
-                                                         currency={product.details.pricing.currency} />
-                                                 </Text>
-                                             </div>
-                                             <div className="order-summary__list-total">
-                                                 <Text>
-                                                     <FormattedNumber
-                                                         value={35}
-                                                         style="currency"
-                                                         currency={product.details.pricing.currency} />
-                                                 </Text>
-                                             </div>
-                                        </div>
+                                        {anilladoDiv()}
                                     </div>
                                     :
                                     <div>
