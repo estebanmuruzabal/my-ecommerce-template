@@ -9,7 +9,6 @@ import ContentsAPI from './contents';
 import CustomersAPI from './customers';
 import FilesAPI from './files';
 import OrdersAPI from './orders';
-import CopiesAPI from './copies';
 import ProductsAPI from './products';
 
 /**

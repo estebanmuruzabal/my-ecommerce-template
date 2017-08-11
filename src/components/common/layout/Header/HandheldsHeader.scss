@@ -2,7 +2,7 @@
 
 .handhelds-header {
     display: flex;
-    padding: 15px;
+    padding: 5px;
     border-bottom: solid 1px #eeeeee;
 }
 
@@ -25,14 +25,16 @@
      border-radius: 40px;
      cursor: pointer;
      background-color: #ff4056;
-     padding: 8px;
-
+     padding: 3px;
+     
      &:hover {
          span {
              color: $color-primary;
          }
      }
  }
+
+ .handhelds-header__logo-link a { text-decoration: none; }
 
  .handhelds-header__tienda {
    display: inline;

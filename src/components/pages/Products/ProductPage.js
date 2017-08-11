@@ -38,7 +38,6 @@ import ToggleSwitch from '../../common/buttons/ToggleSwitch';
 import Select from '../../common/forms/Select';
 import Textarea from '../../common/forms/Textarea';
 import Text from '../../common/typography/Text';
-import FotocopiasAddForm from '../Fotocopias/FotocopiasAddForm';
 import RadioSelect from '../../common/forms/RadioSelect';
 import FilesLibraryManager from '../../containers/files/FilesLibraryManager';
 

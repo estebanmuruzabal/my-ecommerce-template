@@ -33,7 +33,6 @@ import ProductsAddStore from './stores/Products/ProductsAddStore';
 import ProductsHomepageStore from './stores/Products/ProductsHomepageStore';
 import ProductsListStore from './stores/Products/ProductsListStore';
 import ProductSuggestionsStore from './stores/Products/ProductSuggestionsStore';
-import CopiesAddStore from './stores/Copies/CopiesAddStore';
 import RegisterStore from './stores/Account/RegisterStore';
 import ResetStore from './stores/Account/ResetStore';
 import ResponsiveStore from './stores/Application/ResponsiveStore';
@@ -79,7 +78,6 @@ const app = new Fluxible({
         ProductsHomepageStore,
         ProductsListStore,
         ProductSuggestionsStore,
-        CopiesAddStore,
         RegisterStore,
         ResetStore,
         ResponsiveStore
