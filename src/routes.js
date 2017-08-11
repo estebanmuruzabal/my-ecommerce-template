@@ -7,7 +7,7 @@ import {DefaultRoute, NotFoundRoute, Route} from 'react-router';
 // Required components
 import Application from './components/pages/Application/Application';
 import NotFound from './components/pages/NotFound/NotFound';
-import CommunityList from './components/pages/CommunityList/CommunityList';
+import Groups from './components/pages/Groups/Groups';
 
 
 import Homepage from './components/pages/Homepage/Homepage';
@@ -71,7 +71,7 @@ const routes = (
         <Route name="checkout" handler={Checkout} />
         <Route name="stores" handler={StoresPage} />
         <Route name="info" handler={InfoPage} />
-        <Route name="community-list" path="community-list" handler={CommunityList} />
+        <Route name="groups" path="groups" handler={Groups} />
         <Route name="articles" path="articles/?" handler={ArticlesListingPage} />
         <Route name="article" path="articles/:contentId/?" handler={ArticlePage} />
         <Route name="article-slug" path="articles/:contentId/:contentSlug/?" handler={ArticlePage} />

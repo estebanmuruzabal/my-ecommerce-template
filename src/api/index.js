@@ -8,6 +8,7 @@ import CollectionsAPI from './collections';
 import ContentsAPI from './contents';
 import CustomersAPI from './customers';
 import FilesAPI from './files';
+import GroupsAPI from './groups';
 import OrdersAPI from './orders';
 import ProductsAPI from './products';
 
@@ -24,7 +25,7 @@ class API {
         this.customers = new CustomersAPI({options: options.atlas, getAuthToken});
         this.files = new FilesAPI({options: options.atlas, getAuthToken});
         this.orders = new OrdersAPI({options: options.atlas, getAuthToken});
-        this.copies = new CopiesAPI({options: options.atlas, getAuthToken});
+        this.groups = new GroupsAPI({options: options.atlas, getAuthToken});
         this.products = new ProductsAPI({options: options.atlas, getAuthToken});
     }
 }
