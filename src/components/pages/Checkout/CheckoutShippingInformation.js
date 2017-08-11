@@ -83,7 +83,7 @@ class CheckoutShippingInformation extends React.Component {
       month[10]="Noviembre";
       month[11]="Diciembre";
 
-      for (let i = 0; i < 7 ; i++) {
+      for (let i = 1; i <= 7 ; i++) {
         let dayOfTheWeek = today.getDay()+i;
 
         if (dayOfTheWeek == 7) {
