@@ -9,8 +9,8 @@ import {Link} from 'react-router';
 // Flux
 import GroupsAddStore from '../../../stores/Groups/GroupsAddStore';
 import GroupsListStore from '../../../stores/Groups/GroupsListStore';
-import GroupsStore from '../../../stores/Groups/GroupsStore';
 import IntlStore from '../../../stores/Application/IntlStore';
+import AccountStore from '../../../stores/Account/AccountStore';
 
 import addGroup from '../../../actions/Groups/addGroup';
 import fetchGroups from '../../../actions/Groups/fetchGroups';
@@ -23,6 +23,9 @@ import Modal from '../../common/modals/Modal';
 import StatusIndicator from '../../common/indicators/StatusIndicator';
 import Table from '../../common/tables/Table';
 import Text from '../../common/typography/Text';
+import GroupAddForm from './GroupAddForm';
+
+//import PieChart from 'react-simple-pie-chart';
 
 // Translation data for this component
 import intlData from './Groups.intl';
@@ -48,33 +51,40 @@ class Groups extends React.Component {
 
     state = {
         addGroup: this.context.getStore(GroupsAddStore).getState(),
-        groups: this.context.getStore(GroupsListStore).getGroups()
+        groups: this.context.getStore(GroupsListStore).getGroups(),
+        user: this.context.getStore(AccountStore).getAccountDetails(),
     };
 
     //*** Component Lifecycle ***//
+    componentWillMount() {
+        //this.context.executeAction(fetchGroups);
+    }
 
     componentDidMount() {
 
         // Component styles
         require('./Groups.scss');
+        //this.context.executeAction(fetchGroups);
+
     }
 
     componentWillReceiveProps(nextProps) {
         // Update state
         this.setState({
-            addGroup: nextProps._addGroups,
-            groups: nextProps.groups
+            addGroup: nextProps._addGroup,
+            groups: nextProps.groups,
+            user: nextProps._user,
         });
     }
 
     //*** View Controllers ***//
 
-    handleNewCollectionClick = () => {
-        this.setState({showNewCollectionModal: true});
+    handleNewGroupClick = () => {
+        this.setState({showNewGroupModal: true});
     };
 
-    handleNewCollectionCloseClick = () => {
-        this.setState({showNewCollectionModal: false});
+    handleNewGroupCloseClick = () => {
+        this.setState({showNewGroupModal: false});
     };
 
     handleNewGroupSubmitClick = (data) => {
@@ -90,7 +100,10 @@ class Groups extends React.Component {
         //
 
         let intlStore = this.context.getStore(IntlStore);
-        let routeParams = {locale: this.context.getStore(IntlStore).getCurrentLocale()}; // Base route params
+        let routeParams = {locale: this.context.getStore(IntlStore).getCurrentLocale()};
+
+        let isAdmin = this.context.getStore(AccountStore).isAuthorized(['admin']);
+        let isGroupUser = this.context.getStore(AccountStore).isAuthorized(['groupuser']);
 
         let headings = [
             <FormattedMessage
@@ -110,25 +123,102 @@ class Groups extends React.Component {
         let rows = this.state.groups.map((group) => {
             return {
                 data: [
-                    <span className="admin-collections__link">
-                        <Link to="adm-collection-edit" params={Object.assign({groupId: group.id}, routeParams)}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(group.name)}
-                                locales={intlStore.getCurrentLocale()} />
-                        </Link>
-                    </span>
+                    <Text size="medium">
+                        <div className="groups__labels">
+                            {group.tags.map(function (section, idx) {
+                                return (
+                                    <div key={idx} className="groups__label">
+                                        <Label>
+                                            <FormattedMessage
+                                                message={intlStore.getMessage(intlData, section)}
+                                                locales={intlStore.getCurrentLocale()} />
+                                        </Label>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </Text>
                 ]
             };
         });
 
+        let newGroupModal = () => {
+            if (this.state.showNewGroupModal) {
+                return (
+                    <Modal title={intlStore.getMessage(intlData, 'newModalTitle')}
+                           onCloseClick={this.handleNewGroupCloseClick}>
+                        <GroupAddForm
+                            loading={this.state.addGroup.loading}
+                            onCancelClick={this.handleNewGroupCloseClick}
+                            onSubmitClick={this.handleNewGroupSubmitClick} />
+                    </Modal>
+                );
+            }
+        };
 
-        //
-        // Return
-        //
         return (
-            <div className="admin-collections">
+          <div className="groups">
+              <div className="groups__title">
+                  <Heading size="large">
+                      <FormattedMessage
+                          message={intlStore.getMessage(intlData, 'title')}
+                          locales={intlStore.getCurrentLocale()} />
+                  </Heading>
+              </div>
+              <div className="groups__content">
+                <div className="groups__block">
+                    <Heading size="medium">
+                      <FormattedMessage
+                          message={intlStore.getMessage(intlData, 'subtitle')}
+                          locales={intlStore.getCurrentLocale()} />
+                    </Heading>
+                    <div className="groups__support">
+                        <p><FormattedMessage
+                            message={intlStore.getMessage(intlData, 'content1')}
+                            locales={intlStore.getCurrentLocale()} /></p>
+                    </div>
+                </div>
+              </div>
 
-            </div>
+              { isAdmin ?
+                <div className="groups">
+                    {newGroupModal()}
+
+                    <div className="groups__header">
+                        <div className="groups__title">
+                            <Heading size="medium">
+                                <FormattedMessage
+                                    message={intlStore.getMessage(intlData, 'title')}
+                                    locales={intlStore.getCurrentLocale()} />
+                            </Heading>
+                        </div>
+                        <div className="groups__toolbar">
+                            <div className="groups__add-button">
+                                <Button type="primary" onClick={this.handleNewGroupClick}>
+                                    <FormattedMessage
+                                        message={intlStore.getMessage(intlData, 'new')}
+                                        locales={intlStore.getCurrentLocale()} />
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  :
+                  null
+              }
+              {this.state.groups.length === 0 ?
+                  <div className="groups__no-results">
+                      <Text size="small">
+                          <FormattedMessage message={intlStore.getMessage(intlData, 'noResults')}
+                                            locales={intlStore.getCurrentLocale()} />
+                      </Text>
+                  </div>
+                  :
+                  <div className="groups__list">
+                      <Table headings={headings} rows={rows} />
+                  </div>
+              }
+          </div>
         );
     }
 }
@@ -136,9 +226,10 @@ class Groups extends React.Component {
 /**
  * Flux
  */
-Groups = connectToStores(Groups, [GroupsAddStore, GroupsListStore], (context) => {
+Groups = connectToStores(Groups, [GroupsAddStore, AccountStore , GroupsListStore], (context) => {
     return {
-        _addGroups: context.getStore(GroupsAddStore).getState(),
+        _addGroup: context.getStore(GroupsAddStore).getState(),
+        _user: context.getStore(AccountStore).getAccountDetails(),
         _groups: context.getStore(GroupsListStore).getGroups()
     };
 });
@@ -147,3 +238,18 @@ Groups = connectToStores(Groups, [GroupsAddStore, GroupsListStore], (context) =>
  * Exports
  */
 export default Groups;
+
+// <div className="pie-container">
+// <PieChart
+//   slices={[
+//     {
+//       color: '#f00',
+//       value: 10,
+//     },
+//     {
+//       color: '#0f0',
+//       value: 20,
+//     },
+//   ]}
+// />
+// </div>

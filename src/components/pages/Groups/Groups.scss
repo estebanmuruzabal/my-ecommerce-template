@@ -1,0 +1,61 @@
+@import '../../../styles/variables.scss';
+
+/*
+ * Header
+ */
+
+.groups__header {
+    display: flex;
+}
+
+.groups__title {
+    width: 100%;
+    align-self: center;
+}
+
+.groups__toolbar {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: flex-end;
+}
+
+.groups__add-button {
+    width: 130px;
+}
+
+/*
+ * List
+ */
+
+.groups__list {
+    margin-top: 30px;
+}
+
+.groups__link {
+    & > a {
+        color: $color-primary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.groups__labels {
+    display: flex;
+}
+
+.groups__label {
+    &:not(:first-child) {
+        margin-left: 5px;
+    }
+}
+
+.groups__no-results {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: $color-secondary;
+    border-radius: 4px;
+}

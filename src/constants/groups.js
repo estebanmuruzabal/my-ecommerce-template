@@ -31,14 +31,4 @@ export default keyMirror({
     GROUPS_ITEM_SAVE: null,
     GROUPS_ITEM_SAVE_SUCCESS: null,
     GROUPS_ITEM_SAVE_ERROR: null,
-
-    // Bulk updates
-    GROUPS_BULK_SAVE: null,
-    GROUPS_BULK_SAVE_SUCCESS: null,
-    GROUPS_BULK_SAVE_ERROR: null,
-
-    // Update featured in homepage
-    GROUPS_HOMEPAGE_FEATURED_UPDATE: null,
-    GROUPS_HOMEPAGE_FEATURED_UPDATE_SUCCESS: null,
-    GROUPS_HOMEPAGE_FEATURED_UPDATE_ERROR: null
 });
