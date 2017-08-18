@@ -11,10 +11,13 @@ import GroupsAddStore from '../../../stores/Groups/GroupsAddStore';
 import GroupsListStore from '../../../stores/Groups/GroupsListStore';
 import IntlStore from '../../../stores/Application/IntlStore';
 import AccountStore from '../../../stores/Account/AccountStore';
+import ProductDetailsStore from '../../../stores/Products/ProductDetailsStore';
 
 import addGroup from '../../../actions/Groups/addGroup';
 import fetchGroups from '../../../actions/Groups/fetchGroups';
 import updateGroup from '../../../actions/Groups/updateGroup';
+import fetchProductAndCheckIfFound from '../../../actions/Products/fetchProductAndCheckIfFound';
+import addToCart from '../../../actions/Cart/addToCart';
 
 // Required components
 import Button from '../../common/buttons/Button';
@@ -48,6 +51,7 @@ class Groups extends React.Component {
     };
 
     state = {
+        product: this.context.getStore(ProductDetailsStore).getProduct(),
         addGroup: this.context.getStore(GroupsAddStore).getState(),
         groups: this.context.getStore(GroupsListStore).getGroups(),
         user: this.context.getStore(AccountStore).getAccountDetails(),
@@ -57,10 +61,12 @@ class Groups extends React.Component {
 
     componentDidMount() {
         require('./Groups.scss');
+        this.context.executeAction(fetchProductAndCheckIfFound, 'b7a108b9-0663-4ab3-b300-45980ffe9e63');
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
+          product: nextProps._product,
             addGroup: nextProps._addGroup,
             groups: nextProps._groups,
             user: nextProps._user,
@@ -120,6 +126,15 @@ class Groups extends React.Component {
                 }
             });
           }
+
+
+          let payload = Object.assign({details: this.state.product}, {
+              id: this.state.product.id,
+              quantity: 1
+          });
+          this.setState({addingToCart: true});
+          this.context.executeAction(addToCart, payload);
+
 
     };
 
@@ -276,8 +291,9 @@ class Groups extends React.Component {
 /**
  * Flux
  */
-Groups = connectToStores(Groups, [GroupsAddStore, AccountStore , GroupsListStore], (context) => {
+Groups = connectToStores(Groups, [GroupsAddStore, AccountStore , GroupsListStore, ProductDetailsStore], (context) => {
     return {
+        _product: context.getStore(ProductDetailsStore).getProduct(),
         _addGroup: context.getStore(GroupsAddStore).getState(),
         _user: context.getStore(AccountStore).getAccountDetails(),
         _groups: context.getStore(GroupsListStore).getGroups()
