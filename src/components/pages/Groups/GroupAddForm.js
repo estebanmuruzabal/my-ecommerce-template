@@ -32,15 +32,13 @@ class GroupAddForm extends React.Component {
     state = {
         name: {en: '', es: ''},
         tags: [],
-        fieldErrors: {},
-        showNewCollectionModal: false
+        buyers: [],
+        fieldErrors: {}
     };
 
     //*** Component Lifecycle ***//
 
     componentDidMount() {
-
-        // Component styles
         require('./GroupAddForm.scss');
     }
 
@@ -71,6 +69,7 @@ class GroupAddForm extends React.Component {
         if (Object.keys(fieldErrors).length === 0) {
             this.props.onSubmitClick({
                 name: this.state.name,
+                buyers: this.state.buyers,
                 tags: this.state.tags
             });
         }
@@ -96,6 +95,7 @@ class GroupAddForm extends React.Component {
         if (Object.keys(fieldErrors).length === 0) {
             this.props.onSubmitClick({
                 name: this.state.name,
+                buyers: this.state.buyers,
                 tags: this.state.tags
             });
         }
@@ -140,14 +140,14 @@ class GroupAddForm extends React.Component {
                 </div>
                 <div className="group-add-form__actions">
                     <div className="group-add-form__button">
-                        <Button type="default" onClick={this.props.onCancelClick} disabled={this.props.loading}>
+                        <Button type="default" onClick={this.props.onCancelClick}>
                             <FormattedMessage
                                 message={intlStore.getMessage(intlData, 'cancel')}
                                 locales={intlStore.getCurrentLocale()} />
                         </Button>
                     </div>
                     <div className="group-add-form__button">
-                        <Button type="primary" onClick={this.handleSubmitClick} disabled={this.props.loading}>
+                        <Button type="primary" onClick={this.handleSubmitClick}>
                             <FormattedMessage
                                 message={intlStore.getMessage(intlData, 'add')}
                                 locales={intlStore.getCurrentLocale()} />

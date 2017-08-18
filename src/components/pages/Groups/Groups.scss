@@ -10,7 +10,7 @@
 
 .groups__title {
     width: 100%;
-    align-self: center;
+    margin: 30px;
 }
 
 .groups__toolbar {
@@ -24,12 +24,19 @@
     width: 130px;
 }
 
-/*
- * List
- */
+.groups {
+  margin: 0 100px 0 100px;
+}
+
+.circule-container {
+  width: 130px;
+  height: 130px;
+}
 
 .groups__list {
-    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    width: 150px;
 }
 
 .groups__link {
@@ -43,11 +50,18 @@
     }
 }
 
-.groups__labels {
-    display: flex;
+.groups-item {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
 }
 
-.groups__label {
+.groups__labels {
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.groups__labels {
     &:not(:first-child) {
         margin-left: 5px;
     }

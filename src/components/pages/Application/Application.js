@@ -98,8 +98,11 @@ class Application extends React.Component {
         });
 
         let tabs = [
-          
-        ];
+           {
+               name: 'Grupos',
+               to: 'groups'
+           }
+         ];
 
         // Compute CSS classes for the overlay
         let overlayClass = 'application__overlay';

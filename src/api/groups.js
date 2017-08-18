@@ -70,7 +70,7 @@ class GroupsAPI {
      */
     getAll() {
         return new Promise((resolve, reject) => {
-            let request = superagent.get(`${this.baseUrl}/groups`).query(params || {});
+            let request = superagent.get(`${this.baseUrl}/groups`);
             this._wrapAndRequest(request, resolve, reject);
         });
     }
