@@ -61,7 +61,7 @@ class Groups extends React.Component {
 
     componentDidMount() {
         require('./Groups.scss');
-        this.context.executeAction(fetchProductAndCheckIfFound, 'b7a108b9-0663-4ab3-b300-45980ffe9e63');
+        this.context.executeAction(fetchProductAndCheckIfFound, '3f1bad55-0060-4553-b918-d29d6892cf3b');
     }
 
     componentWillReceiveProps(nextProps) {
@@ -282,7 +282,7 @@ class Groups extends React.Component {
                         })}
                   </div>
               }
-              <VerdurasProduct productId="b7a108b9-0663-4ab3-b300-45980ffe9e63"/>
+              <VerdurasProduct productId="3f1bad55-0060-4553-b918-d29d6892cf3b"/>
           </div>
         );
     }
