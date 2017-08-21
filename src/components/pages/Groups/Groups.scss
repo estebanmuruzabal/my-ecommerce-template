@@ -24,6 +24,11 @@
     width: 130px;
 }
 
+.groups__register-button {
+    width: 140px;
+    margin: 15px;
+}
+
 .groups {
   margin: 0 100px 0 100px;
 }
@@ -37,6 +42,11 @@
     display: flex;
     flex-direction: row;
     width: 150px;
+}
+
+.groups-register-modal-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .groups__link {

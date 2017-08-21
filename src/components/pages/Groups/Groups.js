@@ -56,7 +56,10 @@ class Groups extends React.Component {
         groups: this.context.getStore(GroupsListStore).getGroups(),
         user: this.context.getStore(AccountStore).getAccountDetails(),
         buyers: [],
-        registerModal: false
+        registerModal: false,
+        showThanksModal: false,
+        showNewGroupModal: false,
+        showGrupoCompletoModal: false,
     };
 
     componentDidMount() {
@@ -65,13 +68,17 @@ class Groups extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+
         this.setState({
-          product: nextProps._product,
+            product: nextProps._product,
             addGroup: nextProps._addGroup,
             groups: nextProps._groups,
             user: nextProps._user,
             buyers: [],
-            registerModal: false
+            registerModal: false,
+            showThanksModal: false,
+            showNewGroupModal: false,
+            showGrupoCompletoModal: false,
         });
     }
 
@@ -84,6 +91,15 @@ class Groups extends React.Component {
     handleNewGroupCloseClick = () => {
         this.setState({showNewGroupModal: false});
     };
+
+    handleShowThanksModalCloseClick = () => {
+        this.setState({showThanksModal: false});
+    };
+
+    handleShowGrupoCompletoModalCloseClick = () => {
+        this.setState({showGrupoCompletoModal: false});
+    };
+
 
     handleNewGroupSubmitClick = (data) => {
         this.context.executeAction(addGroup, data);
@@ -101,8 +117,8 @@ class Groups extends React.Component {
     handleGetInGroupClick = (group) => {
       let user = this.state.user;
 
-          if(group.buyers.length == 14) {
-            alert("Se ha completado el grupo de compradores. Por favor unirse a uno incompleto.");
+          if(group.buyers.length === 14) {
+            this.setState({showGrupoCompletoModal: true});
           } else if (group.buyers.indexOf(user.email) !== -1){
               if (confirm("Usted Ya esta en el grupo. Desea comprar otra unidad?") == true) {
                       group.buyers.push(user.email);
@@ -114,6 +130,13 @@ class Groups extends React.Component {
                               buyers: group.buyers
                           }
                       });
+
+                      let payload = Object.assign({details: this.state.product}, {
+                          id: this.state.product.id,
+                          quantity: 2
+                      });
+                      this.context.executeAction(addToCart, payload);
+                      this.setState({addingToCart: true,showThanksModal: true});
                   }
           } else {
             group.buyers.push(user.email);
@@ -125,17 +148,14 @@ class Groups extends React.Component {
                     buyers: group.buyers
                 }
             });
+
+            let payload = Object.assign({details: this.state.product}, {
+                id: this.state.product.id,
+                quantity: 1
+            });
+            this.context.executeAction(addToCart, payload);
+            this.setState({addingToCart: true,showThanksModal: true});
           }
-
-
-          let payload = Object.assign({details: this.state.product}, {
-              id: this.state.product.id,
-              quantity: 1
-          });
-          this.setState({addingToCart: true});
-          this.context.executeAction(addToCart, payload);
-
-
     };
 
     //*** Template ***//
@@ -159,36 +179,82 @@ class Groups extends React.Component {
             }
         };
 
+        let thanksModal = () => {
+            if (this.state.showThanksModal) {
+                return (
+                    <Modal onCloseClick={this.handleShowThanksModalCloseClick}>
+                           <div className="groups-register-modal-container">
+                             <FormattedMessage
+                                 message={intlStore.getMessage(intlData, 'thanksModalTitle')}
+                                 locales={intlStore.getCurrentLocale()} />
+                             <div className="groups__register-button">
+                               <Link to="checkout" params={routeParams}>
+                                 <Button type="primary">
+                                     <FormattedMessage
+                                         message={intlStore.getMessage(intlData, 'aceptar')}
+                                         locales={intlStore.getCurrentLocale()} />
+                                 </Button>
+                               </Link>
+                             </div>
+                          </div>
+                    </Modal>
+                );
+            }
+        };
+
+        let grupoCompletoModal = () => {
+            if (this.state.showGrupoCompletoModal) {
+                return (
+                    <Modal onCloseClick={this.handleShowGrupoCompletoModalCloseClick}>
+                           <div className="groups-register-modal-container">
+                             <FormattedMessage
+                                 message={intlStore.getMessage(intlData, 'grupoCompletoModalTitle')}
+                                 locales={intlStore.getCurrentLocale()} />
+                             <div className="groups__register-button">
+                                 <Button type="primary" onClick={this.handleShowGrupoCompletoModalCloseClick}>
+                                    <FormattedMessage
+                                         message={intlStore.getMessage(intlData, 'aceptar')}
+                                         locales={intlStore.getCurrentLocale()} />
+                                 </Button>
+                             </div>
+                          </div>
+                    </Modal>
+                );
+            }
+        };
+
         let registerModal = () => {
             if (this.state.registerModal) {
                 return (
                     <Modal title={intlStore.getMessage(intlData, 'registerModalTitle')}
                            onCloseClick={this.handleRegiserModalCloseClick}>
-                           <div className="groups__add-button">
-                             <Link to="login" params={routeParams}>
-                               <Button type="primary">
+                           <div className="groups-register-modal-container">
+                             <div className="groups__register-button">
+                               <Link to="login" params={routeParams}>
+                                 <Button type="primary">
+                                     <FormattedMessage
+                                         message={intlStore.getMessage(intlData, 'login')}
+                                         locales={intlStore.getCurrentLocale()} />
+                                 </Button>
+                               </Link>
+                             </div>
+                             <div className="groups__register-button">
+                               <Link to="register" params={routeParams}>
+                                 <Button type="primary">
+                                     <FormattedMessage
+                                         message={intlStore.getMessage(intlData, 'register')}
+                                         locales={intlStore.getCurrentLocale()} />
+                                 </Button>
+                               </Link>
+                             </div>
+                             <div className="groups__register-button">
+                               <Button type="default" onClick={this.handleRegiserModalCloseClick}>
                                    <FormattedMessage
-                                       message={intlStore.getMessage(intlData, 'login')}
+                                       message={intlStore.getMessage(intlData, 'cancel')}
                                        locales={intlStore.getCurrentLocale()} />
                                </Button>
-                             </Link>
-                           </div>
-                           <div className="groups__add-button">
-                             <Link to="register" params={routeParams}>
-                               <Button type="primary">
-                                   <FormattedMessage
-                                       message={intlStore.getMessage(intlData, 'register')}
-                                       locales={intlStore.getCurrentLocale()} />
-                               </Button>
-                             </Link>
-                           </div>
-                           <div className="groups__add-button">
-                             <Button type="default" onClick={this.handleRegiserModalCloseClick}>
-                                 <FormattedMessage
-                                     message={intlStore.getMessage(intlData, 'cancel')}
-                                     locales={intlStore.getCurrentLocale()} />
-                             </Button>
-                           </div>
+                             </div>
+                          </div>
                     </Modal>
                 );
             }
@@ -205,6 +271,8 @@ class Groups extends React.Component {
               </div>
               <div className="groups__content">
               {registerModal()}
+              {thanksModal()}
+              {grupoCompletoModal()}
                 <div className="groups__block">
                     <Heading size="medium">
                       <FormattedMessage
