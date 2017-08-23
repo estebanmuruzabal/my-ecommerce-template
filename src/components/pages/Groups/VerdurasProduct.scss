@@ -224,13 +224,13 @@
     margin-top: 30px;
 }
 
-.table__table {
+.groups-table__table {
     width: 70%;
     border: 1px solid #eeeeee;
     text-align: left;
 }
 
-.table__row {
+.groups-table__row {
     border-bottom: 1px solid #eeeeee;
 
 
@@ -251,13 +251,13 @@
     }
 }
 
-.table__heading,
-.table__data {
+.groups-table__heading,
+.groups-table__data {
     vertical-align: middle;
     padding: 2px;
 }
 
-.table__body > .table__row {
+.groups-table__body > .groups-table__row {
     &:hover {
         background-color: #F9F9F9;
     }

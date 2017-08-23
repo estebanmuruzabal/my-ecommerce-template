@@ -261,86 +261,86 @@ class VerdurasProduct extends React.Component {
                                     </Text>
                                 </div>
                                 <div className="product-page__description">
-                                    <div className="table">
-                                        <table className="table__table">
+                                    <div className="groups-table">
+                                        <table className="groups-table__table">
                                             <thead>
-                                                <tr className="table__row">
-                                                  <th className="table__heading">
+                                                <tr className="groups-table__row">
+                                                  <th className="groups-table__heading">
                                                       <Text weight="bold" size="medium">Lista del box</Text>
                                                   </th>
-                                                  <th className="table__heading">
+                                                  <th className="groups-table__heading">
                                                       <Text weight="bold" size="medium">Cantidad</Text>
                                                   </th>
                                                 </tr>
                                             </thead>
-                                            <tbody className="table__body">
+                                            <tbody className="groups-table__body">
                                               <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Tomate Perita</Text></td>
-                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">Tomate Perita</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Zanahoria</Text></td>
-                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Zanahoria</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Cebolla</Text></td>
-                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Cebolla</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Batata</Text></td>
-                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Batata</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Papa</Text></td>
-                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Papa</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Zapallo Brasilero</Text></td>
-                                                <td className="table__data"><Text size="medium">1 unidad(1.5kg)</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 unidad(1.5kg)</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Limones</Text></td>
-                                                <td className="table__data"><Text size="medium">2 unidades</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Limones</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">2 unidades</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Huevos</Text></td>
-                                                <td className="table__data"><Text size="medium">6 unidades</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Huevos</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">6 unidades</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Mix de Morron</Text></td>
-                                                <td className="table__data"><Text size="medium">800 grs.</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Mix de Morron</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Choclo</Text></td>
-                                                <td className="table__data"><Text size="medium">2 unidades</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Choclo</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">2 unidades</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Banana</Text></td>
-                                                <td className="table__data"><Text size="medium">1 Doc.</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Banana</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 Doc.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Manzana</Text></td>
-                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Manzana</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Zapallito</Text></td>
-                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Zapallito</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Cebollita de V.</Text></td>
-                                                <td className="table__data"><Text size="medium">1 atado</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Naranja</Text></td>
-                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Naranja</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Acelga</Text></td>
-                                                <td className="table__data"><Text size="medium">1 atado</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Acelga</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
                                               </tr>
-                                              <tr className="table__row">
-                                                <td className="table__data"><Text size="medium">Lechuga Romana</Text></td>
-                                                <td className="table__data"><Text size="medium">1 atado</Text></td>
+                                              <tr className="groups-table__row">
+                                                <td className="groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
                                               </tr>
                                             </tbody>
                                         </table>
