@@ -114,11 +114,9 @@ class Groups extends React.Component {
     };
 
     handleGetOutGroupClick = (group) => {
-        console.log("group",group);
         let index = group.buyers.indexOf(this.state.user.email);
         if (index >= 0) {
           group.buyers.splice( index, 1 );
-          console.log("group",group);
           this.context.executeAction(updateGroup, {
               id: group.id,
               data: {
@@ -237,6 +235,7 @@ class Groups extends React.Component {
                     <Modal title={intlStore.getMessage(intlData, 'registerModalTitle')}
                            onCloseClick={this.handleRegiserModalCloseClick}>
                            <div className="groups-register-modal-container">
+                           <div className="groups-bottoms-container">
                              <div className="groups__register-button">
                                <Link to="login" params={routeParams}>
                                  <Button type="primary">
@@ -263,6 +262,7 @@ class Groups extends React.Component {
                                </Button>
                              </div>
                           </div>
+                        </div>
                     </Modal>
                 );
             }

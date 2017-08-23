@@ -35,7 +35,7 @@
 }
 
 .groups {
-  margin: 0 100px 0 100px;
+  margin: 5px;
 }
 
 .circule-container {
@@ -47,6 +47,11 @@
     display: flex;
     flex-direction: row;
     width: 150px;
+    @include breakpoint(handhelds) {
+      display: flex;
+      flex-direction: column;
+
+    }
 }
 
 .groups-register-modal-container {
@@ -74,6 +79,10 @@
   display: flex;
   flex-direction: column;
   margin: 30px;
+  align-items: center;
+  @include breakpoint(handhelds) {
+    margin: 10px;
+  }
 }
 
 .groups__labels {

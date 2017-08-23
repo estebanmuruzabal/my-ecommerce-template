@@ -20,6 +20,7 @@ import createCart from '../../../actions/Cart/createCart';
 import createCheckout from '../../../actions/Checkout/createCheckout';
 import createOrder from '../../../actions/Orders/createOrder';
 import updateCheckout from '../../../actions/Checkout/updateCheckout';
+import sendOrderEmail from '../../../actions/Orders/sendOrderEmail';
 import updateProduct from '../../../actions/Admin/updateProduct';
 
 // Required components
@@ -324,54 +325,23 @@ class Checkout extends React.Component {
     //
 
     handleCheckoutClick = () => {
-        let payload = {
-            checkoutId: this.state.checkout.id,
-            cartAccessToken: this.state.cart.accessToken,
-            paymentDetails: {
-                amount: this.state.checkout.total,
-                currency: this.state.checkout.currency,
-                chargeType: this.state.checkout.paymentMethod,
-                provider: this.state.paymentInstrument.provider,
-                instrument: this.state.paymentInstrument.params || {}
-            }
-        };
-        this.context.executeAction(createOrder, payload);
 
-        if (this.state.checkout.cart && this.state.checkout.cart.products.length > 0) {
-            this.state.checkout.cart.products.forEach(function (product) {
-                if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
-                  context.executeAction(updateProduct, {
-                      id: product.id,
-                      data: {
-                          enabled: product.details.enabled,
-                          sku: product.details.sku,
-                          name: product.details.name,
-                          description: product.details.description,
-                          images: product.details.images,
-                          pricing: {
-                              currency: product.details.pricing.currency,
-                              list: parseFloat(product.details.pricing.list),
-                              retail: parseFloat(product.details.pricing.retail),
-                              vat: parseInt(product.details.pricing.vat)
-                          },
-                          stock: parseInt(product.details.stock),
-                          tags: product.details.tags,
-                          collections: product.details.collections,
-                          copies: {
-                              pagetype: '',
-                              pagesnum: 0,
-                              files: [],
-                              comments: '',
-                              price: 0,
-                              anillado: false,
-                              doblefaz: true
-                          },
-                          metadata: product.details.metadata
-                      }
-                  });
+        console.log("this.state.checkout.paymentMethod",this.state.checkout.paymentMethod);
+
+        if (this.state.checkout.paymentMethod.id == 'cash') {
+          // send email of created order
+          if (checkout.paymentMethod.id == 'cash') {
+            this.context.executeAction(sendOrderEmail,
+              {orderId: this.state.order.id,
+                data: {
+                  template: 'order.created',
+                  email: this.state.user.email,
+                  subject: 'Pedido creado correctamente'
                 }
-            });
+              });
+          }
         }
+
     };
 
     handleOrderErrorModalCloseClick = () => {
@@ -387,7 +357,7 @@ class Checkout extends React.Component {
     render() {
         let intlStore = this.context.getStore(IntlStore);
         let routeParams = {locale: this.context.getStore(IntlStore).getCurrentLocale()}; // Base route params
-
+        
         let orderModal = () => {
             if (this.state.orderLoading) {
                 return (

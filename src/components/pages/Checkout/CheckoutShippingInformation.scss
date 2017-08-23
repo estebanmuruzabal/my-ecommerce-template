@@ -39,4 +39,7 @@
 .checkout-shipping-information__column {
     display: flex;
     flex-direction: row;
+    @include breakpoint(handhelds) {
+      flex-direction: column;
+    }
 }
