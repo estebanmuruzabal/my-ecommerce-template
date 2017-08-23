@@ -461,6 +461,9 @@ class AdminProductsEdit extends React.Component {
                                     <Checkbox label={intlStore.getMessage(intlData, 'verduras')}
                                               onChange={this.handleSectionChange.bind(null, 'verduras')}
                                               checked={this.state.product.tags && this.state.product.tags.indexOf('verduras') !== -1} />
+                                    <Checkbox label={intlStore.getMessage(intlData, 'cajon')}
+                                              onChange={this.handleSectionChange.bind(null, 'cajon')}
+                                              checked={this.state.product.tags && this.state.product.tags.indexOf('cajon') !== -1} />
                                 </InlineItems>
                             </div>
                         </div>

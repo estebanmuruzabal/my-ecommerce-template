@@ -145,13 +145,21 @@ class CheckoutBillingInformation extends React.Component {
                             null
                         }
                         {paymentOptions ?
-                            <div className="checkout-billing-information__select-payment-method">
-                                <CheckoutSection number="3.1"
-                                                 size="small"
-                                                 title={intlStore.getMessage(intlData, 'paymentMethodLabel')} />
-                                <RadioSelect options={paymentOptions}
-                                             onChange={this.handlePaymentOptionsChange}
-                                             value={this.props.paymentMethod} />
+                           <div>
+                              <div className="checkout-billing-information__select-payment-method">
+                                  <CheckoutSection number="3.1"
+                                                   size="small"
+                                                   title={intlStore.getMessage(intlData, 'paymentMethodLabel')} />
+                                  <RadioSelect options={paymentOptions}
+                                               onChange={this.handlePaymentOptionsChange}
+                                               value={this.props.paymentMethod} />
+                              </div>
+                              <div className="checkout-summary__warning">
+                                  <Heading size="small">
+                                    <FormattedMessage message={intlStore.getMessage(intlData, 'creditCardAclaration')}
+                                                      locales={intlStore.getCurrentLocale()} />
+                                  </Heading>
+                              </div>
                             </div>
                             :
                             null

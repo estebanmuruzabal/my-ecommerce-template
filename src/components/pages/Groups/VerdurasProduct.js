@@ -29,6 +29,7 @@ import ArticleSummary from '../../common/articles/ArticleSummary';
 import Breadcrumbs from '../../common/navigation/Breadcrumbs';
 import Button from '../../common/buttons/Button';
 import Heading from '../../common/typography/Heading';
+import Table from '../../common/tables/Table';
 import ImageGallery from '../../common/images/ImageGallery';
 import NotFound from '../../pages/NotFound/NotFound';
 import InputField from '../../common/forms/InputField';
@@ -228,6 +229,124 @@ class VerdurasProduct extends React.Component {
                     :
                     <div>
                         <div className="product-page__product" itemScope itemType="http://schema.org/Product">
+
+                            <div className="product-page__details">
+                                <div className="product-page__name" itemProp="name">
+                                    <Heading size="large">
+                                        <FormattedMessage
+                                            message={intlStore.getMessage(this.state.product.name)}
+                                            locales={intlStore.getCurrentLocale()} />
+                                    </Heading>
+                                </div>
+                                {this.state.product.pricing ?
+                                    <div className="product-page__price" itemProp="offers" itemScope itemType="http://schema.org/Offer">
+                                        <div style={{display: 'none'}} itemProp="price">
+                                            {this.state.product.pricing.retail}
+                                        </div>
+                                        <div style={{display: 'none'}} itemProp="priceCurrency">
+                                            {this.state.product.pricing.currency}
+                                        </div>
+                                        <div>
+                                            <Text size="medium" weight="bold">
+                                                Precio : $<FormattedNumber value={this.state.product.pricing.retail} />
+                                            </Text>
+                                        </div>
+                                    </div>
+                                    :
+                                    null
+                                }
+                                <div className="product-page__sku">
+                                    <Text size="small">
+                                        Ref: <span itemProp="sku">{this.state.product.sku}</span>
+                                    </Text>
+                                </div>
+                                <div className="product-page__description">
+                                    <div className="table">
+                                        <table className="table__table">
+                                            <thead>
+                                                <tr className="table__row">
+                                                  <th className="table__heading">
+                                                      <Text weight="bold" size="medium">Lista del box</Text>
+                                                  </th>
+                                                  <th className="table__heading">
+                                                      <Text weight="bold" size="medium">Cantidad</Text>
+                                                  </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="table__body">
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Tomate Perita</Text></td>
+                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Zanahoria</Text></td>
+                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Cebolla</Text></td>
+                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Batata</Text></td>
+                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Papa</Text></td>
+                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Zapallo Brasilero</Text></td>
+                                                <td className="table__data"><Text size="medium">1 unidad(1.5kg)</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Limones</Text></td>
+                                                <td className="table__data"><Text size="medium">2 unidades</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Huevos</Text></td>
+                                                <td className="table__data"><Text size="medium">6 unidades</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Mix de Morron</Text></td>
+                                                <td className="table__data"><Text size="medium">800 grs.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Choclo</Text></td>
+                                                <td className="table__data"><Text size="medium">2 unidades</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Banana</Text></td>
+                                                <td className="table__data"><Text size="medium">1 Doc.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Manzana</Text></td>
+                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Zapallito</Text></td>
+                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Cebollita de V.</Text></td>
+                                                <td className="table__data"><Text size="medium">1 atado</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Naranja</Text></td>
+                                                <td className="table__data"><Text size="medium">1 kg.</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Acelga</Text></td>
+                                                <td className="table__data"><Text size="medium">1 atado</Text></td>
+                                              </tr>
+                                              <tr className="table__row">
+                                                <td className="table__data"><Text size="medium">Lechuga Romana</Text></td>
+                                                <td className="table__data"><Text size="medium">1 atado</Text></td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                              </div>
                             <div className="product-page__gallery-container">
                                 {this.state.product.images && this.state.product.images.length > 0 ?
                                     <div className="product-page__gallery">
@@ -242,59 +361,6 @@ class VerdurasProduct extends React.Component {
                                     </div>
                                 }
                             </div>
-                            <div className="product-page__details">
-                                <div className="product-page__name" itemProp="name">
-                                    <Heading size="large">
-                                        <FormattedMessage
-                                            message={intlStore.getMessage(this.state.product.name)}
-                                            locales={intlStore.getCurrentLocale()} />
-                                    </Heading>
-                                </div>
-                                <div className="product-page__description">
-                                    <div className="product-page__description-label">
-                                        <Heading size="medium">
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(intlData, 'descriptionLabel')}
-                                                locales={intlStore.getCurrentLocale()} />
-                                        </Heading>
-                                    </div>
-                                    <div className="product-page__description-content" itemProp="description">
-                                        <Text size="small">
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(this.state.product.description)}
-                                                locales={intlStore.getCurrentLocale()} />
-                                        </Text>
-                                    </div>
-                                </div>
-                                {this.state.product.pricing ?
-                                    <div className="product-page__price" itemProp="offers" itemScope itemType="http://schema.org/Offer">
-                                        <div style={{display: 'none'}} itemProp="price">
-                                            {this.state.product.pricing.retail}
-                                        </div>
-                                        <div style={{display: 'none'}} itemProp="priceCurrency">
-                                            {this.state.product.pricing.currency}
-                                        </div>
-                                        <div>
-                                            <Text size="medium" weight="bold">
-                                                <FormattedNumber
-                                                    value={this.state.product.pricing.retail}
-                                                    style="currency"
-                                                    currency={this.state.product.pricing.currency} />
-                                            </Text>
-                                        </div>
-                                    </div>
-                                    :
-                                    null
-                                }
-                                <div className="product-page__sku">
-                                    <Text size="small">
-                                        Ref: <span itemProp="sku">{this.state.product.sku}</span>
-                                    </Text>
-                                </div>
-
-
-                              </div>
-
                         </div>
                     </div>
                 }

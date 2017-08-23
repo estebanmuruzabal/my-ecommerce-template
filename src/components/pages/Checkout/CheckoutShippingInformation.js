@@ -33,90 +33,162 @@ class CheckoutShippingInformation extends React.Component {
    super(props);
 
    this.state = {  showModal: false,
-     containsFotocopias: false,
      daysOptions: [],
-     containsVerduras: false
-   };
+     containsFotocopias: false,
+     containsVerduras: false};
  }
 
     static contextTypes = {
         getStore: React.PropTypes.func.isRequired
     };
 
-    componentDidMount(){
+
+    //*** Component Lifecycle ***//
+
+    componentWillMount(){
+      let today = new Date();
+      let dayOptions = [];
+      let dayOfTheWeek = today.getDay();
+
+      let weekday=new Array(6);
+      weekday[0]="Domingo";
+      weekday[1]="Lunes";
+      weekday[2]="Martes";
+      weekday[3]="Miercoles";
+      weekday[4]="Jueves";
+      weekday[5]="Viernes";
+      weekday[6]="Sabado";
+
+      let month=new Array(12);
+      month[0]="Enero";
+      month[1]="Febrero";
+      month[2]="Marzo";
+      month[3]="Abril";
+      month[4]="Mayo";
+      month[5]="Junio";
+      month[6]="Julio";
+      month[7]="Agosto";
+      month[8]="Septiembre";
+      month[9]="Octubre";
+      month[10]="Noviembre";
+      month[11]="Diciembre";
+
       if (this.props.checkout.cart && this.props.checkout.cart.products.length > 0) {
         this.props.checkout.cart.products.forEach(function (product) {
-          if (product.details.tags.indexOf('verduras') !== -1) {
-              this.setState({containsVerduras: true});
-                    let today = new Date();
+          if (product.details.tags.indexOf('cajon') !== -1) {
+            for (let i = 0; i < 7 ; i++) {
+              let dayOfTheWeek = today.getDay()+i;
 
-                    let dayOptions = [];
-                    let dayOfTheWeek = today.getDay();
+              if (dayOfTheWeek == 7) {
+                dayOfTheWeek = 0;
+              } else if (dayOfTheWeek == 8){
+                dayOfTheWeek = 1;
+              } else if (dayOfTheWeek == 9){
+                dayOfTheWeek = 2;
+              } else if (dayOfTheWeek == 10){
+                dayOfTheWeek = 3;
+              } else if (dayOfTheWeek == 11){
+                dayOfTheWeek = 4;
+              } else if (dayOfTheWeek == 12){
+                dayOfTheWeek = 5;
+              } else if (dayOfTheWeek == 13){
+                dayOfTheWeek = 6;
+              }
 
-                    let weekday=new Array(6);
-                    weekday[0]="Domingo";
-                    weekday[1]="Lunes";
-                    weekday[2]="Martes";
-                    weekday[3]="Miercoles";
-                    weekday[4]="Jueves";
-                    weekday[5]="Viernes";
-                    weekday[6]="Sabado";
+              let todayDay = today.getDate()+i;
+              let entireDate = undefined;
 
-                    let month=new Array(12);
-                    month[0]="Enero";
-                    month[1]="Febrero";
-                    month[2]="Marzo";
-                    month[3]="Abril";
-                    month[4]="Mayo";
-                    month[5]="Junio";
-                    month[6]="Julio";
-                    month[7]="Agosto";
-                    month[8]="Septiembre";
-                    month[9]="Octubre";
-                    month[10]="Noviembre";
-                    month[11]="Diciembre";
+              if (dayOfTheWeek == 1) {
+                entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
+                dayOptions.push({name: entireDate, value: entireDate});
+              }
+           }
+          } else if (product.details.tags.indexOf('verduras') !== -1) {
+            for (let i = 0; i < 7 ; i++) {
+              let dayOfTheWeek = today.getDay()+i;
+              let todayDay = today.getDate()+i;
+              let entireDate = undefined;
 
-                    for (let i = 1; i <= 7 ; i++) {
-                      let dayOfTheWeek = today.getDay()+i;
+              if (dayOfTheWeek == 7) {
+                dayOfTheWeek = 0;
+              } else if (dayOfTheWeek == 8){
+                dayOfTheWeek = 1;
+              } else if (dayOfTheWeek == 9){
+                dayOfTheWeek = 2;
+              } else if (dayOfTheWeek == 10){
+                dayOfTheWeek = 3;
+              } else if (dayOfTheWeek == 11){
+                dayOfTheWeek = 4;
+              } else if (dayOfTheWeek == 12){
+                dayOfTheWeek = 5;
+              } else if (dayOfTheWeek == 13){
+                dayOfTheWeek = 6;
+              }
 
-                      if (dayOfTheWeek == 7) {
-                        dayOfTheWeek = 0;
-                      } else if (dayOfTheWeek == 8){
-                        dayOfTheWeek = 1;
-                      } else if (dayOfTheWeek == 9){
-                        dayOfTheWeek = 2;
-                      } else if (dayOfTheWeek == 10){
-                        dayOfTheWeek = 3;
-                      } else if (dayOfTheWeek == 11){
-                        dayOfTheWeek = 4;
-                      } else if (dayOfTheWeek == 12){
-                        dayOfTheWeek = 5;
-                      } else if (dayOfTheWeek == 13){
-                        dayOfTheWeek = 6;
-                      }
+              if (today.getHours() > 17 && todayDay == today.getDate()) {
+                entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
+                dayOptions.push({name: entireDate, value: entireDate});
+              }
+           }
+          } else if (product.details.tags.indexOf('fotocopias') !== -1) {
+            for (let i = 0; i < 7 ; i++) {
+              let dayOfTheWeek = today.getDay()+i;
+              let todayDay = today.getDate()+i;
+              let entireDate = undefined;
 
-                      let todayDay = today.getDate()+i;
-                      let entireDate = undefined;
+              if (dayOfTheWeek == 7) {
+                dayOfTheWeek = 0;
+              } else if (dayOfTheWeek == 8){
+                dayOfTheWeek = 1;
+              } else if (dayOfTheWeek == 9){
+                dayOfTheWeek = 2;
+              } else if (dayOfTheWeek == 10){
+                dayOfTheWeek = 3;
+              } else if (dayOfTheWeek == 11){
+                dayOfTheWeek = 4;
+              } else if (dayOfTheWeek == 12){
+                dayOfTheWeek = 5;
+              } else if (dayOfTheWeek == 13){
+                dayOfTheWeek = 6;
+              }
 
-                      if (containsVerduras && today.getHours() > 17 && todayDay == today.getDate()) {
+              if (todayDay !== today.getDate()) {
+                entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
+                dayOptions.push({name: entireDate, value: entireDate});
+              }
+           }
+          } else {
+            for (let i = 0; i < 7 ; i++) {
+              let dayOfTheWeek = today.getDay()+i;
+              let todayDay = today.getDate()+i;
+              let entireDate = undefined;
 
-                      } else if (todayDay == today.getDate() && containsVerduras) {
+              if (dayOfTheWeek == 7) {
+                dayOfTheWeek = 0;
+              } else if (dayOfTheWeek == 8){
+                dayOfTheWeek = 1;
+              } else if (dayOfTheWeek == 9){
+                dayOfTheWeek = 2;
+              } else if (dayOfTheWeek == 10){
+                dayOfTheWeek = 3;
+              } else if (dayOfTheWeek == 11){
+                dayOfTheWeek = 4;
+              } else if (dayOfTheWeek == 12){
+                dayOfTheWeek = 5;
+              } else if (dayOfTheWeek == 13){
+                dayOfTheWeek = 6;
+              }
 
-                      } else if (dayOfTheWeek == 0 || dayOfTheWeek == 6) {
-
-                      } else {
-                        entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
-                        dayOptions.push({name: entireDate, value: entireDate});
-                        this.setState({
-                          daysOptions: dayOptions
-                        });
-                      }
-                    }
+              entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
+              dayOptions.push({name: entireDate, value: entireDate});
+            }
           }
         });
-       }
+      }
+      this.setState({
+        daysOptions: dayOptions
+      });
     }
-    //*** Component Lifecycle ***//
 
     componentDidMount() {
         require('./CheckoutShippingInformation.scss');
@@ -135,8 +207,6 @@ class CheckoutShippingInformation extends React.Component {
     render() {
 
         let intlStore = this.context.getStore(IntlStore);
-        let timeOptions = undefined;
-        let daysOptions = undefined;
 
         let shippingOptions = (this.props.shippingOptions) ? this.props.shippingOptions.map(function (option) {
             let name = (
@@ -156,37 +226,25 @@ class CheckoutShippingInformation extends React.Component {
             };
         }) : null;
 
-        if (this.state.containsVerduras) {
-          daysOptions = [
-              {name: 'Lunes 7', value: 'Lunes 7'},
-          ];
-        } else {
-          daysOptions = [
-              {name: 'Lunes 7', value: 'Lunes 7'},
-          ];
-        }
+        let takeOutTimeOptions = [
+            {name: 'Entre 09:00 y 12:30', value: '09:00-12:30'},
+            {name: 'Entre 17:00 y 20:30', value: '17:00-20:30'}
+        ];
 
-        if (this.props.shippingMethod === 'free-pickup') {
-          timeOptions = [
-              {name: 'Entre 09:00 y 12:30', value: '09:00-12:30'},
-              {name: 'Entre 17:00 y 20:30', value: '17:00-20:30'}
-          ];
-        } else {
-          timeOptions = [
-              {name: 'Entre 09:00 y 10:00', value: '09:00-10:00'},
-              {name: 'Entre 10:00 y 11:00', value: '10:00-11:00'},
-              {name: 'Entre 11:00 y 12:00', value: '11:00-12:00'},
-              {name: 'Entre 12:00 y 13:00', value: '12:00-13:00'},
-              {name: 'Entre 13:00 y 14:00', value: '13:00-14:00'},
-              {name: 'Entre 14:00 y 15:00', value: '14:00-15:00'},
-              {name: 'Entre 15:00 y 16:00', value: '15:00-16:00'},
-              {name: 'Entre 16:00 y 17:00', value: '16:00-17:00'},
-              {name: 'Entre 17:00 y 18:00', value: '17:00-18:00'},
-              {name: 'Entre 18:00 y 19:00', value: '18:00-19:00'},
-              {name: 'Entre 19:00 y 20:00', value: '19:00-20:00'},
-              {name: 'Entre 20:00 y 21:00', value: '20:00-21:00'}
-          ];
-        }
+        let deliveryTimeOptions = [
+            {name: 'Entre 09:00 y 10:00', value: '09:00-10:00'},
+            {name: 'Entre 10:00 y 11:00', value: '10:00-11:00'},
+            {name: 'Entre 11:00 y 12:00', value: '11:00-12:00'},
+            {name: 'Entre 12:00 y 13:00', value: '12:00-13:00'},
+            {name: 'Entre 13:00 y 14:00', value: '13:00-14:00'},
+            {name: 'Entre 14:00 y 15:00', value: '14:00-15:00'},
+            {name: 'Entre 15:00 y 16:00', value: '15:00-16:00'},
+            {name: 'Entre 16:00 y 17:00', value: '16:00-17:00'},
+            {name: 'Entre 17:00 y 18:00', value: '17:00-18:00'},
+            {name: 'Entre 18:00 y 19:00', value: '18:00-19:00'},
+            {name: 'Entre 19:00 y 20:00', value: '19:00-20:00'},
+            {name: 'Entre 20:00 y 21:00', value: '20:00-21:00'}
+        ];
 
         let showModal = () => {
             if (this.state.showModal === true) {
@@ -205,12 +263,6 @@ class CheckoutShippingInformation extends React.Component {
                     <div className="checkout-summary__warning">
                         <Heading size="small">
                           <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationVerdurasYFotocopias')}
-                                            locales={intlStore.getCurrentLocale()} />
-                        </Heading>
-                    </div>
-                    <div className="checkout-summary__warning">
-                        <Heading size="small">
-                          <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationVerduras')}
                                             locales={intlStore.getCurrentLocale()} />
                         </Heading>
                     </div>
@@ -265,26 +317,49 @@ class CheckoutShippingInformation extends React.Component {
                             null
                         }
 
-                        <div className="checkout-shipping-information__select-method">
-                            <CheckoutSection number="2.2"
-                                           size="small"
-                                           title={intlStore.getMessage(intlData, 'takeoutDateLabel')}>
-                            <InlineItems>
-                                <Select label={intlStore.getMessage(intlData, 'day')}
-                                        placeholder
-                                        options={daysOptions}
-                                        labelWeight={this.props.labelWeight}
-                                        value={this.props.shippingDay}
-                                        onChange={this.props.handleShippingDayChange} />
-                                <Select label={intlStore.getMessage(intlData, 'time')}
-                                        placeholder
-                                        options={timeOptions}
-                                        labelWeight={this.props.labelWeight}
-                                        value={this.props.shippingTime}
-                                        onChange={this.props.handleShippingTimeChange} />
-                                </InlineItems>
-                              </CheckoutSection>
-                        </div>
+                        {this.props.shippingMethod === 'free-pickup' ?
+                            <div className="checkout-shipping-information__select-method">
+                                <CheckoutSection number="2.2"
+                                               size="small"
+                                               title={intlStore.getMessage(intlData, 'takeoutDateLabel')}>
+                                <InlineItems>
+                                    <Select label={intlStore.getMessage(intlData, 'day')}
+                                            placeholder
+                                            options={this.state.daysOptions}
+                                            labelWeight={this.props.labelWeight}
+                                            value={this.props.shippingDay}
+                                            onChange={this.props.handleShippingDayChange} />
+                                    <Select label={intlStore.getMessage(intlData, 'time')}
+                                            placeholder
+                                            options={takeOutTimeOptions}
+                                            labelWeight={this.props.labelWeight}
+                                            value={this.props.shippingTime}
+                                            onChange={this.props.handleShippingTimeChange} />
+                                    </InlineItems>
+                                  </CheckoutSection>
+                            </div>
+                            :
+                            <div className="checkout-shipping-information__select-method">
+                                <CheckoutSection number="2.2"
+                                               size="small"
+                                               title={intlStore.getMessage(intlData, 'shippingDateLabel')}>
+                                <InlineItems>
+                                    <Select label={intlStore.getMessage(intlData, 'day')}
+                                            placeholder
+                                            options={this.state.daysOptions}
+                                            labelWeight={this.props.labelWeight}
+                                            value={this.props.shippingDay}
+                                            onChange={this.props.handleShippingDayChange} />
+                                    <Select label={intlStore.getMessage(intlData, 'time')}
+                                            placeholder
+                                            options={deliveryTimeOptions}
+                                            labelWeight={this.props.labelWeight}
+                                            value={this.props.shippingTime}
+                                            onChange={this.props.handleShippingTimeChange} />
+                                    </InlineItems>
+                                  </CheckoutSection>
+                            </div>
+                        }
                         {showWarningText()}
                     </div>
                 }

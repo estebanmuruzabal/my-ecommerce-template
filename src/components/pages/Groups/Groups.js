@@ -64,7 +64,6 @@ class Groups extends React.Component {
 
     componentDidMount() {
         require('./Groups.scss');
-        this.context.executeAction(fetchProductAndCheckIfFound, '3f1bad55-0060-4553-b918-d29d6892cf3b');
     }
 
     componentWillReceiveProps(nextProps) {
@@ -114,30 +113,29 @@ class Groups extends React.Component {
         this.setState({registerModal: false});
     };
 
+    handleGetOutGroupClick = (group) => {
+        console.log("group",group);
+        let index = group.buyers.indexOf(this.state.user.email);
+        if (index >= 0) {
+          group.buyers.splice( index, 1 );
+          console.log("group",group);
+          this.context.executeAction(updateGroup, {
+              id: group.id,
+              data: {
+                  name: group.name,
+                  tags: group.tags,
+                  buyers: group.buyers
+              }
+          });
+          this.forceUpdate();
+        }
+    };
+
     handleGetInGroupClick = (group) => {
       let user = this.state.user;
 
-          if(group.buyers.length === 14) {
+          if(group.buyers.size === 14) {
             this.setState({showGrupoCompletoModal: true});
-          } else if (group.buyers.indexOf(user.email) !== -1){
-              if (confirm("Usted Ya esta en el grupo. Desea comprar otra unidad?") == true) {
-                      group.buyers.push(user.email);
-                      this.context.executeAction(updateGroup, {
-                          id: group.id,
-                          data: {
-                              name: group.name,
-                              tags: group.tags,
-                              buyers: group.buyers
-                          }
-                      });
-
-                      let payload = Object.assign({details: this.state.product}, {
-                          id: this.state.product.id,
-                          quantity: 2
-                      });
-                      this.context.executeAction(addToCart, payload);
-                      this.setState({addingToCart: true,showThanksModal: true});
-                  }
           } else {
             group.buyers.push(user.email);
             this.context.executeAction(updateGroup, {
@@ -182,20 +180,30 @@ class Groups extends React.Component {
         let thanksModal = () => {
             if (this.state.showThanksModal) {
                 return (
-                    <Modal onCloseClick={this.handleShowThanksModalCloseClick}>
+                    <Modal title={intlStore.getMessage(intlData, 'anotadoModalTitle')}
+                            onCloseClick={this.handleShowThanksModalCloseClick}>
                            <div className="groups-register-modal-container">
                              <FormattedMessage
-                                 message={intlStore.getMessage(intlData, 'thanksModalTitle')}
+                                 message={intlStore.getMessage(intlData, 'thanksModalText')}
                                  locales={intlStore.getCurrentLocale()} />
-                             <div className="groups__register-button">
-                               <Link to="checkout" params={routeParams}>
-                                 <Button type="primary">
-                                     <FormattedMessage
-                                         message={intlStore.getMessage(intlData, 'aceptar')}
-                                         locales={intlStore.getCurrentLocale()} />
-                                 </Button>
-                               </Link>
-                             </div>
+                              <div className="groups-bottoms-container">
+                                 <div className="groups__register-button">
+                                   <Link to="checkout" params={routeParams}>
+                                     <Button type="primary">
+                                         <FormattedMessage
+                                             message={intlStore.getMessage(intlData, 'checkout')}
+                                             locales={intlStore.getCurrentLocale()} />
+                                     </Button>
+                                   </Link>
+                                 </div>
+                                 <div className="groups__keep-buying-button">
+                                     <Button type="primary" onClick={this.handleShowThanksModalCloseClick}>
+                                         <FormattedMessage
+                                             message={intlStore.getMessage(intlData, 'continueShopping')}
+                                             locales={intlStore.getCurrentLocale()} />
+                                     </Button>
+                                 </div>
+                              </div>
                           </div>
                     </Modal>
                 );
@@ -274,11 +282,6 @@ class Groups extends React.Component {
               {thanksModal()}
               {grupoCompletoModal()}
                 <div className="groups__block">
-                    <Heading size="medium">
-                      <FormattedMessage
-                          message={intlStore.getMessage(intlData, 'subtitle')}
-                          locales={intlStore.getCurrentLocale()} />
-                    </Heading>
                     <div className="groups__support">
                         <p><FormattedMessage
                             message={intlStore.getMessage(intlData, 'content1')}
@@ -330,11 +333,19 @@ class Groups extends React.Component {
                                   </Text>
                                   { isLogged ?
                                       <div className="groups__add-button">
-                                          <Button type="primary" onClick={this.handleGetInGroupClick.bind(null, group)}>
-                                              <FormattedMessage
-                                                  message={intlStore.getMessage(intlData, 'anotarse')}
-                                                  locales={intlStore.getCurrentLocale()} />
-                                          </Button>
+                                          { group.buyers.indexOf(this.state.user.email) !== -1 ?
+                                            <Button type="primary" onClick={this.handleGetOutGroupClick.bind(null, group)}>
+                                                <FormattedMessage
+                                                    message={intlStore.getMessage(intlData, 'desanotarse')}
+                                                    locales={intlStore.getCurrentLocale()} />
+                                            </Button>
+                                              :
+                                              <Button type="primary" onClick={this.handleGetInGroupClick.bind(null, group)}>
+                                                  <FormattedMessage
+                                                      message={intlStore.getMessage(intlData, 'anotarse')}
+                                                      locales={intlStore.getCurrentLocale()} />
+                                              </Button>
+                                          }
                                       </div>
                                       :
                                       <div className="groups__add-button">
@@ -350,7 +361,7 @@ class Groups extends React.Component {
                         })}
                   </div>
               }
-              <VerdurasProduct productId="3f1bad55-0060-4553-b918-d29d6892cf3b"/>
+              <VerdurasProduct productId="b7a108b9-0663-4ab3-b300-45980ffe9e63"/>
           </div>
         );
     }
