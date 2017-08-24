@@ -82,9 +82,7 @@ class OrderSummary extends React.Component {
                            </Breakpoint>
                        </div>
                        <div className="order-summary__list-quantity-price">
-                           <Text>
-                               {1}
-                           </Text>
+                           <Text>{1}</Text>
                            &nbsp;x&nbsp;
                            <Text>
                                <FormattedNumber

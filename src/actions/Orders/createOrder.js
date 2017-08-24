@@ -5,6 +5,7 @@ import ga from 'react-ga';
 
 // Flux
 import CheckoutStore from '../../stores/Checkout/CheckoutStore';
+import AccountStore from '../../stores/Account/AccountStore';
 import CollectionsStore from '../../stores/Collections/CollectionsStore';
 import IntlStore from '../../stores/Application/IntlStore';
 import orderActions from '../../constants/orders';
@@ -13,7 +14,8 @@ import orderActions from '../../constants/orders';
 import updateProduct from '../../actions/Admin/updateProduct';
 import fetchProduct from '../../actions/Products/fetchProduct';
 import fetchProductAndCheckIfFound from '../../actions/Products/fetchProductAndCheckIfFound';
-import ProductDetailsStore from '../..//stores/Products/ProductDetailsStore';
+import ProductDetailsStore from '../../stores/Products/ProductDetailsStore';
+import sendOrderEmail from '../../actions/Orders/sendOrderEmail';
 
 import config from '../../config';
 
@@ -30,7 +32,7 @@ export default function createOrder(context, payload, done) {
         function dispatchOrderCreatedSuccessfullyAndUpdateStocks() {
 
             let checkout = context.getStore(CheckoutStore).getCheckout();
-
+            let user = context.getStore(AccountStore).getAccountDetails();
             // Send hit to Google Analytics
             try {
                 checkout.cart.products.forEach(function (product) {
@@ -84,6 +86,63 @@ export default function createOrder(context, payload, done) {
                 ga.plugin.execute('send', 'pageview');
             } catch (err) {
                 debug('Unable to send hit to Google Analytics', err);
+            }
+
+            let subject = 'Pedido ' + order.id;
+
+            if (checkout.customer) {
+              if (checkout.paymentMethod == 'cash') {
+                console.log(checkout.customer.email);
+                context.executeAction(sendOrderEmail,
+                  {orderId: order.id,
+                    data: {
+                      template: 'order.created',
+                      email: checkout.customer.email,
+                      subject: subject,
+                      paymentlink: ''
+                    }
+                  });
+                  context.executeAction(sendOrderEmail,
+                    {orderId: order.id,
+                      data: {
+                        template: 'order.created',
+                        email: 'estebannmuruzabal@gmail.com',
+                        subject: subject + 'Cash',
+                        paymentlink: ''
+                      }
+                    });
+              }
+            } else if (user) {
+              if (checkout.paymentMethod == 'cash') {
+                context.executeAction(sendOrderEmail,
+                  {orderId: order.id,
+                    data: {
+                      template: 'order.created',
+                      email: user.email,
+                      subject: subject,
+                      paymentlink: ''
+                    }
+                  });
+                  context.executeAction(sendOrderEmail,
+                    {orderId: order.id,
+                      data: {
+                        template: 'order.created',
+                        email: 'estebannmuruzabal@gmail.com',
+                        subject: subject + 'Cash',
+                        paymentlink: ''
+                      }
+                    });
+              }
+            } else {
+              context.executeAction(sendOrderEmail,
+                {orderId: order.id,
+                  data: {
+                    template: 'order.created',
+                    email: 'estebannmuruzabal@gmail.com',
+                    subject: subject + 'CC',
+                    paymentlink: ''
+                  }
+                });
             }
 
             // Send hit to Facebook Pixel

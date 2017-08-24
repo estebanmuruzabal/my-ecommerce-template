@@ -11,7 +11,7 @@ export default {
     },
     es: {
         billingAddress: 'Dirección de Facturación',
-        checkout: 'Finalizar',
+        checkout: 'Pagar',
         customerDetails: 'Detalles del Cliente',
         paymentMethod: 'Método de Pago',
         shippingAddress: 'Dirección de Envío',

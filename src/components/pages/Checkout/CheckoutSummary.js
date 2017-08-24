@@ -75,8 +75,8 @@ class CheckoutSummary extends React.Component {
                         </Heading>
                         {missingInfo.map(function (detail, idx) {
                             return (
-                                <div className="checkout-summary__warning-item">
-                                    <Text key={idx} size="small">{detail}</Text>
+                                <div key={idx} className="checkout-summary__warning-item">
+                                    <Text size="small">{detail}</Text>
                                 </div>
                             );
                         })}

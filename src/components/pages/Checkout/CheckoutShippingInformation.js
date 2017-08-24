@@ -44,6 +44,13 @@ class CheckoutShippingInformation extends React.Component {
         require('./CheckoutShippingInformation.scss');
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+          showModal: false,
+          daysOptions: []
+        });
+    }
+
     handleOpenModalClick = () => {
         this.setState({showModal: true});
     };
@@ -51,6 +58,8 @@ class CheckoutShippingInformation extends React.Component {
     handleCloseModal = () => {
         this.setState({showModal: false});
     };
+
+
 
     //*** Template ***//
 
@@ -155,8 +164,8 @@ class CheckoutShippingInformation extends React.Component {
 
         if (this.props.checkout.cart && this.props.checkout.cart.products.length > 0) {
           this.props.checkout.cart.products.forEach(function (product) {
-            if (product.details.tags.indexOf('verdura') !== -1 && productSchedule !== 'cajon') {
-              productSchedule = 'verdura';
+            if (product.details.tags.indexOf('verduras') !== -1 && productSchedule !== 'cajon') {
+              productSchedule = 'verduras';
             }
             if (product.details.tags.indexOf('cajon') !== -1) {
               productSchedule = 'cajon';
@@ -192,6 +201,7 @@ class CheckoutShippingInformation extends React.Component {
                 }
              }
            } else if (productSchedule == 'verduras') {
+
               for (let i = 0; i < 7 ; i++) {
                 let dayOfTheWeek = today.getDay()+i;
                 let todayDay = today.getDate()+i;
@@ -212,8 +222,13 @@ class CheckoutShippingInformation extends React.Component {
                 } else if (dayOfTheWeek == 13){
                   dayOfTheWeek = 6;
                 }
+                console.log(todayDay);
+                if (today.getHours() >= 17 && todayDay == today.getDate()) {
+                  console.log("inside if",todayDay);
+                } else if (today.getHours() >= 17 && todayDay == today.getDate()+1) {
 
-                if (today.getHours() < 17 && todayDay !== today.getDate() && dayOfTheWeek !== 0 && dayOfTheWeek !== 6) {
+                } else if (dayOfTheWeek !== 0 && dayOfTheWeek !== 6) {
+                  console.log("inside adding:",todayDay);
                   entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
                   dayOptions.push({name: entireDate, value: entireDate});
                 }
