@@ -35,6 +35,16 @@ class OrdersAPI {
         });
     }
 
+    _wrapAndRequestWithoutAuthorization(request, resolve, reject) {
+        request.end(function (err, result) {
+            if (err) {
+                reject({status: err.status, result: (result) ? result.body : null});
+            } else {
+                resolve(result.body);
+            }
+        });
+    }
+
     /**
      * Create new Order
      */
@@ -75,6 +85,13 @@ class OrdersAPI {
     /**
      * Trigger sending of email template in regard to given order ID
      */
+    sendAdminEmail(orderId, data) {
+        return new Promise((resolve, reject) => {
+            let request = superagent.post(`${this.baseUrl}/orders/${orderId}/email`).send(data);
+            this._wrapAndRequestWithoutAuthorization(request, resolve, reject);
+        });
+    }
+
     sendEmail(orderId, data) {
         return new Promise((resolve, reject) => {
             let request = superagent.post(`${this.baseUrl}/orders/${orderId}/email`).send(data);

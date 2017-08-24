@@ -12,7 +12,7 @@ import OrderEmailStore from '../../../../stores/Orders/OrderEmailStore';
 import IntlStore from '../../../../stores/Application/IntlStore';
 
 import fetchOrderAndCheckIfFound from '../../../../actions/Orders/fetchOrderAndCheckIfFound';
-import sendOrderEmail from '../../../../actions/Orders/sendOrderEmail';
+import sendOrderEmailAdmin from '../../../../actions/Orders/sendOrderEmailAdmin';
 import updateOrderStatus from '../../../../actions/Orders/updateOrderStatus';
 
 // Required components
@@ -108,7 +108,7 @@ class AdminOrdersEdit extends React.Component {
     };
 
     handleSendEmailSubmitClick = (data) => {
-        this.context.executeAction(sendOrderEmail, {orderId: this.state.order.id, data: data});
+        this.context.executeAction(sendOrderEmailAdmin, {orderId: this.state.order.id, data: data});
     };
 
     // Update status modal

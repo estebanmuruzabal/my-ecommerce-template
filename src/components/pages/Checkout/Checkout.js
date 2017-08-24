@@ -20,7 +20,6 @@ import createCart from '../../../actions/Cart/createCart';
 import createCheckout from '../../../actions/Checkout/createCheckout';
 import createOrder from '../../../actions/Orders/createOrder';
 import updateCheckout from '../../../actions/Checkout/updateCheckout';
-import sendOrderEmail from '../../../actions/Orders/sendOrderEmail';
 import updateProduct from '../../../actions/Admin/updateProduct';
 
 // Required components
@@ -338,20 +337,6 @@ class Checkout extends React.Component {
         };
 
         this.context.executeAction(createOrder, payload);
-        // console.log()
-        // if (this.state.checkout.paymentMethod.id == 'cash') {
-        //   // send email of created order
-        //
-        //   this.context.executeAction(sendOrderEmail,
-        //     {orderId: this.state.order.id,
-        //       data: {
-        //         template: 'order.created',
-        //         email: this.state.user.email,
-        //         subject: 'Pedido creado correctamente'
-        //       }
-        //     });
-        //
-        // }
 
         if (this.state.checkout.cart && this.state.checkout.cart.products.length > 0) {
             this.state.checkout.cart.products.forEach(function (product) {

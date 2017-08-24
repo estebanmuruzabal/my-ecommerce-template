@@ -222,13 +222,10 @@ class CheckoutShippingInformation extends React.Component {
                 } else if (dayOfTheWeek == 13){
                   dayOfTheWeek = 6;
                 }
-                console.log(todayDay);
-                if (today.getHours() >= 17 && todayDay == today.getDate()) {
-                  console.log("inside if",todayDay);
-                } else if (today.getHours() >= 17 && todayDay == today.getDate()+1) {
 
+                if (today.getHours() >= 17 && todayDay == today.getDate()) {
+                } else if (today.getHours() >= 17 && todayDay == today.getDate()+1) {
                 } else if (dayOfTheWeek !== 0 && dayOfTheWeek !== 6) {
-                  console.log("inside adding:",todayDay);
                   entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
                   dayOptions.push({name: entireDate, value: entireDate});
                 }

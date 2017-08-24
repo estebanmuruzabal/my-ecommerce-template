@@ -21,7 +21,7 @@ export default {
         password: 'Contraseña',
         passwordConfirm: 'Confirmar contraseña',
         passwordMismatch: 'Contraseñas no coinciden',
-        submit: 'Registar',
+        submit: 'Registrarse',
         successModalContinue: 'OK',
         successModalTitle: 'Cuenta creada',
         successModalBody: 'Para activar su cuenta, siga las instrucciones que serán enviadas a su email',
