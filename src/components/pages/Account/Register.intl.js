@@ -24,7 +24,7 @@ export default {
         submit: 'Registrarse',
         successModalContinue: 'OK',
         successModalTitle: 'Cuenta creada',
-        successModalBody: 'Para activar su cuenta, siga las instrucciones que serán enviadas a su email',
+        successModalBody: 'Para activar su cuenta, siga las instrucciones que serán enviadas a su email (Recuerde revisar su corréo no deseado)',
         title: 'Crear cuenta'
     }
 };
