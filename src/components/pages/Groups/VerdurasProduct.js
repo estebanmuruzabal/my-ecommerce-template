@@ -274,7 +274,7 @@ class VerdurasProduct extends React.Component {
                                                 </tr>
                                             </thead>
                                             <tbody className="groups-table__body">
-                                              <tr className="table__row">
+                                              <tr className="groups-table__row">
                                                 <td className="groups-table__data"><Text size="medium">Tomate Perita</Text></td>
                                                 <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
@@ -316,7 +316,7 @@ class VerdurasProduct extends React.Component {
                                               </tr>
                                               <tr className="groups-table__row">
                                                 <td className="groups-table__data"><Text size="medium">Banana</Text></td>
-                                                <td className="groups-table__data"><Text size="medium">1 Doc.</Text></td>
+                                                <td className="groups-table__data"><Text size="medium">1 Kg.</Text></td>
                                               </tr>
                                               <tr className="groups-table__row">
                                                 <td className="groups-table__data"><Text size="medium">Manzana</Text></td>

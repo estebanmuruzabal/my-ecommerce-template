@@ -132,7 +132,7 @@ class Groups extends React.Component {
     handleGetInGroupClick = (group) => {
       let user = this.state.user;
 
-          if(group.buyers.size === 14) {
+          if(group.buyers.length === 18) {
             this.setState({showGrupoCompletoModal: true});
           } else {
             group.buyers.push(user.email);
@@ -289,6 +289,12 @@ class Groups extends React.Component {
                     </div>
                 </div>
               </div>
+              <div className="groups__warning">
+                  <Heading size="small">
+                    <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationGroups')}
+                                      locales={intlStore.getCurrentLocale()} />
+                  </Heading>
+              </div>
 
               { isAdmin ?
                   <div className="groups__toolbar">
@@ -318,17 +324,19 @@ class Groups extends React.Component {
                             return (
                                 <div key={idx} className="groups-item">
                                   <span className="groups__labels">
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(group.name)}
-                                        locales={intlStore.getCurrentLocale()} />
+                                    <Text weight="bold" size="medium">
+                                      <FormattedMessage
+                                          message={intlStore.getMessage(group.name)}
+                                          locales={intlStore.getCurrentLocale()} />
+                                    </Text>
                                   </span>
                                   <div className="circule-container">
-                                    <Circle percent={group.buyers.length * 7.14} strokeWidth="6" trailWidth="2"
+                                    <Circle percent={group.buyers.length * 5.55} strokeWidth="6" trailWidth="2"
                                                     gapDegree="45" gapPosition="bottom" strokeColor="red" initialAnimate/>
                                   </div>
                                   <Text size="medium">
                                       <div className="groups__labels">
-                                        {group.buyers.length} / 14
+                                        {group.buyers.length} / 10
                                       </div>
                                   </Text>
                                   { isLogged ?
