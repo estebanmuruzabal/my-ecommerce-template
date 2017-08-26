@@ -22,14 +22,14 @@ export default {
     },
     facebookPixel: {
         enabled: true,
-        id: process.env.FACEBOOK_PIXEL_ID
+        id: '247941852357863'
     },
     crisp: {
         enabled: true,
-        websiteID: process.env.CRISP_WEBSITE_ID // TODO: This is still hardcoded in the vendor file
+        websiteID: '049630c3-f078-4289-997f-97893b01f723'
     },
     mailChimp: {
-        signupFormPostURL: process.env.MAILCHIMP_SIGNUP_FORM_POST_URL
+        signupFormPostURL: 'https://tienda765.us14.list-manage.com/subscribe/post'
     },
     switchPayments: {
         enabled: false,

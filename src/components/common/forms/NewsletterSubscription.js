@@ -64,8 +64,8 @@ class NewsletterSubscription extends React.Component {
         // Return the mailchimp default subscription form that will be hidden and triggered by our UI
         let mailChimpForm = () => {
             return (
-                <form action={config.mailChimp.signupFormPostURL}
-                      method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" noValidate
+                <form action="https://tienda765.us14.list-manage.com/subscribe/post"
+                      method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" noValidate
                       style={{position: 'absolute', left: '-5000px', ariaHidden: 'true'}}>
                     <div id="mc_embed_signup_scroll">
                         <label htmlFor="mce-EMAIL">Subscribe to our mailing list</label>
