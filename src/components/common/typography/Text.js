@@ -44,6 +44,11 @@ class Text extends React.Component {
             textClass += ' text-normal';
         }
 
+        // color
+        if (['red', 'white'].indexOf(this.props.color) != -1) {
+            textClass += ` text-${this.props.color}`;
+        }
+
         // Specified class name
         if (this.props.className) {
             textClass += ` ${this.props.className}`;

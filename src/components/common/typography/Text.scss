@@ -18,6 +18,20 @@
         font-size: $font-size-small;
     }
 
+    // color
+
+    &-white {
+        color: white;
+    }
+
+    &-red {
+        color: red;
+    }
+
+    &-gray {
+        color: gray;
+    }
+
     // Transformation
 
     &-lowercase {

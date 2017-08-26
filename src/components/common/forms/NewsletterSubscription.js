@@ -94,7 +94,7 @@ class NewsletterSubscription extends React.Component {
         return (
             <div className="newsletter-subscription">
                 <div className="newsletter-subscription__description">
-                    <Text size="small">
+                    <Text color="white" size="small">
                         <FormattedMessage message={intlStore.getMessage(intlData, 'newsletterDescription')}
                                           locales={intlStore.getCurrentLocale()} />
                     </Text>
@@ -108,7 +108,10 @@ class NewsletterSubscription extends React.Component {
                     <div className="newsletter-subscription__content-item">
                         <Button type="primary" onClick={this.handleNewsletterSubmitClick}
                                 disabled={!isValidEmail(this.state.newsletterEmail)}>
-                            {intlStore.getMessage(intlData, 'newsletterSubmitButton')}
+                            <Text color="white" size="small">
+                               <FormattedMessage message={intlStore.getMessage(intlData, 'newsletterSubmitButton')}
+                                              locales={intlStore.getCurrentLocale()} />
+                            </Text>
                         </Button>
                     </div>
                 </div>

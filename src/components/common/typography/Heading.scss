@@ -18,6 +18,23 @@
         font-size: $font-size-heading-small;
     }
 
+    // color
+
+    &-white {
+        color: white;
+    }
+
+    &-red {
+        color: red;
+    }
+
+    &-gray {
+        color: gray;
+    }
+    &-yellow {
+        color: yellow;
+    }
+
     // Alignment
 
     &--align-left {

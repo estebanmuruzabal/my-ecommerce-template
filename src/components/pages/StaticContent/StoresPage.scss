@@ -10,6 +10,8 @@
     margin-top: 30px;
 }
 
+.stores-page__content p,a { color: white; }
+
 .stores-page__block {
 
     @include breakpoint(wide-screens) {

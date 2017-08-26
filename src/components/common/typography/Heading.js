@@ -32,6 +32,11 @@ class Heading extends React.Component {
             headingClass += ' heading-medium';
         }
 
+        // color
+        if (['red', 'white', 'yellow'].indexOf(this.props.color) != -1) {
+            headingClass += ` heading-${this.props.color}`;
+        }
+
         // Alignment
         if (['left', 'center', 'right'].indexOf(this.props.align) !== -1) {
             headingClass += ` heading--align-${this.props.align}`;

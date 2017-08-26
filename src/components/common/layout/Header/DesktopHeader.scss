@@ -3,9 +3,7 @@
 .desktop-header {
     display: flex;
     justify-content: center;
-    border-top: solid 3px #c20030;
-    border-bottom: solid 3px #c20030;
-    background-color: transparent;
+    background-color: black;
 }
 
 /*
@@ -55,7 +53,7 @@
     width: 80;
     height: 80;
     position:static;
-    background: url('./tienda-santa-2.png');
+    background: url('./tienda-santa.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: top center;

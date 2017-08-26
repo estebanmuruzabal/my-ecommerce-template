@@ -31,7 +31,7 @@ class StoresPage extends React.Component {
 
     render() {
         return (
-          <div>
+          <div className="stores-page__content">
             <p className="stores-page__address">
                 <strong>Direccion:</strong><br />
                 Güemes 765 <a href="https://goo.gl/maps/iCGwsKYjQXq" target="_blank">Ver en Google Maps</a><br />

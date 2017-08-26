@@ -59,7 +59,7 @@ class Footer extends React.Component {
                 return (
                     <li key={idx} className="footer__list-item">
                         <Link className="footer__link" to={item.link.to} params={item.link.params}>
-                            <Text size="small">{item.name}</Text>
+                            <Text color="white" size="small">{item.name}</Text>
                         </Link>
                     </li>
                 );
@@ -77,7 +77,7 @@ class Footer extends React.Component {
 
                         <div className="footer__block">
                             <div className="footer__block-title">
-                                <Heading size="small">
+                                <Heading color="yellow" size="small">
                                     <FormattedMessage
                                         message={intlStore.getMessage(intlData, 'storesTitle')}
                                         locales={intlStore.getCurrentLocale()} />
@@ -92,7 +92,7 @@ class Footer extends React.Component {
 
                         <div className="footer__block">
                             <div className="footer__block-title">
-                                <Heading size="small">
+                                <Heading color="yellow" size="small">
                                     <FormattedMessage
                                         message={intlStore.getMessage(intlData, 'infoTitle')}
                                         locales={intlStore.getCurrentLocale()} />
@@ -107,7 +107,7 @@ class Footer extends React.Component {
 
                         <div className="footer__block">
                             <div className="footer__block-title">
-                                <Heading size="small">
+                                <Heading color="yellow" size="small">
                                     <FormattedMessage
                                         message={intlStore.getMessage(intlData, 'socialTitle')}
                                         locales={intlStore.getCurrentLocale()} />
@@ -119,7 +119,7 @@ class Footer extends React.Component {
                                         <div className="footer__social-icon footer__facebook-icon"></div>
                                         <div>
                                             <a className="footer__link footer__social-link" href="//facebook.com/tienda765" target="_blank">
-                                                <Text size="small">Facebook</Text>
+                                                <Text color="white" size="small">Facebook</Text>
                                             </a>
                                         </div>
                                     </li>
@@ -127,23 +127,7 @@ class Footer extends React.Component {
                                         <div className="footer__social-icon footer__instagram-icon"></div>
                                         <div>
                                             <a className="footer__link footer__social-link" href="//instagram.com/tienda765" target="_blank">
-                                                <Text size="small">Instagram</Text>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li className="footer__social-item">
-                                        <div className="footer__social-icon footer__pinterest-icon"></div>
-                                        <div>
-                                            <a className="footer__link footer__social-link" href="//pinterest.com/tienda765" target="_blank">
-                                                <Text size="small">Pinterest</Text>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li className="footer__social-item">
-                                        <div className="footer__social-icon footer__twitter-icon"></div>
-                                        <div>
-                                            <a className="footer__link footer__social-link" href="//twitter.com/tienda765" target="_blank">
-                                                <Text size="small">Twitter</Text>
+                                                <Text color="white"size="small">Instagram</Text>
                                             </a>
                                         </div>
                                     </li>
@@ -153,7 +137,7 @@ class Footer extends React.Component {
 
                         <div className="footer__block">
                             <div className="footer__block-title">
-                                <Heading size="small">
+                                <Heading color="yellow" size="small">
                                     <FormattedMessage
                                         message={intlStore.getMessage(intlData, 'newsletterTitle')}
                                         locales={intlStore.getCurrentLocale()} />
@@ -166,7 +150,7 @@ class Footer extends React.Component {
 
                     </div>
                     <div className="footer__copyright">
-                        <Text size="small">© {new Date().getFullYear()} Tienda 765</Text>
+                        <Text color="white" size="small">© {new Date().getFullYear()} Tienda 765</Text>
                     </div>
                 </div>
             </div>

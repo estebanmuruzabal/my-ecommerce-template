@@ -97,7 +97,7 @@ class DesktopHeader extends React.Component {
                                     { isAdmin ?
                                         <div className="desktop-header__logout-button">
                                             <Link to='admin-panel' params={routeParams}>
-                                                <Text size="small" color="white">
+                                                <Text size="small" weight="bold" color="white">
                                                     <FormattedMessage
                                                         message={intlStore.getMessage(intlData, 'adminPanel')}
                                                         locales={intlStore.getCurrentLocale()} />
@@ -109,7 +109,7 @@ class DesktopHeader extends React.Component {
                                     }
                                     <div className="desktop-header__logout-button">
                                         <Link to='logout' params={routeParams}>
-                                            <Text size="small" color="white">
+                                            <Text size="small" weight="bold" color="white">
                                                 <FormattedMessage
                                                     message={intlStore.getMessage(intlData, 'logout')}
                                                     locales={intlStore.getCurrentLocale()} />
@@ -119,7 +119,7 @@ class DesktopHeader extends React.Component {
                                     <div className="desktop-header__account-button">
                                         <Link to='account' params={routeParams}>
                                             <div>
-                                                <Text size="small" color="white">
+                                                <Text size="small" weight="bold" color="white">
                                                     <FormattedMessage
                                                         message={intlStore.getMessage(intlData, 'hi')}
                                                         locales={intlStore.getCurrentLocale()} />, {this.state.user.name.split(' ')[0]}
