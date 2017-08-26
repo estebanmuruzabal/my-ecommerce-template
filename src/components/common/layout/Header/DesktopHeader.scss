@@ -18,6 +18,7 @@
     width: 100%;
     max-width: $layout-max-width;
     padding: 5px 32px 5px 32px;
+    height: 70px;
     @media only screen and (min-width: $layout-max-width) {
         padding-left: 0;
         padding-right: 0;
@@ -36,6 +37,7 @@
 .desktop-header__container-left-column {
     display: flex;
     width: 100%;
+
 }
 
 .desktop-header__container-right-column {
@@ -50,14 +52,13 @@
  */
 
 .desktop-header__logo {
-    width: 100%;
-    min-width: 169px;
-    max-width: 169px;
-    height: 47px;
-    background: url('./logo-tienda765.png');
+    width: 80;
+    height: 80;
+    position:static;
+    background: url('./tienda-santa-2.png');
     background-size: 100%;
     background-repeat: no-repeat;
-    border-radius: 8px;
+    background-position: top center;
 }
 
 .desktop-header__tienda {
@@ -88,14 +89,8 @@
 
 .desktop-header__logo-link {
     align-self: center;
-    text-decoration: none;
-    text-align: center;
-    border: 1px solid #eee;
-    border-radius: 40px;
     cursor: pointer;
-    background-color: #ff4056;
     padding: 10px;
-
     &:hover {
         span {
             color: $color-primary;

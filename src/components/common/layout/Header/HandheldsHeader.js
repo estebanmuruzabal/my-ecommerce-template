@@ -71,7 +71,7 @@ class HandheldsHeader extends React.Component {
                 </div>
                 <div className="handhelds-header__logo-link">
                     <Link to='homepage' params={routeParams}>
-                        <div className="handhelds-header__tienda">Tienda</div><div className="handhelds-header__765"> 765</div>
+                        <div className="handhelds-header__logo"></div>
                     </Link>
                 </div>
                 <div className="handhelds-header__right-actions">

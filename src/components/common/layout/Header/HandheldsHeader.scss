@@ -4,6 +4,7 @@
     display: flex;
     padding: 5px;
     border-bottom: solid 1px #eeeeee;
+    height: 60;
 }
 
 /*
@@ -13,7 +14,7 @@
 .handhelds-header__left-actions {
     align-self: center;
     text-align: left;
-    width: 20%;
+    width: 38%;
 }
 
 /*
@@ -21,12 +22,10 @@
  */
 
  .handhelds-header__logo-link {
-     border: 1px solid #eee;
-     border-radius: 40px;
-     cursor: pointer;
-     background-color: #ff4056;
-     padding: 3px;
-     
+   align-self: center;
+   cursor: pointer;
+   padding: 10px;
+
      &:hover {
          span {
              color: $color-primary;
@@ -68,12 +67,13 @@
 }
 
 .handhelds-header__logo {
-    width: 100%;
-    min-width: 80px;
-    max-width: 80px;
-    height: 30px;
-    background: url('../../../../../static/logo.png') no-repeat;
+    width: 60;
+    height: 60;
+    position:static;
+    background: url('./tienda-santa-2.png');
     background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
 }
 
 /*
@@ -84,7 +84,7 @@
     display: flex;
     justify-content: flex-end;
     align-self: center;
-    width: 20%;
+    width: 38%;
 }
 
 /*
