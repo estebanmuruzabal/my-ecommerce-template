@@ -68,8 +68,10 @@ class NewsletterSubscription extends React.Component {
                       method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" noValidate
                       style={{position: 'absolute', left: '-5000px', ariaHidden: 'true'}}>
                     <div id="mc_embed_signup_scroll">
-                        <label htmlFor="mce-EMAIL">Subscribe to our mailing list</label>
-                        <input type="email" value={this.state.newsletterEmail} name="EMAIL" id="mce-EMAIL" required />
+                        <label htmlFor="MERGE0">Subscribe to our mailing list</label>
+                        <input type="hidden" name="u" value="67b5228d8d11af7ae1311f884" />
+                        <input type="hidden" name="id" value="18e7e3eea1" />
+                        <input type="email" value={this.state.newsletterEmail} name="MERGE0" id="MERGE0" required />
                         {this.props.signupSource ?
                             <input type="hidden" name="SIGNUP" id="SIGNUP" value={this.props.signupSource} />
                             :
