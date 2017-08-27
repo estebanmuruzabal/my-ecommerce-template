@@ -1,7 +1,7 @@
 {
   "name": "my-ecommerce",
   "version": "1.0.0",
-  "description": "BananaCat Online Storefront",
+  "description": "Tienda765 Online Storefront",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf static/dist && webpack --stats --progress --config ./webpack/prod.config.js",
