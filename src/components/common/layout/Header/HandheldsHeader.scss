@@ -3,7 +3,7 @@
 .handhelds-header {
     display: flex;
     padding: 5px;
-    border-bottom: solid 1px #eeeeee;
+    background-color: black;
     height: 60;
 }
 
@@ -95,7 +95,8 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
-    background: url('./menu.png');
+    background: url('./menu-black.png');
+    background-color: black;
     background-size: 100%;
 }
 
@@ -103,7 +104,7 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
-    background: url('./cart.png');
+    background: url('./cart-white.png');
     background-size: 100%;
 }
 
@@ -111,6 +112,6 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
-    background: url('./close.png');
+    background: url('./close-white.png');
     background-size: 100%;
 }
