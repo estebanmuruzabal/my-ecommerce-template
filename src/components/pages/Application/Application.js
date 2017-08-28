@@ -99,7 +99,7 @@ class Application extends React.Component {
 
         let tabs = [
            {
-               name: 'Grupos',
+               name: 'Box 765',
                to: 'groups'
            }
          ];

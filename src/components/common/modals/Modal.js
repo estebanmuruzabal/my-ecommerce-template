@@ -32,7 +32,7 @@ class Modal extends React.Component {
                             </div>
                             <div className="modal__close">
                                 {this.props.onCloseClick ?
-                                    <a role="button" className="modal__close-button" onClick={this.props.onCloseClick}>&times;</a>
+                                    <div className="modal__close-button" onClick={this.props.onCloseClick}></div>
                                     :
                                     null
                                 }

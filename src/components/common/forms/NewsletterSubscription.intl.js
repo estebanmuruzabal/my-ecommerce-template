@@ -6,7 +6,7 @@ export default {
     },
     es: {
         newsletterDescription: 'Mantenete informado sobre ofertas, nuevos lanzamientos y mucho más!',
-        newsletterPlaceholder: 'Ingrese su direccion de email...',
+        newsletterPlaceholder: 'Ingrese su dirección de email...',
         newsletterSubmitButton: 'Registrarse'
     }
 };

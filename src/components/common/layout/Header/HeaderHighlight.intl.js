@@ -3,6 +3,6 @@ export default {
         freeShipping: 'Free shipping over'
     },
     es: {
-        freeShipping: 'Envio gratis para compras >'
+        freeShipping: 'Envío gratis para compras mayores a'
     }
 };

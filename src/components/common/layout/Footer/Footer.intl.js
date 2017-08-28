@@ -15,7 +15,7 @@ export default {
         socialTitle: 'Social',
         storesTitle: 'Nuestra tienda',
         stores: 'Info de nuestra tienda',
-        clientService: 'Apoyo al consumidor',
+        clientService: 'Soporte al consumidor',
         shipInfo: 'Información de envios',
         termsAndCond: 'Términos & Condiciones',
     }

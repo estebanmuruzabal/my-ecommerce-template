@@ -33,18 +33,18 @@ class StoresPage extends React.Component {
         return (
           <div className="stores-page__content">
             <p className="stores-page__address">
-                <strong>Direccion:</strong><br />
+                <strong>Dirección:</strong><br />
                 Güemes 765 <a href="https://goo.gl/maps/iCGwsKYjQXq" target="_blank">Ver en Google Maps</a><br />
                 CP 3500 - Resistencia Chaco<br />
             </p>
             <p className="stores-page__schedule">
-                <strong>Horário:</strong><br />
+                <strong>Horarios:</strong><br />
                 Lunes a Viernes: de 07 a 12:30 y 17 a 20:30<br />
                 Sábados: de 09 a 12:30<br />
             </p>
             <p className="stores-page__contacts">
-                <strong>Contáctos:</strong><br />
-                3624-423398
+                <strong>Contactanos:</strong><br />
+                3624-201230
             </p>
           </div>
         );
