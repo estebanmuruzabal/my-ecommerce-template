@@ -15,6 +15,7 @@ import Pagination from '../navigation/Pagination';
 import ProductListItem from './ProductListItem';
 import Text from '../typography/Text';
 import TreeMenu from '../navigation/TreeMenu';
+import { Link} from 'react-router';
 
 // Translation data for this component
 import intlData from './ProductList.intl';
@@ -45,16 +46,20 @@ class ProductList extends React.Component {
         let hasDescription = () => {
             return this.props.collection && this.props.collection.description && this.props.collection.description[intlStore.getCurrentLocale()];
         };
-        console.log("colecction:",this.props.collection);
+
         let bannerDiv = () => {
           if (this.props.collection) {
             if (this.props.collection.name.es == 'Frutas&Verduras') {
               return (
+                <Link to="groups" params={this.props.routeParams}>
                   <div className="verduras-banner-container"></div>
+                  </Link>
               );
             } else if (this.props.collection.name.en == 'Library') {
               return (
+                <Link to="/es/products/d0d496b3-ffaa-4334-98a0-cb5079a5ba1d/pedido-de-impresion-blanco-y-negro/" params={this.props.routeParams}>
                   <div className="impresiones-banner-container"></div>
+                </Link>
               );
             }
           }

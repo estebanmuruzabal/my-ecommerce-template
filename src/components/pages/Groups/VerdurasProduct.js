@@ -310,10 +310,6 @@ class VerdurasProduct extends React.Component {
                                                 <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
                                                 <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
                                               </tr>
-                                              // <tr className="groups-table__row">
-                                              //   <td className="groups-table__data"><Text size="medium">Choclo</Text></td>
-                                              //   <td className="groups-table__data"><Text size="medium">2 unidades</Text></td>
-                                              // </tr>
                                               <tr className="groups-table__row">
                                                 <td className="groups-table__data"><Text size="medium">Banana</Text></td>
                                                 <td className="groups-table__data"><Text size="medium">1 Kg.</Text></td>
@@ -334,10 +330,6 @@ class VerdurasProduct extends React.Component {
                                                 <td className="groups-table__data"><Text size="medium">Naranja</Text></td>
                                                 <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                                               </tr>
-                                              // <tr className="groups-table__row">
-                                              //   <td className="groups-table__data"><Text size="medium">Acelga</Text></td>
-                                              //   <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
-                                              // </tr>
                                               <tr className="groups-table__row">
                                                 <td className="groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
                                                 <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
