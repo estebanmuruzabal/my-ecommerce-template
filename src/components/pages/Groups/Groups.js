@@ -288,7 +288,7 @@ class Groups extends React.Component {
                             locales={intlStore.getCurrentLocale()} /></p>
                     </div>
                 </div>
-                <VerdurasProduct productId="b7a108b9-0663-4ab3-b300-45980ffe9e63"/>
+                <VerdurasProduct productId="3f1bad55-0060-4553-b918-d29d6892cf3b"/>
               </div>
               <div className="groups__warning">
                   <Heading size="small">

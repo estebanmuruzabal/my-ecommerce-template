@@ -260,7 +260,7 @@ class VerdurasProduct extends React.Component {
                                         Ref: <span itemProp="sku">{this.state.product.sku}</span>
                                     </Text>
                                 </div>
-                                <div className="product-page__description">
+                                <div className="groups-page__description">
                                     <div className="groups-table">
                                         <table className="groups-table__table">
                                             <thead>
