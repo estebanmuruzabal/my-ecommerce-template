@@ -81,15 +81,6 @@ class SideMenu extends React.Component {
                                 </li>
                             );
                         })}
-                        {this.props.tabs && this.props.tabs.map((obj, idx) => {
-                            return (
-                                <li key={idx} className="side-menu__item side-menu__collection-item" onClick={this.handleItemClick}>
-                                    <Link to={obj.to} params={Object.assign(obj.params || {}, routeParams)}>
-                                        <Text size="medium">{obj.name}</Text>
-                                    </Link>
-                                </li>
-                            );
-                        })}
                     </ul>
                     {this.state.user ?
                         <ul className="side-menu__account">
