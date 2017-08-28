@@ -8,6 +8,32 @@
     }
 }
 
+.verduras-banner-container {
+  width: 100%;
+  height: 240px;
+  cursor: pointer;
+  background: url('./cajon-frutas.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.libreria-banner-container {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background: url('./verduras-banner.png');
+  background-size: 100%;
+}
+
+.impresiones-banner-container {
+  width: 100%;
+  height: 240px;
+  cursor: pointer;
+  background: url('./fotocopias-banner.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 // Sidebar
 
 .product-list__sidebar {
@@ -51,6 +77,13 @@
     background-color: #eee;
     padding: 10px 0  10px 0;
     border: solid 3px black;
+}
+
+.product-list__banner-container {
+    width: 100%;
+    text-align: center;
+    background-color: #eee;
+    padding: 10px 0  10px 0;
 }
 
 .product-list__collection-description {

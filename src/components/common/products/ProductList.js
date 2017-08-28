@@ -45,6 +45,20 @@ class ProductList extends React.Component {
         let hasDescription = () => {
             return this.props.collection && this.props.collection.description && this.props.collection.description[intlStore.getCurrentLocale()];
         };
+        console.log("colecction:",this.props.collection);
+        let bannerDiv = () => {
+          if (this.props.collection) {
+            if (this.props.collection.name.es == 'Frutas&Verduras') {
+              return (
+                  <div className="verduras-banner-container"></div>
+              );
+            } else if (this.props.collection.name.en == 'Library') {
+              return (
+                  <div className="impresiones-banner-container"></div>
+              );
+            }
+          }
+        };
 
         return (
             <div className="product-list">
@@ -82,8 +96,11 @@ class ProductList extends React.Component {
 
                 <div className="product-list__container">
                     {this.props.title ?
-                        <div className="product-list__title">
-                            <Heading size="medium">{this.props.title}</Heading>
+                        <div>
+                          {bannerDiv()}
+                          <div className="product-list__title">
+                              <Heading size="medium">{this.props.title}</Heading>
+                          </div>
                         </div>
                         :
                         null
