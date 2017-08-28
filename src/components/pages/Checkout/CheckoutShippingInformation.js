@@ -91,18 +91,13 @@ class CheckoutShippingInformation extends React.Component {
         ];
 
         let deliveryTimeOptions = [
-            {name: 'Entre 09:00 y 10:00', value: '09:00-10:00'},
-            {name: 'Entre 10:00 y 11:00', value: '10:00-11:00'},
-            {name: 'Entre 11:00 y 12:00', value: '11:00-12:00'},
-            {name: 'Entre 12:00 y 13:00', value: '12:00-13:00'},
-            {name: 'Entre 13:00 y 14:00', value: '13:00-14:00'},
-            {name: 'Entre 14:00 y 15:00', value: '14:00-15:00'},
-            {name: 'Entre 15:00 y 16:00', value: '15:00-16:00'},
-            {name: 'Entre 16:00 y 17:00', value: '16:00-17:00'},
-            {name: 'Entre 17:00 y 18:00', value: '17:00-18:00'},
-            {name: 'Entre 18:00 y 19:00', value: '18:00-19:00'},
-            {name: 'Entre 19:00 y 20:00', value: '19:00-20:00'},
-            {name: 'Entre 20:00 y 21:00', value: '20:00-21:00'}
+            {name: 'Entre 07:00 y 09:00', value: '07:00-09:00'},
+            {name: 'Entre 09:00 y 11:00', value: '09:00-11:00'},
+            {name: 'Entre 11:00 y 13:00', value: '11:00-13:00'},
+            {name: 'Entre 13:00 y 15:00', value: '13:00-15:00'},
+            {name: 'Entre 15:00 y 17:00', value: '15:00-17:00'},
+            {name: 'Entre 17:00 y 19:00', value: '17:00-19:00'},
+            {name: 'Entre 19:00 y 21:00', value: '19:00-21:00'},
         ];
 
         let showModal = () => {
