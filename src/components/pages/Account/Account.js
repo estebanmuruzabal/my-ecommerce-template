@@ -245,6 +245,10 @@ class Account extends React.Component {
             {name: 'Argentina', value: 'Argentina'}
         ];
 
+        let cityOptions = [
+            {name: 'Chaco', value: 'Chaco'}
+        ];
+
         let modal = () => {
             if (this.state.openModal === 'editDetails') {
                 return (
@@ -363,10 +367,10 @@ class Account extends React.Component {
                                             value={this.state.address.postalCode}
                                             onChange={this.handleAddressFieldChange.bind(null, 'postalCode')}
                                             error={this.state.fieldErrors['postalCode']} />
-                                <InputField label={intlStore.getMessage(intlData, 'city')}
-                                            value={this.state.address.city}
-                                            onChange={this.handleAddressFieldChange.bind(null, 'city')}
-                                            error={this.state.fieldErrors['city']} />
+                                <Select label={intlStore.getMessage(intlData, 'city')} placeholder options={cityOptions}
+                                        value={this.state.address.city}
+                                        onChange={this.handleAddressFieldChange.bind(null, 'city')}
+                                        error={this.state.fieldErrors['city']} />
                             </InlineItems>
                         </div>
                         <div className="account__modal-form-item">

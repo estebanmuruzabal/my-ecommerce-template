@@ -30,6 +30,12 @@ class MainNavigation extends React.Component {
 
         // Base route params
         let routeParams = {locale: this.context.getStore(IntlStore).getCurrentLocale()};
+        let textClass = undefined;
+        if ('admin'.indexOf(this.props.menutype) != -1) {
+            textClass = `main-navigation__item-regular`;
+        } else {
+            textClass = 'main-navigation__item-admin';
+        }
 
         // Return
         return (
@@ -38,7 +44,7 @@ class MainNavigation extends React.Component {
                     <ul>
                         {this.props.links.map(function (link, idx) {
                             return (
-                                <li key={idx} className="main-navigation__item">
+                                <li key={idx} className={textClass}>
                                     <Link to={link.to} params={Object.assign(link.params || {}, routeParams)}>
                                         {link.name}
                                     </Link>

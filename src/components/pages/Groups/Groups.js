@@ -337,7 +337,7 @@ class Groups extends React.Component {
                                   </div>
                                   <Text size="medium">
                                       <div className="groups__labels">
-                                        {group.buyers.length} / 10
+                                        {group.buyers.length} / 18
                                       </div>
                                   </Text>
                                   { isLogged ?

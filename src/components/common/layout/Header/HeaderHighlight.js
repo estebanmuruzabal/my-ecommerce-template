@@ -34,6 +34,7 @@ class HeaderHighlight extends React.Component {
 
     render() {
         let intlStore = this.context.getStore(IntlStore);
+
         return (
             <div className="header-highlight">
                 <div className="header-highlight__shipping-icon">

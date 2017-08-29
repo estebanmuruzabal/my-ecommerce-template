@@ -21,3 +21,37 @@
         }
     }
 }
+
+.main-navigation__item-admin {
+  display: inline;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  & > a {
+      color: black;
+      text-decoration: none;
+      &:hover {
+          color: $color-primary;
+      }
+  }
+}
+
+.main-navigation__item-regular {
+  display: inline;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  & > a {
+      color: yellow;
+      text-decoration: none;
+      &:hover {
+          color: $color-primary;
+      }
+  }
+}
