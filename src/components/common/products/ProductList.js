@@ -49,7 +49,7 @@ class ProductList extends React.Component {
 
         let bannerDiv = () => {
           if (this.props.collection) {
-            if (this.props.collection.name.es == 'Frutas&Verduras') {
+            if (true) {
               return (
                 <Link to="groups" params={this.props.routeParams}>
                   <div className="verduras-banner-container"></div>

@@ -188,13 +188,15 @@ class CheckoutShippingInformation extends React.Component {
                 }
 
                 let todayDay = today.getDate()+i;
-                let entireDate = undefined;
+
 
                 if (dayOfTheWeek == 2) {
-                  entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
-                  dayOptions.push({name: entireDate, value: entireDate});
+
                 }
              }
+             let entireDate = undefined;
+             entireDate = 'Martes' + ' ' + '5' + ' de ' + 'Septiembre';
+             dayOptions.push({name: entireDate, value: entireDate});
            } else if (productSchedule == 'verduras') {
 
               for (let i = 0; i < 7 ; i++) {
@@ -221,10 +223,20 @@ class CheckoutShippingInformation extends React.Component {
                 if (today.getHours() >= 17 && todayDay == today.getDate()) {
                 } else if (today.getHours() >= 17 && todayDay == today.getDate()+1) {
                 } else if (dayOfTheWeek !== 0 && dayOfTheWeek !== 6) {
-                  entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
-                  dayOptions.push({name: entireDate, value: entireDate});
+
                 }
              }
+             let entireDate1,entireDate2,entireDate3,entireDate4,entireDate5 = undefined;
+             entireDate1 = 'Miercoles' + ' ' + '30' + ' de ' + 'Agosto';
+             entireDate2 = 'Jueves' + ' ' + '31' + ' de ' + 'Agosto';
+             entireDate3 = 'Viernes' + ' ' + '1' + ' de ' + 'Septiembre';
+             entireDate4 = 'Lunes' + ' ' + '4' + ' de ' + 'Septiembre';
+             entireDate5 = 'Martes' + ' ' + '5' + ' de ' + 'Septiembre';
+             dayOptions.push({name: entireDate1, value: entireDate1});
+             dayOptions.push({name: entireDate2, value: entireDate2});
+             dayOptions.push({name: entireDate3, value: entireDate3});
+             dayOptions.push({name: entireDate4, value: entireDate4});
+             dayOptions.push({name: entireDate5, value: entireDate5});
            } else {
               for (let i = 0; i < 7 ; i++) {
                 let dayOfTheWeek = today.getDay()+i;
@@ -248,10 +260,20 @@ class CheckoutShippingInformation extends React.Component {
                 }
 
                 if (todayDay !== today.getDate() && dayOfTheWeek !== 0 && dayOfTheWeek !== 6) {
-                  entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
-                  dayOptions.push({name: entireDate, value: entireDate});
+
                 }
              }
+             let entireDate1,entireDate2,entireDate3,entireDate4,entireDate5 = undefined;
+             entireDate1 = 'Miercoles' + ' ' + '30' + ' de ' + 'Agosto';
+             entireDate2 = 'Jueves' + ' ' + '31' + ' de ' + 'Agosto';
+             entireDate3 = 'Viernes' + ' ' + '1' + ' de ' + 'Septiembre';
+             entireDate4 = 'Lunes' + ' ' + '4' + ' de ' + 'Septiembre';
+             entireDate5 = 'Martes' + ' ' + '5' + ' de ' + 'Septiembre';
+             dayOptions.push({name: entireDate1, value: entireDate1});
+             dayOptions.push({name: entireDate2, value: entireDate2});
+             dayOptions.push({name: entireDate3, value: entireDate3});
+             dayOptions.push({name: entireDate4, value: entireDate4});
+             dayOptions.push({name: entireDate5, value: entireDate5});
             }
 
         return (

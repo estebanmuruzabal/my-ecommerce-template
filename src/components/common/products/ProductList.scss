@@ -15,6 +15,9 @@
   background: url('./cajon-frutas.png');
   background-repeat: no-repeat;
   background-size: 100%;
+  @include breakpoint(handhelds) {
+      height: 82px;
+  }
 }
 
 .impresiones-banner-container {
@@ -24,6 +27,12 @@
   background: url('./fotocopias-banner.png');
   background-repeat: no-repeat;
   background-size: 100%;
+  @include breakpoint(handhelds) {
+      height: 40px;
+  }
+  @include breakpoint(medium-screens) {
+      height: 100px;
+  }
 }
 
 // Sidebar
