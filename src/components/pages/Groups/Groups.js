@@ -194,13 +194,6 @@ class Groups extends React.Component {
                                      </Button>
                                    </Link>
                                  </div>
-                                 <div className="groups__keep-buying-button">
-                                     <Button type="primary" onClick={this.handleShowThanksModalCloseClick}>
-                                         <FormattedMessage
-                                             message={intlStore.getMessage(intlData, 'continueShopping')}
-                                             locales={intlStore.getCurrentLocale()} />
-                                     </Button>
-                                 </div>
                               </div>
                           </div>
                     </Modal>
