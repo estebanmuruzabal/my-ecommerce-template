@@ -32,13 +32,13 @@ class CheckoutShippingInformation extends React.Component {
 
     state = {
           showModal: false,
-          daysOptions: []
+          daysOptions: [],
+          fieldErrors: {},
      };
 
     static contextTypes = {
         getStore: React.PropTypes.func.isRequired
     };
-
 
     componentDidMount() {
         require('./CheckoutShippingInformation.scss');

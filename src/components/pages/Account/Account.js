@@ -245,8 +245,15 @@ class Account extends React.Component {
             {name: 'Argentina', value: 'Argentina'}
         ];
 
-        let cityOptions = [
+        let provinceOptions = [
             {name: 'Chaco', value: 'Chaco'}
+        ];
+
+        let cityOptions = [
+            {name: 'Resistencia', value: 'Resistencia'},
+            {name: 'Barranqueras', value: 'Barranqueras'},
+            {name: 'Vilelas', value: 'Vilelas'},
+            {name: 'Fontana', value: 'Fontana'},
         ];
 
         let modal = () => {
@@ -375,10 +382,10 @@ class Account extends React.Component {
                         </div>
                         <div className="account__modal-form-item">
                             <InlineItems>
-                                <InputField label={intlStore.getMessage(intlData, 'state')}
-                                            value={this.state.address.state}
-                                            onChange={this.handleAddressFieldChange.bind(null, 'state')}
-                                            error={this.state.fieldErrors['state']} />
+                                <Select label={intlStore.getMessage(intlData, 'state')} placeholder options={provinceOptions}
+                                        value={this.state.address.statenewAddress}
+                                        onChange={this.handleAddressFieldChange.bind(null, 'state')}
+                                        error={this.state.fieldErrors['state']} />
                                 <Select label={intlStore.getMessage(intlData, 'country')} placeholder options={countryOptions}
                                         value={this.state.address.country}
                                         onChange={this.handleAddressFieldChange.bind(null, 'country')}

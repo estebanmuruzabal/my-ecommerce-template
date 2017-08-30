@@ -72,6 +72,9 @@
 .groups-bottoms-container {
   display: flex;
   flex-direction: row;
+  @include breakpoint(handhelds) {
+    flex-direction: column;
+  }
 }
 
 .groups__link {

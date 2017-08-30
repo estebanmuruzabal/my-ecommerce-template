@@ -247,13 +247,6 @@ class Groups extends React.Component {
                                  </Button>
                                </Link>
                              </div>
-                             <div className="groups__register-button">
-                               <Button type="default" onClick={this.handleRegiserModalCloseClick}>
-                                   <FormattedMessage
-                                       message={intlStore.getMessage(intlData, 'cancel')}
-                                       locales={intlStore.getCurrentLocale()} />
-                               </Button>
-                             </div>
                           </div>
                         </div>
                     </Modal>
