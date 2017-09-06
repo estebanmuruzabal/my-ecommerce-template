@@ -19,8 +19,6 @@ import ContentDetailsStore from './stores/Contents/ContentDetailsStore';
 import CustomersListStore from './stores/Customers/CustomersListStore';
 import DrawerStore from './stores/Application/DrawerStore';
 import FileUploadStore from './stores/Files/FileUploadStore';
-import GroupsAddStore from './stores/Groups/GroupsAddStore';
-import GroupsListStore from './stores/Groups/GroupsListStore';
 import IntlStore from './stores/Application/IntlStore';
 import LoginStore from './stores/Account/LoginStore';
 import NotificationQueueStore from './stores/Application/NotificationQueueStore';
@@ -66,8 +64,6 @@ const app = new Fluxible({
         CustomersListStore,
         DrawerStore,
         FileUploadStore,
-        GroupsAddStore,
-        GroupsListStore,
         IntlStore,
         LoginStore,
         NotificationQueueStore,

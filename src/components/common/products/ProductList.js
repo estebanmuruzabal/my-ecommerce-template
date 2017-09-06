@@ -49,18 +49,18 @@ class ProductList extends React.Component {
 
         let bannerDiv = () => {
           if (this.props.collection) {
-            if (true) {
+            if (this.props.collection.name.es == 'Cajon') {
               return (
-                <Link to="groups" params={this.props.routeParams}>
-                  <div className="verduras-banner-container"></div>
+                <div className="verduras-banner-container"></div>
+              );
+            } else {
+               if (this.props.collection.name.en == 'Library') {
+                return (
+                  <Link to="/es/products/d0d496b3-ffaa-4334-98a0-cb5079a5ba1d/pedido-de-impresion-blanco-y-negro/" params={this.props.routeParams}>
+                    <div className="impresiones-banner-container"></div>
                   </Link>
-              );
-            } else if (this.props.collection.name.en == 'Library') {
-              return (
-                <Link to="/es/products/d0d496b3-ffaa-4334-98a0-cb5079a5ba1d/pedido-de-impresion-blanco-y-negro/" params={this.props.routeParams}>
-                  <div className="impresiones-banner-container"></div>
-                </Link>
-              );
+                );
+              }
             }
           }
         };
@@ -100,16 +100,9 @@ class ProductList extends React.Component {
                 }
 
                 <div className="product-list__container">
-                    {this.props.title ?
-                        <div>
-                          {bannerDiv()}
-                          <div className="product-list__title">
-                              <Heading size="medium">{this.props.title}</Heading>
-                          </div>
-                        </div>
-                        :
-                        null
-                    }
+                    <div>
+                      {bannerDiv()}
+                    </div>
                     {hasDescription() ?
                         <div className="product-list__collection-description">
                             <Text size="small">
@@ -129,11 +122,19 @@ class ProductList extends React.Component {
                     <div className="product-list__items">
                         {this.props.products.length > 0 ?
                             this.props.products.map(function (item, idx) {
+                              if (item.tags.includes('cajon')) {
+                                return (
+                                    <div key={idx} className="product-list__product-item-cajon">
+                                        <ProductListItem product={item} />
+                                    </div>
+                                );
+                              } else {
                                 return (
                                     <div key={idx} className="product-list__product-item">
                                         <ProductListItem product={item} />
                                     </div>
                                 );
+                              }
                             })
                             :
                             <div className="product-list__no-results">

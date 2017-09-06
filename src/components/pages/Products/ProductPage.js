@@ -358,6 +358,253 @@ class ProductPage extends React.Component {
             return this.state.fieldErrors[field];
         };
 
+        let productDescription = () => {
+          if (this.state.product.name.es == 'SaluCaja 1') {
+            return (
+               <div className="groups-page__description">
+                   <div className="groups-table">
+                       <table className="groups-table__table">
+                           <thead>
+                               <tr className="groups-table__row">
+                                 <th className="groups-table__heading">
+                                     <Text weight="bold" size="medium">Productos</Text>
+                                 </th>
+                                 <th className="groups-table__heading">
+                                     <Text weight="bold" size="medium">Cantidad</Text>
+                                 </th>
+                               </tr>
+                           </thead>
+                           <tbody className="groups-table__body">
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Tomate Perita</Text></td>
+                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Zanahoria</Text></td>
+                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Cebolla</Text></td>
+                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Batata</Text></td>
+                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Papa</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 unidad(1.5kg)</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Limones</Text></td>
+                               <td className="groups-table__data"><Text size="medium">2 unidades</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Huevos</Text></td>
+                               <td className="groups-table__data"><Text size="medium">6 unidades</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
+                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Banana</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 Kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Manzana</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Zapallito</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Naranja</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
+                             </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+             );
+          } else if (this.state.product.name.es == 'SaluCaja 2') {
+            return (
+               <div className="groups-page__description">
+                   <div className="groups-table">
+                       <table className="groups-table__table">
+                           <thead>
+                               <tr className="groups-table__row">
+                                 <th className="groups-table__heading">
+                                     <Text weight="bold" size="medium">Productos</Text>
+                                 </th>
+                                 <th className="groups-table__heading">
+                                     <Text weight="bold" size="medium">Cantidad</Text>
+                                 </th>
+                               </tr>
+                           </thead>
+                           <tbody className="groups-table__body">
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Tomate Perita</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Zanahoria</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Cebolla</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Batata</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Papa</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 unidad(1.5kg)</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Limones</Text></td>
+                               <td className="groups-table__data"><Text size="medium">2 unidades</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Huevos</Text></td>
+                               <td className="groups-table__data"><Text size="medium">6 unidades</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
+                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Banana</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 Kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Manzana</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Zapallito</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Naranja</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
+                             </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+             );
+          } else if (this.state.product.name.es == 'SaluCaja 3') {
+            return (
+               <div className="groups-page__description">
+                   <div className="groups-table">
+                       <table className="groups-table__table">
+                           <thead>
+                               <tr className="groups-table__row">
+                                 <th className="groups-table__heading">
+                                     <Text weight="bold" size="medium">Productos</Text>
+                                 </th>
+                                 <th className="groups-table__heading">
+                                     <Text weight="bold" size="medium">Cantidad</Text>
+                                 </th>
+                               </tr>
+                           </thead>
+                           <tbody className="groups-table__body">
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Tomate Perita</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1.5 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Zanahoria</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1.5 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Cebolla</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1.5 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Batata</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Papa</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 unidad(1.5kg)</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Limones</Text></td>
+                               <td className="groups-table__data"><Text size="medium">2 unidades</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Huevos</Text></td>
+                               <td className="groups-table__data"><Text size="medium">6 unidades</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
+                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Banana</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 Kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Manzana</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Zapallito</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Naranja</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                             </tr>
+                             <tr className="groups-table__row">
+                               <td className="groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
+                             </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+             );
+          }
+        }
+
         return (
             <div className="product-page">
                 {!this.state.product ?
@@ -403,6 +650,11 @@ class ProductPage extends React.Component {
                                                 locales={intlStore.getCurrentLocale()} />
                                         </Heading>
                                     </div>
+                                    {this.state.product.tags.includes('cajon') ?
+                                    <div className="product-page__description-content" itemProp="description">
+                                        {productDescription()}
+                                    </div>
+                                    :
                                     <div className="product-page__description-content" itemProp="description">
                                         <Text size="small">
                                             <FormattedMessage
@@ -410,6 +662,7 @@ class ProductPage extends React.Component {
                                                 locales={intlStore.getCurrentLocale()} />
                                         </Text>
                                     </div>
+                                    }
                                 </div>
                                 {this.state.product.pricing ?
                                     <div className="product-page__price" itemProp="offers" itemScope itemType="http://schema.org/Offer">
@@ -421,7 +674,7 @@ class ProductPage extends React.Component {
                                         </div>
                                         <div>
                                             <Text size="medium" weight="bold">
-                                                <FormattedNumber
+                                                Precio: <FormattedNumber
                                                     value={this.state.product.pricing.retail}
                                                     style="currency"
                                                     currency={this.state.product.pricing.currency} />

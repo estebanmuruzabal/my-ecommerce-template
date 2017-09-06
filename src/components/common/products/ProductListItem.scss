@@ -20,3 +20,55 @@
 .product-list-item__image {
 
 }
+
+.groups-table {
+  flex: 0 1 auto;
+  width: 100%;
+  padding: 8px;
+}
+
+.groups-table__table {
+    width: 100%;
+    border: 1px solid #eeeeee;
+    text-align: left;
+    @include breakpoint(handhelds) {
+        width: 100%;
+    }
+}
+
+.groups-table__row {
+    border-bottom: 1px solid #eeeeee;
+
+
+    &--info {
+        background-color: $background-color-table-info;
+    }
+
+    &--success {
+        background-color: $background-color-table-success;
+    }
+
+    &--warning {
+        background-color: $background-color-table-warning;
+    }
+
+    &--error {
+        background-color: $background-color-table-error;
+    }
+}
+
+.groups-page__description {
+    margin-top: 30px;
+}
+
+.groups-table__heading,
+.groups-table__data {
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.groups-table__body > .groups-table__row {
+    &:hover {
+        background-color: #F9F9F9;
+    }
+}

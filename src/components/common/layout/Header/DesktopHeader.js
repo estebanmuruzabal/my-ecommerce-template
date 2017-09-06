@@ -88,6 +88,9 @@ class DesktopHeader extends React.Component {
                                 <MainNavigation menutype="admin" links={this.props.collections} />
                             </div>
                         </div>
+                        <div className="desktop-header__navigation">
+                          <MainNavigation links={this.props.tabs} />
+                        </div>
                         <div className="desktop-header__container-right-column">
                             {this.state.user ?
                                 <div className="desktop-header__account">

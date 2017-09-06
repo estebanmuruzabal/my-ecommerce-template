@@ -338,40 +338,36 @@ class Checkout extends React.Component {
 
         this.context.executeAction(createOrder, payload);
 
-        if (this.state.checkout.cart && this.state.checkout.cart.products.length > 0) {
-            this.state.checkout.cart.products.forEach(function (product) {
-                if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
-                  context.executeAction(updateProduct, {
-                      id: product.id,
-                      data: {
-                          enabled: product.details.enabled,
-                          sku: product.details.sku,
-                          name: product.details.name,
-                          description: product.details.description,
-                          images: product.details.images,
-                          pricing: {
-                              currency: product.details.pricing.currency,
-                              list: parseFloat(product.details.pricing.list),
-                              retail: parseFloat(product.details.pricing.retail),
-                              vat: parseInt(product.details.pricing.vat)
-                          },
-                          stock: parseInt(product.details.stock),
-                          tags: product.details.tags,
-                          collections: product.details.collections,
-                          copies: {
-                              pagetype: '',
-                              pagesnum: 0,
-                              files: [],
-                              comments: '',
-                              price: 0,
-                              anillado: false,
-                              doblefaz: true
-                          },
-                          metadata: product.details.metadata
-                      }
-                  });
-                }
-            });
+        if (product.details.copies && product.details.tags.indexOf('fotocopias') !== -1) {
+          context.executeAction(updateProduct, {
+              id: product.id,
+              data: {
+                  enabled: product.details.enabled,
+                  sku: product.details.sku,
+                  name: product.details.name,
+                  description: product.details.description,
+                  images: product.details.images,
+                  pricing: {
+                      currency: product.details.pricing.currency,
+                      list: parseFloat(product.details.pricing.list),
+                      retail: parseFloat(product.details.pricing.retail),
+                      vat: parseInt(product.details.pricing.vat)
+                  },
+                  stock: parseInt(product.details.stock),
+                  tags: product.details.tags,
+                  collections: product.details.collections,
+                  copies: {
+                      pagetype: '',
+                      pagesnum: 0,
+                      files: [],
+                      comments: '',
+                      price: 0,
+                      anillado: false,
+                      doblefaz: true
+                  },
+                  metadata: product.details.metadata
+              }
+          });
         }
     };
 

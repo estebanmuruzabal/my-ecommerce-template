@@ -7,8 +7,6 @@ import {DefaultRoute, NotFoundRoute, Route} from 'react-router';
 // Required components
 import Application from './components/pages/Application/Application';
 import NotFound from './components/pages/NotFound/NotFound';
-import Groups from './components/pages/Groups/Groups';
-
 
 import Homepage from './components/pages/Homepage/Homepage';
 import Checkout from './components/pages/Checkout/Checkout';
@@ -71,7 +69,7 @@ const routes = (
         <Route name="checkout" handler={Checkout} />
         <Route name="stores" handler={StoresPage} />
         <Route name="info" handler={InfoPage} />
-        <Route name="groups" path="groups" handler={Groups} />
+        <Route name="cajon" path="collections/9a6b177a-62e1-483f-a84d-ac65fc8bb9ae/cajon/" handler={CollectionProductsPage} />
         <Route name="articles" path="articles/?" handler={ArticlesListingPage} />
         <Route name="article" path="articles/:contentId/?" handler={ArticlePage} />
         <Route name="article-slug" path="articles/:contentId/:contentSlug/?" handler={ArticlePage} />
