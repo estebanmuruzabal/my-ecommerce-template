@@ -49,7 +49,7 @@ class ProductList extends React.Component {
         let isCajonCollection;
 
         if (this.props.collection) {
-          isCajonCollection = this.props.collection.name.es == 'Cajon' ? true : false;
+          isCajonCollection = this.props.collection.name.es == 'Cajon de F&V' ? true : false;
         }
 
         let bannerDiv = () => {
