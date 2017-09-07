@@ -73,59 +73,17 @@ class ProductList extends React.Component {
 
         return (
             <div className="product-list">
-                {this.props.filters ?
-                    <div className="product-list__sidebar">
-                        {this.props.filters.map((item, idx) => {
-                            let links = item.collections.map((col) => {
-                                return {
-                                    name: intlStore.getMessage(col.name),
-                                    to: 'collection-slug',
-                                    params: {
-                                        locale: intlStore.getCurrentLocale(),
-                                        collectionId: col.id,
-                                        collectionSlug: slugify(intlStore.getMessage(col.name))
-                                    },
-                                    selected: this.props.collection ? col.id === this.props.collection.id : false
-                                };
-                            });
-                            if (links.length > 0) {
-                                return (
-                                    <div key={idx} className="product-list__filter">
-                                        <TreeMenu links={links}>
-                                            <FormattedMessage
-                                                message={intlStore.getMessage(item.name)}
-                                                locales={intlStore.getCurrentLocale()} />
-                                        </TreeMenu>
-                                    </div>
-                                );
-                            }
-                        })}
-                    </div>
-                    :
-                    null
-                }
                 {isCajonCollection ?
                     <div className="product-list-cajon">
                       <div className="product-list__container">
                           <div>
                             {bannerDiv()}
                           </div>
-                          {hasDescription() ?
-                              <div className="product-list__collection-description">
-                                  <Text size="small">
-                                      {intlStore.getMessage(this.props.collection.description)}
-                                  </Text>
-                              </div>
-                              :
-                              null
-                          }
-                          {this.props.children ?
-                              <div className="product-list__content">
-                                  {this.props.children}
-                              </div>
-                              :
-                              null
-                          }
+                          <div className="product-list__collection-description">
+                              <Text weight="bold" size="medium" >
+                                  El cajón que se entrega es "retornable", se devuelve cuando se hace una nueva compra, o pasamos a retirarlo cuando puedas. Asi reusamos y no generamos desperdicio de cartón o bolsas. Gracias por colaborar!
+                              </Text>
+                          </div>
                           <div className="product-list__items">
                               {this.props.products.length > 0 ?
                                   this.props.products.map(function (item, idx) {
@@ -160,7 +118,7 @@ class ProductList extends React.Component {
                       </div>
                       <div className="product-list__container">
                           <div className="product-list__collection-description">
-                              <Text weight="bold" size="small" >
+                              <Text weight="bold" size="medium" >
                                   ↓ Personalizá tu cajón agregandole lo que necesites aquí debajo ↓
                               </Text>
                           </div>
