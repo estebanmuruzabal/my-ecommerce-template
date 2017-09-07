@@ -129,9 +129,9 @@ class ProductList extends React.Component {
                           <div className="product-list__items">
                               {this.props.products.length > 0 ?
                                   this.props.products.map(function (item, idx) {
-                                    if (item.tags.includes('cajon')) {
+                                    if (item.tags.includes('cajon') && item.tags.length == 1) {
                                       return (
-                                          <div key={idx} className="product-list__product-item-cajon">
+                                          <div key={idx+1} className="product-list__product-item-cajon">
                                               <ProductListItem product={item} />
                                           </div>
                                       );
