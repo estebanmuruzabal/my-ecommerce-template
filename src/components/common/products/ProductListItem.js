@@ -102,7 +102,7 @@ class ProductListItem extends React.Component {
         let intlStore = this.context.getStore(IntlStore);
 
         let productDescription = () => {
-          if (this.props.product.name.es == 'Cajon Chico') {
+          if (this.props.product.name.es == 'Cajón Chico') {
             return (
                <div className="groups-page__description">
                    <div className="groups-table">
@@ -183,7 +183,7 @@ class ProductListItem extends React.Component {
                    </div>
                </div>
              );
-          } else if (this.props.product.name.es == 'Cajon Mediano') {
+          } else if (this.props.product.name.es == 'Cajón Mediano') {
             return (
                <div className="groups-page__description">
                    <div className="groups-table">
@@ -264,7 +264,7 @@ class ProductListItem extends React.Component {
                    </div>
                </div>
              );
-          } else if (this.props.product.name.es == 'Cajon Grande') {
+          } else if (this.props.product.name.es == 'Cajón Grande') {
             return (
                <div className="groups-page__description">
                    <div className="groups-table">
