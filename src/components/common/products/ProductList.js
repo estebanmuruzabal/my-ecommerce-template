@@ -49,12 +49,12 @@ class ProductList extends React.Component {
         let isCajonCollection = false;
 
         if (this.props.collection) {
-          isCajonCollection = this.props.collection.name.es == 'Cajon' ? true : false;
+          isCajonCollection = this.props.collection.name.es == 'Cajon de F&V' ? true : false;
         }
 
         let bannerDiv = () => {
           if (this.props.collection) {
-            if (this.props.collection.name.es == 'Cajon') {
+            if (this.props.collection.name.es == 'Cajon de F&V') {
               isCajonCollection = true;
               return (
                 <div className="verduras-banner-container"></div>
@@ -161,7 +161,7 @@ class ProductList extends React.Component {
                       <div className="product-list__container">
                           <div className="product-list__collection-description">
                               <Text weight="bold" size="small" >
-                                  ↓ Personalizá tu cajón agregandole lo que necesites aquí debajo ↓ 
+                                  ↓ Personalizá tu cajón agregandole lo que necesites aquí debajo ↓
                               </Text>
                           </div>
                           <div className="product-list__items">
