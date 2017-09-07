@@ -47,14 +47,14 @@ class ProductList extends React.Component {
             return this.props.collection && this.props.collection.description && this.props.collection.description[intlStore.getCurrentLocale()];
         };
         let isCajonCollection;
-        
+
         if (this.props.collection) {
           isCajonCollection = this.props.collection.name.es == 'Cajon' ? true : false;
         }
 
         let bannerDiv = () => {
           if (this.props.collection) {
-            if (this.props.collection.name.es == 'Cajon') {
+            if (this.props.collection.name.es == 'Cajon de F&V') {
               isCajonCollection = true;
               return (
                 <div className="verduras-banner-container"></div>

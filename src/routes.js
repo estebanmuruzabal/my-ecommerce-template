@@ -69,7 +69,6 @@ const routes = (
         <Route name="checkout" handler={Checkout} />
         <Route name="stores" handler={StoresPage} />
         <Route name="info" handler={InfoPage} />
-        <Route name="cajon" path="collections/9a6b177a-62e1-483f-a84d-ac65fc8bb9ae/cajon/" handler={CollectionProductsPage} />
         <Route name="articles" path="articles/?" handler={ArticlesListingPage} />
         <Route name="article" path="articles/:contentId/?" handler={ArticlePage} />
         <Route name="article-slug" path="articles/:contentId/:contentSlug/?" handler={ArticlePage} />

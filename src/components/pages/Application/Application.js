@@ -97,13 +97,6 @@ class Application extends React.Component {
             };
         });
 
-      let tabs = [
-          {
-            name: 'CAJON DE F&V',
-            to: 'cajon'
-         }
-        ];
-
         // Compute CSS classes for the overlay
         let overlayClass = 'application__overlay';
         if (this.state.openedDrawer === 'menu') {
@@ -142,7 +135,7 @@ class Application extends React.Component {
                     null
                 }
                 <Drawer position="left" open={this.state.openedDrawer === 'menu'}>
-                    <SideMenu collections={collections} tabs={tabs} />
+                    <SideMenu collections={collections} />
                 </Drawer>
                 <Drawer position="right" open={this.state.openedDrawer === 'cart'}>
                     <SideCart />
@@ -151,7 +144,7 @@ class Application extends React.Component {
                     <div className="application__overlay-content"></div>
                 </div>
                 <div className={contentClass}>
-                    <Header collections={collections} tabs={tabs} collectionsTree={this.state.collectionsTree} />
+                    <Header collections={collections} collectionsTree={this.state.collectionsTree} />
                     <div className="application__container-wrapper">
                         <div className="application__container-content">
                             <RouteHandler />

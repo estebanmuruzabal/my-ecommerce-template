@@ -140,7 +140,7 @@ class ProductListItem extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1/2 unidad(750 grs)</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1/2 uni(750 grs)</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Limones</Text></td>
@@ -163,7 +163,7 @@ class ProductListItem extends React.Component {
                                <td className="groups-table__data"><Text size="medium">400 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
-                               <td className="groups-table__data"><Text size="medium">Zapallito</Text></td>
+                               <td className="groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
                                <td className="groups-table__data"><Text size="medium">500 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
@@ -244,7 +244,7 @@ class ProductListItem extends React.Component {
                                <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
-                               <td className="groups-table__data"><Text size="medium">Zapallito</Text></td>
+                               <td className="groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
                                <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
@@ -325,7 +325,7 @@ class ProductListItem extends React.Component {
                                <td className="groups-table__data"><Text size="medium">1,2 kg.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
-                               <td className="groups-table__data"><Text size="medium">Zapallito</Text></td>
+                               <td className="groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
                                <td className="groups-table__data"><Text size="medium">1,5 kg.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
