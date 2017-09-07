@@ -176,7 +176,6 @@
 
 .product-page__add {
     display: flex;
-    margin-top: 15px;
 
     @include breakpoint(handhelds) {
         flex-direction: column;
@@ -198,9 +197,7 @@
     margin-top: 10px;
 
     @include breakpoint(wide-screens) {
-        max-width: 200px;
         margin-top: 0;
-        margin-left: 20px;
     }
 }
 
