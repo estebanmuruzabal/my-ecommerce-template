@@ -8,6 +8,11 @@
     }
 }
 
+.product-list-cajon {
+  display: flex;
+  flex-direction: column;
+}
+
 .verduras-banner-container {
   width: 100%;
   height: 240px;
@@ -91,6 +96,7 @@
     margin-top: 15px;
     background-color: $color-secondary;
     padding: 20px;
+    text-align: center;
 }
 
 .product-list__items {

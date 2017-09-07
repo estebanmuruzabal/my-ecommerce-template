@@ -46,10 +46,12 @@ class ProductList extends React.Component {
         let hasDescription = () => {
             return this.props.collection && this.props.collection.description && this.props.collection.description[intlStore.getCurrentLocale()];
         };
-
+        let isCajonCollection;
+        isCajonCollection = this.props.collection.name.es == 'Cajon' ? true : false;
         let bannerDiv = () => {
           if (this.props.collection) {
             if (this.props.collection.name.es == 'Cajon') {
+              isCajonCollection = true;
               return (
                 <div className="verduras-banner-container"></div>
               );
@@ -98,65 +100,151 @@ class ProductList extends React.Component {
                     :
                     null
                 }
-
-                <div className="product-list__container">
-                    <div>
-                      {bannerDiv()}
-                    </div>
-                    {hasDescription() ?
-                        <div className="product-list__collection-description">
-                            <Text size="small">
-                                {intlStore.getMessage(this.props.collection.description)}
-                            </Text>
-                        </div>
-                        :
-                        null
-                    }
-                    {this.props.children ?
-                        <div className="product-list__content">
-                            {this.props.children}
-                        </div>
-                        :
-                        null
-                    }
-                    <div className="product-list__items">
-                        {this.props.products.length > 0 ?
-                            this.props.products.map(function (item, idx) {
-                              if (item.tags.includes('cajon')) {
-                                return (
-                                    <div key={idx} className="product-list__product-item-cajon">
-                                        <ProductListItem product={item} />
-                                    </div>
-                                );
-                              } else {
-                                return (
-                                    <div key={idx} className="product-list__product-item">
-                                        <ProductListItem product={item} />
-                                    </div>
-                                );
+                {isCajonCollection ?
+                    <div className="product-list-cajon">
+                      <div className="product-list__container">
+                          <div>
+                            {bannerDiv()}
+                          </div>
+                          {hasDescription() ?
+                              <div className="product-list__collection-description">
+                                  <Text size="small">
+                                      {intlStore.getMessage(this.props.collection.description)}
+                                  </Text>
+                              </div>
+                              :
+                              null
+                          }
+                          {this.props.children ?
+                              <div className="product-list__content">
+                                  {this.props.children}
+                              </div>
+                              :
+                              null
+                          }
+                          <div className="product-list__items">
+                              {this.props.products.length > 0 ?
+                                  this.props.products.map(function (item, idx) {
+                                    if (item.tags.includes('cajon')) {
+                                      return (
+                                          <div key={idx} className="product-list__product-item-cajon">
+                                              <ProductListItem product={item} />
+                                          </div>
+                                      );
+                                    }
+                                  })
+                                  :
+                                  <div className="product-list__no-results">
+                                      <Text size="medium">
+                                          <FormattedMessage
+                                              message={intlStore.getMessage(intlData, 'noResults')}
+                                              locales={intlStore.getCurrentLocale()} /> :(
+                                      </Text>
+                                  </div>
                               }
-                            })
-                            :
-                            <div className="product-list__no-results">
-                                <Text size="medium">
-                                    <FormattedMessage
-                                        message={intlStore.getMessage(intlData, 'noResults')}
-                                        locales={intlStore.getCurrentLocale()} /> :(
+                          </div>
+                          {this.props.totalPages && this.props.currentPage && this.props.routeParams && this.props.totalPages > 1 ?
+                              <div className="product-list__pagination">
+                                  <Pagination to={this.props.paginateTo || 'collection'}
+                                              params={this.props.routeParams}
+                                              totalPages={this.props.totalPages}
+                                              currentPage={this.props.currentPage} />
+                              </div>
+                              :
+                              null
+                          }
+                      </div>
+                      <div className="product-list__container">
+                          <div className="product-list__collection-description">
+                              <Text weight="bold" size="small" >
+                                  Personalizá tu cajon agregandole lo que necesites aquí abajo:
+                              </Text>
+                          </div>
+                          <div className="product-list__items">
+                              {this.props.products.length > 0 ?
+                                  this.props.products.map(function (item, idx) {
+                                    if (item.tags.includes('verduras')) {
+                                      return (
+                                          <div key={idx} className="product-list__product-item">
+                                              <ProductListItem product={item} />
+                                          </div>
+                                      );
+                                    }
+                                  })
+                                  :
+                                  <div className="product-list__no-results">
+                                      <Text size="medium">
+                                          <FormattedMessage
+                                              message={intlStore.getMessage(intlData, 'noResults')}
+                                              locales={intlStore.getCurrentLocale()} /> :(
+                                      </Text>
+                                  </div>
+                              }
+                          </div>
+                          {this.props.totalPages && this.props.currentPage && this.props.routeParams && this.props.totalPages > 1 ?
+                              <div className="product-list__pagination">
+                                  <Pagination to={this.props.paginateTo || 'collection'}
+                                              params={this.props.routeParams}
+                                              totalPages={this.props.totalPages}
+                                              currentPage={this.props.currentPage} />
+                              </div>
+                              :
+                              null
+                          }
+                      </div>
+                    </div>
+                    :
+                    <div className="product-list__container">
+                        <div>
+                          {bannerDiv()}
+                        </div>
+                        {hasDescription() ?
+                            <div className="product-list__collection-description">
+                                <Text size="small">
+                                    {intlStore.getMessage(this.props.collection.description)}
                                 </Text>
                             </div>
+                            :
+                            null
+                        }
+                        {this.props.children ?
+                            <div className="product-list__content">
+                                {this.props.children}
+                            </div>
+                            :
+                            null
+                        }
+                        <div className="product-list__items">
+                            {this.props.products.length > 0 ?
+                                this.props.products.map(function (item, idx) {
+                                  return (
+                                      <div key={idx} className="product-list__product-item">
+                                          <ProductListItem product={item} />
+                                      </div>
+                                  );
+                                })
+                                :
+                                <div className="product-list__no-results">
+                                    <Text size="medium">
+                                        <FormattedMessage
+                                            message={intlStore.getMessage(intlData, 'noResults')}
+                                            locales={intlStore.getCurrentLocale()} /> :(
+                                    </Text>
+                                </div>
+                            }
+                        </div>
+                        {this.props.totalPages && this.props.currentPage && this.props.routeParams && this.props.totalPages > 1 ?
+                            <div className="product-list__pagination">
+                                <Pagination to={this.props.paginateTo || 'collection'}
+                                            params={this.props.routeParams}
+                                            totalPages={this.props.totalPages}
+                                            currentPage={this.props.currentPage} />
+                            </div>
+                            :
+                            null
                         }
                     </div>
-                    {this.props.totalPages && this.props.currentPage && this.props.routeParams && this.props.totalPages > 1 ?
-                        <div className="product-list__pagination">
-                            <Pagination to={this.props.paginateTo || 'collection'}
-                                        params={this.props.routeParams}
-                                        totalPages={this.props.totalPages}
-                                        currentPage={this.props.currentPage} />
-                        </div>
-                        :
-                        null
-                    }
-                </div>
+                }
             </div>
         );
     }
