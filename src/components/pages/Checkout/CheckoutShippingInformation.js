@@ -190,7 +190,7 @@ class CheckoutShippingInformation extends React.Component {
                 let todayDay = today.getDate()+i;
                 let entireDate = undefined;
 
-                if (dayOfTheWeek == 2) {
+                if (dayOfTheWeek == 2 || dayOfTheWeek == 3) {
                   entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
                   dayOptions.push({name: entireDate, value: entireDate});
                 }

@@ -61,6 +61,10 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
+
+    @include breakpoint(handhelds) {
+        justify-content: flex-start;
+    }
 }
 
 .order-summary__totals-value {
