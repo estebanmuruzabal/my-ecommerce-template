@@ -112,7 +112,7 @@ class ProductList extends React.Component {
                           </div>
                           <div className="product-list__collection-description">
                               <Text weight="bold" size="medium" >
-                                  El cajón que se entrega es "retornable", se devuelve cuando se hace una nueva compra, o pasamos a retirarlo cuando puedas. Asi reusamos y no generamos desperdicio de cartón o bolsas. Gracias por colaborar!
+                                  IMPORTANTE: Para que te dejemos el cajón que viene con las verduras, deberás pagar $25, de lo contrario se deberá descargar la mercadería en el momento y devolver el cajón. Asi reusamos y no generamos desperdicio de cartón o bolsas. Gracias por colaborar!
                               </Text>
                           </div>
                           {this.props.children ?
