@@ -486,7 +486,7 @@ class ProductPage extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Huevos</Text></td>
-                               <td className="groups-table__data"><Text size="medium">8 unidades</Text></td>
+                               <td className="groups-table__data"><Text size="medium">6 unidades</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
