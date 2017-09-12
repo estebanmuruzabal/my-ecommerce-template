@@ -152,7 +152,7 @@ class ProductListItem extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
-                               <td className="groups-table__data"><Text size="medium">400 grs.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">200 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Banana</Text></td>
@@ -164,7 +164,7 @@ class ProductListItem extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
-                               <td className="groups-table__data"><Text size="medium">500 grs.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">400 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
@@ -233,7 +233,7 @@ class ProductListItem extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
-                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">400 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Banana</Text></td>
@@ -245,7 +245,7 @@ class ProductListItem extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
@@ -282,31 +282,31 @@ class ProductListItem extends React.Component {
                            <tbody className="groups-table__body">
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Tomate Perita</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1.5 kg.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Zanahoria</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1.5 kg.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Cebolla</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1.5 kg.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Batata</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1.5 kg.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Papa</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1.5 kg.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1 unidad(2.5kg)</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 unidad(1.5kg)</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Limones</Text></td>
-                               <td className="groups-table__data"><Text size="medium">4 unidades</Text></td>
+                               <td className="groups-table__data"><Text size="medium">3 unidades</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Huevos</Text></td>
@@ -314,7 +314,7 @@ class ProductListItem extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1200 grs.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Banana</Text></td>
@@ -326,7 +326,7 @@ class ProductListItem extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1,5 kg.</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 kg.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
