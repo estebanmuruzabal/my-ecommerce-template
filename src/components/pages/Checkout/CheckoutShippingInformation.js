@@ -86,7 +86,6 @@ class CheckoutShippingInformation extends React.Component {
         }) : null;
 
         let takeOutTimeOptions = [
-            {name: 'Entre 09:00 y 12:30', value: '09:00-12:30'},
             {name: 'Entre 17:00 y 20:30', value: '17:00-20:30'}
         ];
 
@@ -96,8 +95,7 @@ class CheckoutShippingInformation extends React.Component {
             {name: 'Entre 11:00 y 13:00', value: '11:00-13:00'},
             {name: 'Entre 13:00 y 15:00', value: '13:00-15:00'},
             {name: 'Entre 15:00 y 17:00', value: '15:00-17:00'},
-            {name: 'Entre 17:00 y 19:00', value: '17:00-19:00'},
-            {name: 'Entre 19:00 y 21:00', value: '19:00-21:00'},
+            {name: 'Entre 20:00 y 22:00', value: '20:00-22:00'},
         ];
 
         let showModal = () => {
@@ -133,7 +131,7 @@ class CheckoutShippingInformation extends React.Component {
         let today = new Date();
         let dayOptions = [];
         let dayOfTheWeek = today.getDay();
-        let productSchedule;
+
         let weekday=new Array(6);
         weekday[0]="Domingo";
         weekday[1]="Lunes";
@@ -157,102 +155,39 @@ class CheckoutShippingInformation extends React.Component {
         month[10]="Noviembre";
         month[11]="Diciembre";
 
-        if (this.props.checkout.cart && this.props.checkout.cart.products.length > 0) {
-          this.props.checkout.cart.products.forEach(function (product) {
-            if (product.details.tags.indexOf('verduras') !== -1 && productSchedule !== 'cajon') {
-              productSchedule = 'verduras';
+
+        for (let i = 0; i < 7 ; i++) {
+          let dayOfTheWeek = today.getDay()+i;
+
+          if (dayOfTheWeek == 7) {
+            dayOfTheWeek = 0;
+          } else if (dayOfTheWeek == 8){
+            dayOfTheWeek = 1;
+          } else if (dayOfTheWeek == 9){
+            dayOfTheWeek = 2;
+          } else if (dayOfTheWeek == 10){
+            dayOfTheWeek = 3;
+          } else if (dayOfTheWeek == 11){
+            dayOfTheWeek = 4;
+          } else if (dayOfTheWeek == 12){
+            dayOfTheWeek = 5;
+          } else if (dayOfTheWeek == 13){
+            dayOfTheWeek = 6;
+          }
+
+          let todayDay = today.getDate()+i;
+          let entireDate = undefined;
+
+          if (dayOfTheWeek == 2 || dayOfTheWeek == 3) {
+            if (todayDay == today.getDate() || todayDay == today.getDate()+1) {
+            } else {
+              entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
+              dayOptions.push({name: entireDate, value: entireDate});
             }
-            if (product.details.tags.indexOf('cajon') !== -1) {
-              productSchedule = 'cajon';
-            }
-          });
-        }
-            if (productSchedule == 'cajon') {
-              for (let i = 0; i < 7 ; i++) {
-                let dayOfTheWeek = today.getDay()+i;
+          }
+       }
 
-                if (dayOfTheWeek == 7) {
-                  dayOfTheWeek = 0;
-                } else if (dayOfTheWeek == 8){
-                  dayOfTheWeek = 1;
-                } else if (dayOfTheWeek == 9){
-                  dayOfTheWeek = 2;
-                } else if (dayOfTheWeek == 10){
-                  dayOfTheWeek = 3;
-                } else if (dayOfTheWeek == 11){
-                  dayOfTheWeek = 4;
-                } else if (dayOfTheWeek == 12){
-                  dayOfTheWeek = 5;
-                } else if (dayOfTheWeek == 13){
-                  dayOfTheWeek = 6;
-                }
 
-                let todayDay = today.getDate()+i;
-                let entireDate = undefined;
-
-                if (dayOfTheWeek == 2 || dayOfTheWeek == 3) {
-                  entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
-                  dayOptions.push({name: entireDate, value: entireDate});
-                }
-             }
-           } else if (productSchedule == 'verduras') {
-
-              for (let i = 0; i < 7 ; i++) {
-                let dayOfTheWeek = today.getDay()+i;
-                let todayDay = today.getDate()+i;
-                let entireDate = undefined;
-
-                if (dayOfTheWeek == 7) {
-                  dayOfTheWeek = 0;
-                } else if (dayOfTheWeek == 8){
-                  dayOfTheWeek = 1;
-                } else if (dayOfTheWeek == 9){
-                  dayOfTheWeek = 2;
-                } else if (dayOfTheWeek == 10){
-                  dayOfTheWeek = 3;
-                } else if (dayOfTheWeek == 11){
-                  dayOfTheWeek = 4;
-                } else if (dayOfTheWeek == 12){
-                  dayOfTheWeek = 5;
-                } else if (dayOfTheWeek == 13){
-                  dayOfTheWeek = 6;
-                }
-
-                if (today.getHours() >= 17 && todayDay == today.getDate()) {
-                } else if (today.getHours() >= 17 && todayDay == today.getDate()+1) {
-                } else if (dayOfTheWeek !== 0 && dayOfTheWeek !== 6) {
-                  entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
-                  dayOptions.push({name: entireDate, value: entireDate});
-                }
-             }
-           } else {
-              for (let i = 0; i < 7 ; i++) {
-                let dayOfTheWeek = today.getDay()+i;
-                let todayDay = today.getDate()+i;
-                let entireDate = undefined;
-
-                if (dayOfTheWeek == 7) {
-                  dayOfTheWeek = 0;
-                } else if (dayOfTheWeek == 8){
-                  dayOfTheWeek = 1;
-                } else if (dayOfTheWeek == 9){
-                  dayOfTheWeek = 2;
-                } else if (dayOfTheWeek == 10){
-                  dayOfTheWeek = 3;
-                } else if (dayOfTheWeek == 11){
-                  dayOfTheWeek = 4;
-                } else if (dayOfTheWeek == 12){
-                  dayOfTheWeek = 5;
-                } else if (dayOfTheWeek == 13){
-                  dayOfTheWeek = 6;
-                }
-
-                if (todayDay !== today.getDate() && dayOfTheWeek !== 0 && dayOfTheWeek !== 6) {
-                  entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
-                  dayOptions.push({name: entireDate, value: entireDate});
-                }
-             }
-            }
 
         return (
             <div className="checkout-shipping-information">
