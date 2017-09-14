@@ -45,7 +45,7 @@ class HeaderHighlight extends React.Component {
                         <FormattedMessage message={intlStore.getMessage(intlData, 'freeShipping')}
                                           locales={intlStore.getCurrentLocale()} />
                         &nbsp;
-                        <FormattedNumber value="150"
+                        <FormattedNumber value="199"
                                          style="currency"
                                          currency="ARS" />
                     </Text>
