@@ -60,10 +60,9 @@ class InfoPage extends React.Component {
                             <p>
                                 Válido para Resistencia Chaco
                                 <ul>
-                                    <li>Gratis para encomiendas con valor superior a $150 en Zona 1 y 2 solamente</li>
-                                    <li>Gratis para envíos en la Zona 1</li>
-                                    <li>Gratis para envíos en la Zona 2</li>
-                                    <li>$40 Para envíos en la Zona 3</li>
+                                    <li>Gratis para encomiendas con valor superior a $150 en Zona 1</li>
+                                    <li>$25 para encomiendas con valor menores a $150 en Zona 1</li>
+                                    <li>$30 para envíos en la Zona 2</li>
                                 </ul>
                             </p>
                             <p>

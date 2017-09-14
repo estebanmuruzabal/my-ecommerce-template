@@ -397,7 +397,7 @@ class ProductPage extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1/2 uni(750 grs)</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1/2 uni(500 grs)</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Limones</Text></td>
@@ -408,7 +408,7 @@ class ProductPage extends React.Component {
                                <td className="groups-table__data"><Text size="medium">3 unidades</Text></td>
                              </tr>
                              <tr className="groups-table__row">
-                               <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
+                               <td className="groups-table__data"><Text size="medium">Morrón Verde</Text></td>
                                <td className="groups-table__data"><Text size="medium">200 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
@@ -478,7 +478,7 @@ class ProductPage extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
-                               <td className="groups-table__data"><Text size="medium">1 unidad(1.5kg)</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 unidad(1 kg)</Text></td>
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Limones</Text></td>
@@ -489,7 +489,7 @@ class ProductPage extends React.Component {
                                <td className="groups-table__data"><Text size="medium">6 unidades</Text></td>
                              </tr>
                              <tr className="groups-table__row">
-                               <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
+                               <td className="groups-table__data"><Text size="medium">Morrón Verde</Text></td>
                                <td className="groups-table__data"><Text size="medium">400 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">
@@ -514,7 +514,7 @@ class ProductPage extends React.Component {
                              </tr>
                              <tr className="groups-table__row">
                                <td className="groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
-                               <td className="groups-table__data"><Text size="medium">2 atados</Text></td>
+                               <td className="groups-table__data"><Text size="medium">1 atado</Text></td>
                              </tr>
                            </tbody>
                        </table>
@@ -570,7 +570,7 @@ class ProductPage extends React.Component {
                                <td className="groups-table__data"><Text size="medium">8 unidades</Text></td>
                              </tr>
                              <tr className="groups-table__row">
-                               <td className="groups-table__data"><Text size="medium">Morrón</Text></td>
+                               <td className="groups-table__data"><Text size="medium">Morrón Verde</Text></td>
                                <td className="groups-table__data"><Text size="medium">800 grs.</Text></td>
                              </tr>
                              <tr className="groups-table__row">

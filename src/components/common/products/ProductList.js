@@ -115,6 +115,13 @@ class ProductList extends React.Component {
                                   IMPORTANTE: Para que te dejemos el cajón que viene con las verduras, deberás pagar $25, de lo contrario se deberá descargar la mercadería en el momento y devolver el cajón. Asi reusamos y no generamos desperdicio de cartón o bolsas. Gracias por colaborar!
                               </Text>
                           </div>
+                          <a href="https://goo.gl/fGVXkq" target="_blank">
+                            <div className="product-list__collection-description">
+                                <Text weight="bold" size="medium" >
+                                    ZONAS DE ENVÍO, CLICK AQUÍ
+                                </Text>
+                            </div>
+                          </a>
                           {this.props.children ?
                               <div className="product-list__content">
                                   {this.props.children}
