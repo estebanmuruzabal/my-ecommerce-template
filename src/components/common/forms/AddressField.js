@@ -100,10 +100,7 @@ class AddressField extends React.Component {
         let intlStore = this.context.getStore(IntlStore);
 
         let cityOptions = [
-            {name: 'Resistencia', value: 'Resistencia'},
-            {name: 'Barranqueras', value: 'Barranqueras'},
-            {name: 'Vilelas', value: 'Vilelas'},
-            {name: 'Fontana', value: 'Fontana'},
+            {name: 'Resistencia', value: 'Resistencia'}
         ];
 
         let addressOptions;

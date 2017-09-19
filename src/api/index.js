@@ -7,6 +7,7 @@ import CheckoutsAPI from './checkouts';
 import CollectionsAPI from './collections';
 import ContentsAPI from './contents';
 import CustomersAPI from './customers';
+import GroupsAPI from './groups';
 import FilesAPI from './files';
 import OrdersAPI from './orders';
 import ProductsAPI from './products';
@@ -21,6 +22,7 @@ class API {
         this.checkouts = new CheckoutsAPI({options: options.atlas, getAuthToken});
         this.collections = new CollectionsAPI({options: options.atlas, getAuthToken});
         this.contents = new ContentsAPI({options: options.atlas, getAuthToken});
+        this.groups = new GroupsAPI({options: options.atlas, getAuthToken});
         this.customers = new CustomersAPI({options: options.atlas, getAuthToken});
         this.files = new FilesAPI({options: options.atlas, getAuthToken});
         this.orders = new OrdersAPI({options: options.atlas, getAuthToken});

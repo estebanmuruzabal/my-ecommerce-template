@@ -13,6 +13,7 @@ import IntlStore from '../../../stores/Application/IntlStore';
 import Heading from '../typography/Heading';
 import Pagination from '../navigation/Pagination';
 import ProductListItem from './ProductListItem';
+import ProductListItemCajon from './ProductListItemCajon';
 import Text from '../typography/Text';
 import TreeMenu from '../navigation/TreeMenu';
 import { Link} from 'react-router';
@@ -135,7 +136,7 @@ class ProductList extends React.Component {
                                     if (item.tags.includes('cajon') && item.tags.length == 1) {
                                       return (
                                           <div key={idx+1} className="product-list__product-item-cajon">
-                                              <ProductListItem product={item} />
+                                              <ProductListItemCajon product={item} />
                                           </div>
                                       );
                                     }

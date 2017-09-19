@@ -92,7 +92,6 @@ export default function createOrder(context, payload, done) {
 
             if (checkout.customer) {
               if (checkout.paymentMethod == 'cash') {
-                console.log(checkout.customer.email);
                 context.executeAction(sendOrderEmail,
                   {orderId: order.id,
                     data: {
@@ -107,7 +106,7 @@ export default function createOrder(context, payload, done) {
                       data: {
                         template: 'order.created',
                         email: 'estebannmuruzabal@gmail.com',
-                        subject: subject + 'Cash',
+                        subject: subject,
                         paymentlink: ''
                       }
                     });
