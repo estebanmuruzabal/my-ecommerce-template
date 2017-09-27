@@ -13,8 +13,6 @@ import orderActions from '../../constants/orders';
 //Product update
 import updateProduct from '../../actions/Admin/updateProduct';
 import fetchProduct from '../../actions/Products/fetchProduct';
-import fetchProductAndCheckIfFound from '../../actions/Products/fetchProductAndCheckIfFound';
-import ProductDetailsStore from '../../stores/Products/ProductDetailsStore';
 import sendOrderEmail from '../../actions/Orders/sendOrderEmail';
 
 import config from '../../config';
@@ -88,7 +86,7 @@ export default function createOrder(context, payload, done) {
                 debug('Unable to send hit to Google Analytics', err);
             }
 
-            let subject = 'Pedido ' + order.id;
+            let subject = 'Órden #' + order.id;
 
             if (checkout.customer) {
               if (checkout.paymentMethod == 'cash') {
@@ -138,7 +136,7 @@ export default function createOrder(context, payload, done) {
                   data: {
                     template: 'order.created',
                     email: 'estebannmuruzabal@gmail.com',
-                    subject: subject + 'CC',
+                    subject: 'CC',
                     paymentlink: ''
                   }
                 });

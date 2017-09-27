@@ -13,7 +13,9 @@ import IntlStore from '../../../stores/Application/IntlStore';
 import Heading from '../typography/Heading';
 import Pagination from '../navigation/Pagination';
 import ProductListItem from './ProductListItem';
-import ProductListItemCajon from './ProductListItemCajon';
+import ProductListItemCajonGrande from './ProductListItemCajonGrande';
+import ProductListItemCajonMediano from './ProductListItemCajonMediano';
+import ProductListItemCajonChico from './ProductListItemCajonChico';
 import Text from '../typography/Text';
 import TreeMenu from '../navigation/TreeMenu';
 import { Link} from 'react-router';
@@ -43,7 +45,7 @@ class ProductList extends React.Component {
     render() {
 
         let intlStore = this.context.getStore(IntlStore);
-
+        let cajonChicoProduct, cajonMedianoProduct, cajonGrandeProduct;
         let hasDescription = () => {
             return this.props.collection && this.props.collection.description && this.props.collection.description[intlStore.getCurrentLocale()];
         };
@@ -71,6 +73,18 @@ class ProductList extends React.Component {
             }
           }
         };
+
+        if (this.props.products.length > 0) {
+          this.props.products.map(function (item) {
+            if (item.name.es == 'Cajón Chico') {
+              cajonChicoProduct = item;
+            } if (item.name.es == 'Cajón Mediano') {
+              cajonMedianoProduct = item;
+            } if (item.name.es == 'Cajón Grande') {
+              cajonGrandeProduct = item;
+            }
+          })
+        }
 
         return (
             <div className="product-list">
@@ -131,25 +145,27 @@ class ProductList extends React.Component {
                               null
                           }
                           <div className="product-list__items">
-                              {this.props.products.length > 0 ?
-                                  this.props.products.map(function (item, idx) {
-                                    if (item.tags.includes('cajon') && item.tags.length == 1) {
-                                      return (
-                                          <div key={idx+1} className="product-list__product-item-cajon">
-                                              <ProductListItemCajon product={item} />
-                                          </div>
-                                      );
-                                    }
-                                  })
-                                  :
-                                  <div className="product-list__no-results">
-                                      <Text size="medium">
-                                          <FormattedMessage
-                                              message={intlStore.getMessage(intlData, 'noResults')}
-                                              locales={intlStore.getCurrentLocale()} /> :(
-                                      </Text>
-                                  </div>
-                              }
+                            {cajonChicoProduct ?
+                                <div className="product-list__product-item-cajon-chico">
+                                    <ProductListItemCajonChico product={cajonChicoProduct} />
+                                </div>
+                                :
+                                null
+                            }
+                            {cajonMedianoProduct ?
+                                <div className="product-list__product-item-cajon-mediano">
+                                    <ProductListItemCajonMediano product={cajonMedianoProduct} />
+                                </div>
+                                :
+                                null
+                            }
+                            {cajonGrandeProduct ?
+                                <div className="product-list__product-item-cajon-grande">
+                                    <ProductListItemCajonGrande product={cajonGrandeProduct} />
+                                </div>
+                                :
+                                null
+                            }
                           </div>
                           {this.props.totalPages && this.props.currentPage && this.props.routeParams && this.props.totalPages > 1 ?
                               <div className="product-list__pagination">

@@ -1,0 +1,87 @@
+@import '../../../styles/variables.scss';
+
+.mediano-product-list-item {
+    padding: 7px;
+    text-align: center;
+    max-width: 300px;
+
+    & > a {
+        text-decoration: none;
+    }
+}
+
+.mediano-product-list-item__name {
+    margin-top: 5px;
+}
+
+.mediano-product-list-item__price {
+    margin-top: 5px;
+}
+
+.mediano-product-list-item__image {
+
+}
+
+.mediano-groups-table {
+  flex: 0 1 auto;
+  width: 100%;
+  padding: 8px;
+}
+
+.mediano-groups-table__table {
+    width: 100%;
+    border: 1px solid #eeeeee;
+    text-align: left;
+    @include breakpoint(handhelds) {
+        width: 100%;
+    }
+}
+
+.mediano-groups-table__row {
+    border-bottom: 1px solid #eeeeee;
+
+
+    &--info {
+        background-color: $background-color-table-info;
+    }
+
+    &--success {
+        background-color: $background-color-table-success;
+    }
+
+    &--warning {
+        background-color: $background-color-table-warning;
+    }
+
+    &--error {
+        background-color: $background-color-table-error;
+    }
+}
+
+.mediano-groups-page__description {
+    margin-top: 30px;
+}
+
+.mediano-groups-table__heading,
+.mediano-groups-table__data {
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.mediano-product-page__suscribe-button {
+  margin-top: 5px;
+}
+
+.mediano-product-page__desuscribe-button {
+  margin-top: 5px;
+}
+
+.mediano-product-page__add-button {
+  margin-top: 5px;
+}
+
+.mediano-groups-table__body > .mediano-groups-table__row {
+    &:hover {
+        background-color: #F9F9F9;
+    }
+}

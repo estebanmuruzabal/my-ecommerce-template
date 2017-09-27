@@ -114,12 +114,6 @@ class CheckoutShippingInformation extends React.Component {
                   <div>
                     <div className="checkout-summary__warning">
                         <Heading size="small">
-                          <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationVerdurasYFotocopias')}
-                                            locales={intlStore.getCurrentLocale()} />
-                        </Heading>
-                    </div>
-                    <div className="checkout-summary__warning">
-                        <Heading size="small">
                           <FormattedMessage message={intlStore.getMessage(intlData, 'aclarationDefault')}
                                             locales={intlStore.getCurrentLocale()} />
                         </Heading>
@@ -128,66 +122,10 @@ class CheckoutShippingInformation extends React.Component {
                 );
         };
 
-        let today = new Date();
-        let dayOptions = [];
-        let dayOfTheWeek = today.getDay();
-
-        let weekday=new Array(6);
-        weekday[0]="Domingo";
-        weekday[1]="Lunes";
-        weekday[2]="Martes";
-        weekday[3]="Miercoles";
-        weekday[4]="Jueves";
-        weekday[5]="Viernes";
-        weekday[6]="Sabado";
-
-        let month=new Array(12);
-        month[0]="Enero";
-        month[1]="Febrero";
-        month[2]="Marzo";
-        month[3]="Abril";
-        month[4]="Mayo";
-        month[5]="Junio";
-        month[6]="Julio";
-        month[7]="Agosto";
-        month[8]="Septiembre";
-        month[9]="Octubre";
-        month[10]="Noviembre";
-        month[11]="Diciembre";
-
-
-        for (let i = 0; i < 7 ; i++) {
-          let dayOfTheWeek = today.getDay()+i;
-
-          if (dayOfTheWeek == 7) {
-            dayOfTheWeek = 0;
-          } else if (dayOfTheWeek == 8){
-            dayOfTheWeek = 1;
-          } else if (dayOfTheWeek == 9){
-            dayOfTheWeek = 2;
-          } else if (dayOfTheWeek == 10){
-            dayOfTheWeek = 3;
-          } else if (dayOfTheWeek == 11){
-            dayOfTheWeek = 4;
-          } else if (dayOfTheWeek == 12){
-            dayOfTheWeek = 5;
-          } else if (dayOfTheWeek == 13){
-            dayOfTheWeek = 6;
-          }
-
-          let todayDay = today.getDate()+i;
-          let entireDate = undefined;
-
-          if (dayOfTheWeek == 2 || dayOfTheWeek == 3) {
-            if (todayDay == today.getDate() || todayDay == today.getDate()+1) {
-            } else {
-              entireDate = weekday[dayOfTheWeek] + ' ' + todayDay + ' de ' + month[today.getMonth()];
-              dayOptions.push({name: entireDate, value: entireDate});
-            }
-          }
-       }
-
-
+        let dayOptions = [
+            {name: 'Martes 3 de Octubre', value: 'Martes 3 de Octubre'},
+            {name: 'Miércoles 4 de Octubre', value: 'Miércoles 4 de Octubre'}
+        ];
 
         return (
             <div className="checkout-shipping-information">

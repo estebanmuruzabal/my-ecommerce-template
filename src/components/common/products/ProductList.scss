@@ -115,7 +115,23 @@
     }
 }
 
-.product-list__product-item-cajon {
+.product-list__product-item-cajon-chico {
+    flex: 0 1 auto;
+    width: 33%;
+    padding: 8px;
+    @include breakpoint(handhelds) {
+        width: 100%;
+    }
+}
+.product-list__product-item-cajon-mediano {
+    flex: 0 1 auto;
+    width: 33%;
+    padding: 8px;
+    @include breakpoint(handhelds) {
+        width: 100%;
+    }
+}
+.product-list__product-item-cajon-grande {
     flex: 0 1 auto;
     width: 33%;
     padding: 8px;

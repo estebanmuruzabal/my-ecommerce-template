@@ -19,8 +19,15 @@ import ContentDetailsStore from './stores/Contents/ContentDetailsStore';
 import CustomersListStore from './stores/Customers/CustomersListStore';
 import DrawerStore from './stores/Application/DrawerStore';
 import FileUploadStore from './stores/Files/FileUploadStore';
-import GroupsAddStore from './stores/Groups/GroupsAddStore';
-import GroupsListStore from './stores/Groups/GroupsListStore';
+import GroupChicoAddStore from './stores/GroupChico/GroupChicoAddStore';
+import GroupChicoListStore from './stores/GroupChico/GroupChicoListStore';
+import GroupChicoDetailsStore from './stores/GroupChico/GroupChicoDetailsStore';
+import GroupMedianoAddStore from './stores/GroupMediano/GroupMedianoAddStore';
+import GroupMedianoListStore from './stores/GroupMediano/GroupMedianoListStore';
+import GroupMedianoDetailsStore from './stores/GroupMediano/GroupMedianoDetailsStore';
+import GroupGrandeAddStore from './stores/GroupGrande/GroupGrandeAddStore';
+import GroupGrandeListStore from './stores/GroupGrande/GroupGrandeListStore';
+import GroupGrandeDetailsStore from './stores/GroupGrande/GroupGrandeDetailsStore';
 import IntlStore from './stores/Application/IntlStore';
 import LoginStore from './stores/Account/LoginStore';
 import NotificationQueueStore from './stores/Application/NotificationQueueStore';
@@ -66,8 +73,15 @@ const app = new Fluxible({
         CustomersListStore,
         DrawerStore,
         FileUploadStore,
-        GroupsAddStore,
-        GroupsListStore,
+        GroupChicoAddStore,
+        GroupChicoListStore,
+        GroupChicoDetailsStore,
+        GroupMedianoAddStore,
+        GroupMedianoListStore,
+        GroupMedianoDetailsStore,
+        GroupGrandeAddStore,
+        GroupGrandeListStore,
+        GroupGrandeDetailsStore,
         IntlStore,
         LoginStore,
         NotificationQueueStore,

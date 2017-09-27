@@ -6,7 +6,7 @@
  /**
   * Atlas Groups API wrapper
   */
- class GroupsAPI {
+ class GroupChicoAPI {
 
      /**
       * Constructor
@@ -40,7 +40,7 @@
       */
      create(payload) {
          return new Promise((resolve, reject) => {
-             let request = superagent.post(`${this.baseUrl}/groups`).send(payload);
+             let request = superagent.post(`${this.baseUrl}/groupChico`).send(payload);
              this._wrapAndRequest(request, resolve, reject);
          });
      }
@@ -50,7 +50,7 @@
       */
      find(params) {
          return new Promise((resolve, reject) => {
-             let request = superagent.get(`${this.baseUrl}/groups`).query(params || {});
+             let request = superagent.get(`${this.baseUrl}/groupChico`).query(params || {});
              this._wrapAndRequest(request, resolve, reject);
          });
      }
@@ -58,9 +58,9 @@
      /**
       * Fetch Group with given ID
       */
-     get(groupId) {
+     get(groupChicoId) {
          return new Promise((resolve, reject) => {
-             let request = superagent.get(`${this.baseUrl}/groups/${groupId}`);
+             let request = superagent.get(`${this.baseUrl}/groupChico/${groupChicoId}`);
              this._wrapAndRequest(request, resolve, reject);
          });
      }
@@ -70,7 +70,7 @@
       */
      getAll() {
          return new Promise((resolve, reject) => {
-             let request = superagent.get(`${this.baseUrl}/groups`);
+             let request = superagent.get(`${this.baseUrl}/groupChico`);
              this._wrapAndRequest(request, resolve, reject);
          });
      }
@@ -78,9 +78,9 @@
      /**
       * Update Group
       */
-     update(groupId, payload) {
+     update(groupChicoId, payload) {
          return new Promise((resolve, reject) => {
-             let request = superagent.put(`${this.baseUrl}/groups/${groupId}`).send(payload);
+             let request = superagent.put(`${this.baseUrl}/groupChico/${groupChicoId}`).send(payload);
              this._wrapAndRequest(request, resolve, reject);
          });
      }
@@ -88,9 +88,9 @@
      /**
       * Delete Group
       */
-      delete(groupId) {
+      delete(groupChicoId) {
           return new Promise((resolve, reject) => {
-              let request = superagent.delete(`${this.baseUrl}/groups/${groupId}`);
+              let request = superagent.delete(`${this.baseUrl}/groupChico/${groupChicoId}`);
               this._wrapAndRequest(request, resolve, reject);
           });
       }
@@ -99,4 +99,4 @@
  /**
   * Exports
   */
- export default GroupsAPI;
+ export default GroupChicoAPI;

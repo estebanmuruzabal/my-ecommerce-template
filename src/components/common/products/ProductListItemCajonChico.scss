@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.product-list-item {
+.chico-product-list-item {
     padding: 7px;
     text-align: center;
     max-width: 300px;
@@ -10,25 +10,25 @@
     }
 }
 
-.product-list-item__name {
+.chico-product-list-item__name {
     margin-top: 5px;
 }
 
-.product-list-item__price {
+.chico-product-list-item__price {
     margin-top: 5px;
 }
 
-.product-list-item__image {
+.chico-product-list-item__image {
 
 }
 
-.groups-table {
+.chico-groups-table {
   flex: 0 1 auto;
   width: 100%;
   padding: 8px;
 }
 
-.groups-table__table {
+.chico-groups-table__table {
     width: 100%;
     border: 1px solid #eeeeee;
     text-align: left;
@@ -37,7 +37,7 @@
     }
 }
 
-.groups-table__row {
+.chico-groups-table__row {
     border-bottom: 1px solid #eeeeee;
 
 
@@ -58,25 +58,29 @@
     }
 }
 
-.groups-page__description {
+.chico-groups-page__description {
     margin-top: 30px;
 }
 
-.groups-table__heading,
-.groups-table__data {
+.chico-groups-table__heading,
+.chico-groups-table__data {
     vertical-align: middle;
     padding: 2px;
 }
 
-.product-page__suscribe-button {
+.chico-product-page__suscribe-button {
   margin-top: 5px;
 }
 
-.product-page__add-button {
+.chico-product-page__desuscribe-button {
   margin-top: 5px;
 }
 
-.groups-table__body > .groups-table__row {
+.chico-product-page__add-button {
+  margin-top: 5px;
+}
+
+.chico-groups-table__body > .chico-groups-table__row {
     &:hover {
         background-color: #F9F9F9;
     }
