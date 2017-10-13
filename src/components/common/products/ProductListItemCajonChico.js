@@ -205,12 +205,12 @@ class ProductListItemCajonChico extends React.Component {
                 return (
                     <Modal title={intlStore.getMessage(intlData, 'anotadoModalTitle')}
                             onCloseClick={this.handleShowThanksModalCloseClick}>
-                           <div classname="chico-groups-register-modal-container">
+                           <div className="chico-groups-register-modal-container">
                              <FormattedMessage
                                  message={intlStore.getMessage(intlData, 'thanksModalText')}
                                  locales={intlStore.getCurrentLocale()} />
-                              <div classname="chico-groups-bottoms-container">
-                                 <div classname="chico-groups__register-button">
+                              <div className="chico-groups-bottoms-container">
+                                 <div className="chico-groups__register-button">
                                    <Link to="checkout" params={routeParams}>
                                      <Button type="primary">
                                          <FormattedMessage
@@ -219,7 +219,7 @@ class ProductListItemCajonChico extends React.Component {
                                      </Button>
                                    </Link>
                                  </div>
-                                 <div classname="chico-groups__keep-buying-button">
+                                 <div className="chico-groups__keep-buying-button">
                                      <Button type="primary" onClick={this.handleShowThanksModalCloseClick}>
                                          <FormattedMessage
                                              message={intlStore.getMessage(intlData, 'continueShopping')}
@@ -238,7 +238,7 @@ class ProductListItemCajonChico extends React.Component {
                 return (
                     <Modal title={intlStore.getMessage(intlData, 'registerModalTitle')}
                            onCloseClick={this.handleRegiserModalCloseClick}>
-                           <div classname="chico-groups-register-modal-container">
+                           <div className="chico-groups-register-modal-container">
                              <div className="chico-product-page__suscribe-button">
                                <Link to="login" params={routeParams}>
                                  <Button type="primary">
@@ -272,79 +272,79 @@ class ProductListItemCajonChico extends React.Component {
 
         let productDescription = () => {
             return (
-               <div classname="chico-groups-page__description">
-                   <div classname="chico-groups-table">
-                       <table classname="chico-groups-table__table">
+               <div className="chico-groups-page__description">
+                   <div className="chico-groups-table">
+                       <table className="chico-groups-table__table">
                            <thead>
-                               <tr classname="chico-groups-table__row">
-                                 <th classname="chico-groups-table__heading">
+                               <tr className="chico-groups-table__row">
+                                 <th className="chico-groups-table__heading">
                                      <Text weight="bold" size="medium">Productos</Text>
                                  </th>
-                                 <th classname="chico-groups-table__heading">
+                                 <th className="chico-groups-table__heading">
                                      <Text weight="bold" size="medium">Cantidad</Text>
                                  </th>
                                </tr>
                            </thead>
-                           <tbody classname="chico-groups-table__body">
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Tomate Perita</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
+                           <tbody className="chico-groups-table__body">
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Tomate Perita</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Zanahoria</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Zanahoria</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Cebolla</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Cebolla</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Batata</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Batata</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Papa</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Papa</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">500 grs</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">500 grs</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Limones</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">1 unidades</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Limones</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">1 unidades</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Huevos</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">3 unidades</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Huevos</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">3 unidades</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Morrón Verde o Rojo</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">200 o 100 grs.</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Morrón Verde o Rojo</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">200 o 100 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Banana</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Banana</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Manzana</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">400 grs.</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Manzana</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">400 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">400 grs.</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">400 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">1 atado</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">1 atado</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Naranja</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Naranja</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">500 grs.</Text></td>
                              </tr>
-                             <tr classname="chico-groups-table__row">
-                               <td classname="chico-groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
-                               <td classname="chico-groups-table__data"><Text size="medium">1 atado</Text></td>
+                             <tr className="chico-groups-table__row">
+                               <td className="chico-groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
+                               <td className="chico-groups-table__data"><Text size="medium">1 atado</Text></td>
                              </tr>
                            </tbody>
                        </table>

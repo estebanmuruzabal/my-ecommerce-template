@@ -205,12 +205,12 @@ class ProductListItemCajonMediano extends React.Component {
                 return (
                     <Modal title={intlStore.getMessage(intlData, 'anotadoModalTitle')}
                             onCloseClick={this.handleShowThanksModalCloseClick}>
-                           <div classname="mediano-groups-register-modal-container">
+                           <div className="mediano-groups-register-modal-container">
                              <FormattedMessage
                                  message={intlStore.getMessage(intlData, 'thanksModalText')}
                                  locales={intlStore.getCurrentLocale()} />
-                              <div classname="mediano-groups-bottoms-container">
-                                 <div classname="mediano-groups__register-button">
+                              <div className="mediano-groups-bottoms-container">
+                                 <div className="mediano-groups__register-button">
                                    <Link to="checkout" params={routeParams}>
                                      <Button type="primary">
                                          <FormattedMessage
@@ -219,7 +219,7 @@ class ProductListItemCajonMediano extends React.Component {
                                      </Button>
                                    </Link>
                                  </div>
-                                 <div classname="mediano-groups__keep-buying-button">
+                                 <div className="mediano-groups__keep-buying-button">
                                      <Button type="primary" onClick={this.handleShowThanksModalCloseClick}>
                                          <FormattedMessage
                                              message={intlStore.getMessage(intlData, 'continueShopping')}
@@ -238,7 +238,7 @@ class ProductListItemCajonMediano extends React.Component {
                 return (
                     <Modal title={intlStore.getMessage(intlData, 'registerModalTitle')}
                            onCloseClick={this.handleRegiserModalCloseClick}>
-                           <div classname="mediano-groups-register-modal-container">
+                           <div className="mediano-groups-register-modal-container">
                              <div className="mediano-product-page__suscribe-button">
                                <Link to="login" params={routeParams}>
                                  <Button type="primary">
@@ -272,79 +272,79 @@ class ProductListItemCajonMediano extends React.Component {
 
         let productDescription = () => {
           return (
-             <div classname="mediano-groups-page__description">
-                 <div classname="mediano-groups-table">
-                     <table classname="mediano-groups-table__table">
+             <div className="mediano-groups-page__description">
+                 <div className="mediano-groups-table">
+                     <table className="mediano-groups-table__table">
                          <thead>
-                             <tr classname="mediano-groups-table__row">
-                               <th classname="mediano-groups-table__heading">
+                             <tr className="mediano-groups-table__row">
+                               <th className="mediano-groups-table__heading">
                                    <Text weight="bold" size="medium">Productos</Text>
                                </th>
-                               <th classname="mediano-groups-table__heading">
+                               <th className="mediano-groups-table__heading">
                                    <Text weight="bold" size="medium">Cantidad</Text>
                                </th>
                              </tr>
                          </thead>
-                         <tbody classname="mediano-groups-table__body">
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Tomate Perita</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
+                         <tbody className="mediano-groups-table__body">
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Tomate Perita</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Zanahoria</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Zanahoria</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Cebolla</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Cebolla</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Batata</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Batata</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Papa</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Papa</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">1 kg</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">1 kg</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Limones</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">2 unidades</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Limones</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">2 unidades</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Huevos</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">6 unidades</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Huevos</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">6 unidades</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Morrón Verde o Rojo</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">400 o 200 grs.</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Morrón Verde o Rojo</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">400 o 200 grs.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Banana</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">1 Kg.</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Banana</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">1 Kg.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Manzana</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">750 grs.</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Manzana</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">800 grs.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">800 grs.</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">800 grs.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">2 atados</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">2 atados</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Naranja</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Naranja</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
-                           <tr classname="mediano-groups-table__row">
-                             <td classname="mediano-groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
-                             <td classname="mediano-groups-table__data"><Text size="medium">1 atado</Text></td>
+                           <tr className="mediano-groups-table__row">
+                             <td className="mediano-groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">1 atado</Text></td>
                            </tr>
                          </tbody>
                      </table>
@@ -358,9 +358,9 @@ class ProductListItemCajonMediano extends React.Component {
              {registerModal()}
              {thanksModal()}
                  { isAdmin ?
-                     <div classname="mediano-groups__toolbar">
+                     <div className="mediano-groups__toolbar">
                      {newGroupModal()}
-                         <div classname="mediano-groups__add-button">
+                         <div className="mediano-groups__add-button">
                              <Button type="primary" onClick={this.handleNewGroupClick}>
                                  <FormattedMessage
                                      message={intlStore.getMessage(intlData, 'new')}

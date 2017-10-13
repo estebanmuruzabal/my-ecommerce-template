@@ -127,7 +127,7 @@ class ProductList extends React.Component {
                           </div>
                           <div className="product-list__collection-description">
                               <Text weight="bold" size="medium" >
-                                  IMPORTANTE: Cuando entregamos tu pedido, te pedimos que descargues la mercadería en el momento, o bien, te dejamos en bolsas con un costo de $2 c/u. Si venís a retirarlo, podés traer tus bolsas o te vendemos las nuestras. Gracias por colaborar!
+                                  IMPORTANTE: Envío gratis adentro de las 4 avenidas principales. Fuera de las 4 avenidas $10. Para ver las zonas exactas haga click aqui abajo.
                               </Text>
                           </div>
                           <a href="https://goo.gl/fGVXkq" target="_blank">

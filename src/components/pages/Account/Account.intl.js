@@ -35,7 +35,7 @@ export default {
     es: {
         address: 'Dirección',
         addresses: 'Direcciones',
-        addressLine2: 'Comentario o nota para el delivery',
+        addressLine2: 'Comentario para el delivery',
         cancel: 'Cancelar',
         changePassword: 'Cambiar contraseña',
         city: 'Ciudad',

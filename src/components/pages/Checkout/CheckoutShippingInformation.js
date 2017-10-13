@@ -8,7 +8,8 @@ import {FormattedMessage, FormattedNumber} from 'react-intl';
 import IntlStore from '../../../stores/Application/IntlStore';
 
 // Required components
-import AddressField from '../../common/forms/AddressField';
+import AddressFieldShipping from '../../common/forms/AddressFieldShipping';
+import AddressFieldNoShipping from '../../common/forms/AddressFieldNoShipping';
 import AddressPreview from '../../common/forms/AddressPreview';
 import RadioSelect from '../../common/forms/RadioSelect';
 import Heading from '../../common/typography/Heading';
@@ -128,90 +129,117 @@ class CheckoutShippingInformation extends React.Component {
         ];
 
         return (
-            <div className="checkout-shipping-information">
+            <div>
+            {shippingOptions ?
+                <div className="checkout-shipping-information__select-method">
+                  <div className="checkout-shipping-information__column">
+                      <div className="checkout-shipping-information__row">
+                        <CheckoutSection number="2.1"
+                                       size="small"
+                                       title={intlStore.getMessage(intlData, 'shippingMethodLabel')}>
+                           <RadioSelect options={shippingOptions}
+                                        onChange={this.props.onShippingOptionChange}
+                                        value={this.props.shippingMethod} />
+                        </CheckoutSection>
+                       </div>
+                       <div className="checkout-shipping-information__row">
+                           <div className="image-zone-image-container" onClick={this.handleOpenModalClick}>
+                             <div className="image-shipping-zones"></div>
+                           </div>
+                       </div>
+                  </div>
+                </div>
+                :
+                null
+            }
               {showModal()}
-                {this.props.editingAddress ?
-                    <div className="checkout-shipping-information__content">
-                        <AddressField labelWeight="normal"
-                                      address={this.props.address}
-                                      savedAddresses={this.props.user && this.props.user.addresses}
-                                      onSubmit={this.props.onAddressSubmit}
-                                      submitLabel={intlStore.getMessage(intlData, 'save')}
-                                      loading={this.props.loading} />
+                {this.props.shippingMethod === 'free-pickup' ?
+                    <div className="checkout-shipping-information__select-method">
+                        <CheckoutSection number="2.2"
+                                       size="small"
+                                       title={intlStore.getMessage(intlData, 'takeoutDateLabel')}>
+                        <InlineItems>
+                            <Select label={intlStore.getMessage(intlData, 'day')}
+                                    placeholder
+                                    options={dayOptions}
+                                    labelWeight={this.props.labelWeight}
+                                    value={this.props.shippingDay}
+                                    onChange={this.props.handleShippingDayChange} />
+                            <Select label={intlStore.getMessage(intlData, 'time')}
+                                    placeholder
+                                    options={takeOutTimeOptions}
+                                    labelWeight={this.props.labelWeight}
+                                    value={this.props.shippingTime}
+                                    onChange={this.props.handleShippingTimeChange} />
+                            </InlineItems>
+                          </CheckoutSection>
+                          <CheckoutSection number="2.3"
+                                         size="small"
+                                         title={intlStore.getMessage(intlData, 'clientInfoLabel')}>
+                            {this.props.editingAddress ?
+                                <div>
+                                    <AddressFieldNoShipping labelWeight="normal"
+                                                  checkout={this.props.checkout}
+                                                  address={this.props.address}
+                                                  savedAddresses={this.props.user && this.props.user.addresses}
+                                                  onSubmit={this.props.onAddressSubmit}
+                                                  submitLabel={intlStore.getMessage(intlData, 'save')}
+                                                  loading={this.props.loading} />
+                                </div>
+                                :
+                                <div>
+                                    <div className="checkout-shipping-information__address-preview">
+                                        <AddressPreview address={this.props.address}
+                                                        onEditClick={this.props.onAddressEditClick} />
+                                    </div>
+                                </div>
+                            }
+                            {showWarningText()}
+                            </CheckoutSection>
                     </div>
                     :
-                    <div className="checkout-shipping-information__content">
-                        <div className="checkout-shipping-information__address-preview">
-                            <AddressPreview address={this.props.address}
-                                            onEditClick={this.props.onAddressEditClick} />
-                        </div>
-                        {shippingOptions ?
-                            <div className="checkout-shipping-information__select-method">
-                              <div className="checkout-shipping-information__column">
-                                  <div className="checkout-shipping-information__row">
-                                    <CheckoutSection number="2.1"
-                                                   size="small"
-                                                   title={intlStore.getMessage(intlData, 'shippingMethodLabel')}>
-                                       <RadioSelect options={shippingOptions}
-                                                    onChange={this.props.onShippingOptionChange}
-                                                    value={this.props.shippingMethod} />
-                                    </CheckoutSection>
-                                   </div>
-                                   <div className="checkout-shipping-information__row">
-                                       <div className="image-zone-image-container" onClick={this.handleOpenModalClick}>
-                                         <div className="image-shipping-zones"></div>
-                                       </div>
-                                   </div>
+                    <div className="checkout-shipping-information__select-method">
+                        <CheckoutSection number="2.2"
+                                       size="small"
+                                       title={intlStore.getMessage(intlData, 'shippingDateLabel')}>
+                          <InlineItems>
+                              <Select label={intlStore.getMessage(intlData, 'day')}
+                                      placeholder
+                                      options={dayOptions}
+                                      labelWeight={this.props.labelWeight}
+                                      value={this.props.shippingDay}
+                                      onChange={this.props.handleShippingDayChange} />
+                              <Select label={intlStore.getMessage(intlData, 'time')}
+                                      placeholder
+                                      options={deliveryTimeOptions}
+                                      labelWeight={this.props.labelWeight}
+                                      value={this.props.shippingTime}
+                                      onChange={this.props.handleShippingTimeChange} />
+                              </InlineItems>
+                          </CheckoutSection>
+                          <CheckoutSection number="2.3"
+                                         size="small"
+                                         title={intlStore.getMessage(intlData, 'clientInfoLabel')}>
+                          {this.props.editingAddress ?
+                              <div>
+                                  <AddressFieldShipping labelWeight="normal"
+                                                checkout={this.props.checkout}
+                                                address={this.props.address}
+                                                savedAddresses={this.props.user && this.props.user.addresses}
+                                                onSubmit={this.props.onAddressSubmit}
+                                                submitLabel={intlStore.getMessage(intlData, 'save')}
+                                                loading={this.props.loading} />
                               </div>
-                            </div>
-                            :
-                            null
-                        }
-
-                        {this.props.shippingMethod === 'free-pickup' ?
-                            <div className="checkout-shipping-information__select-method">
-                                <CheckoutSection number="2.2"
-                                               size="small"
-                                               title={intlStore.getMessage(intlData, 'takeoutDateLabel')}>
-                                <InlineItems>
-                                    <Select label={intlStore.getMessage(intlData, 'day')}
-                                            placeholder
-                                            options={dayOptions}
-                                            labelWeight={this.props.labelWeight}
-                                            value={this.props.shippingDay}
-                                            onChange={this.props.handleShippingDayChange} />
-                                    <Select label={intlStore.getMessage(intlData, 'time')}
-                                            placeholder
-                                            options={takeOutTimeOptions}
-                                            labelWeight={this.props.labelWeight}
-                                            value={this.props.shippingTime}
-                                            onChange={this.props.handleShippingTimeChange} />
-                                    </InlineItems>
-                                  </CheckoutSection>
-                            </div>
-                            :
-                            <div className="checkout-shipping-information__select-method">
-                                <CheckoutSection number="2.2"
-                                               size="small"
-                                               title={intlStore.getMessage(intlData, 'shippingDateLabel')}>
-                                <InlineItems>
-                                    <Select label={intlStore.getMessage(intlData, 'day')}
-                                            placeholder
-                                            options={dayOptions}
-                                            labelWeight={this.props.labelWeight}
-                                            value={this.props.shippingDay}
-                                            onChange={this.props.handleShippingDayChange} />
-                                    <Select label={intlStore.getMessage(intlData, 'time')}
-                                            placeholder
-                                            options={deliveryTimeOptions}
-                                            labelWeight={this.props.labelWeight}
-                                            value={this.props.shippingTime}
-                                            onChange={this.props.handleShippingTimeChange} />
-                                    </InlineItems>
-                                  </CheckoutSection>
-                            </div>
-                        }
-                        {showWarningText()}
+                              :
+                              <div>
+                                  <div className="checkout-shipping-information__address-preview">
+                                      <AddressPreview address={this.props.address}
+                                                      onEditClick={this.props.onAddressEditClick} />
+                                  </div>
+                              </div>
+                          }
+                          {showWarningText()}
+                          </CheckoutSection>
                     </div>
                 }
             </div>

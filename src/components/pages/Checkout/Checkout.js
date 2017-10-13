@@ -537,6 +537,7 @@ class Checkout extends React.Component {
                             </CheckoutSection>
                             <CheckoutSection className="checkout__section" number="2" title={intlStore.getMessage(intlData, 'shippingInformation')}>
                                 <CheckoutShippingInformation user={this.state.user}
+                                                             checkout={this.state.checkout}
                                                              address={this.state.checkout.shippingAddress}
                                                              editingAddress={this.state.editingShippingAddress}
                                                              onAddressSubmit={this.handleShippingAddressSubmit}

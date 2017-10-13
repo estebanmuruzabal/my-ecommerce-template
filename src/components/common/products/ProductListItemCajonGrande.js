@@ -205,12 +205,12 @@ class ProductListItemCajonGrande extends React.Component {
                 return (
                     <Modal title={intlStore.getMessage(intlData, 'anotadoModalTitle')}
                             onCloseClick={this.handleShowThanksModalCloseClick}>
-                           <div classname="grande-groups-register-modal-container">
+                           <div className="grande-groups-register-modal-container">
                              <FormattedMessage
                                  message={intlStore.getMessage(intlData, 'thanksModalText')}
                                  locales={intlStore.getCurrentLocale()} />
-                              <div classname="grande-groups-bottoms-container">
-                                 <div classname="grande-groups__register-button">
+                              <div className="grande-groups-bottoms-container">
+                                 <div className="grande-groups__register-button">
                                    <Link to="checkout" params={routeParams}>
                                      <Button type="primary">
                                          <FormattedMessage
@@ -219,7 +219,7 @@ class ProductListItemCajonGrande extends React.Component {
                                      </Button>
                                    </Link>
                                  </div>
-                                 <div classname="grande-groups__keep-buying-button">
+                                 <div className="grande-groups__keep-buying-button">
                                      <Button type="primary" onClick={this.handleShowThanksModalCloseClick}>
                                          <FormattedMessage
                                              message={intlStore.getMessage(intlData, 'continueShopping')}
@@ -238,7 +238,7 @@ class ProductListItemCajonGrande extends React.Component {
                 return (
                     <Modal title={intlStore.getMessage(intlData, 'registerModalTitle')}
                            onCloseClick={this.handleRegiserModalCloseClick}>
-                           <div classname="grande-groups-register-modal-container">
+                           <div className="grande-groups-register-modal-container">
                              <div className="grande-product-page__suscribe-button">
                                <Link to="login" params={routeParams}>
                                  <Button type="primary">
@@ -272,79 +272,79 @@ class ProductListItemCajonGrande extends React.Component {
 
         let productDescription = () => {
           return (
-             <div classname="grande-groups-page__description">
-                 <div classname="grande-groups-table">
-                     <table classname="grande-groups-table__table">
+             <div className="grande-groups-page__description">
+                 <div className="grande-groups-table">
+                     <table className="grande-groups-table__table">
                          <thead>
-                             <tr classname="grande-groups-table__row">
-                               <th classname="grande-groups-table__heading">
+                             <tr className="grande-groups-table__row">
+                               <th className="grande-groups-table__heading">
                                    <Text weight="bold" size="medium">Productos</Text>
                                </th>
-                               <th classname="grande-groups-table__heading">
+                               <th className="grande-groups-table__heading">
                                    <Text weight="bold" size="medium">Cantidad</Text>
                                </th>
                              </tr>
                          </thead>
-                         <tbody classname="grande-groups-table__body">
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Tomate Perita</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
+                         <tbody className="grande-groups-table__body">
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Tomate Perita</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Zanahoria</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Zanahoria</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Cebolla</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Cebolla</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Batata</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Batata</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Papa</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Papa</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1.5 kg</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Zapallo Brasilero</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1.5 kg</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Limones</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">3 unidades</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Limones</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">3 unidades</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Huevos</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">8 unidades</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Huevos</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">8 unidades</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Morrón Verde o Rojo</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">800 o 400 grs.</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Morrón Verde o Rojo</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">800 o 400 grs.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Banana</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1,5 kgs.</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Banana</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1,5 kgs.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Manzana</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1 kg.</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Manzana</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1 kg.</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Zapallito Verde</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">3 atados</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Cebollita de V.</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">3 atados</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Naranja</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">1.5 kg.</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Naranja</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">1.5 kg.</Text></td>
                            </tr>
-                           <tr classname="grande-groups-table__row">
-                             <td classname="grande-groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
-                             <td classname="grande-groups-table__data"><Text size="medium">2 atados</Text></td>
+                           <tr className="grande-groups-table__row">
+                             <td className="grande-groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">2 atados</Text></td>
                            </tr>
                          </tbody>
                      </table>
@@ -358,9 +358,9 @@ class ProductListItemCajonGrande extends React.Component {
              {registerModal()}
              {thanksModal()}
                  { isAdmin ?
-                     <div classname="grande-groups__toolbar">
+                     <div className="grande-groups__toolbar">
                      {newGroupModal()}
-                         <div classname="grande-groups__add-button">
+                         <div className="grande-groups__add-button">
                              <Button type="primary" onClick={this.handleNewGroupClick}>
                                  <FormattedMessage
                                      message={intlStore.getMessage(intlData, 'new')}

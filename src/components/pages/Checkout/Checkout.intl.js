@@ -18,7 +18,7 @@ export default {
     },
     es: {
         billingInformation: 'Detalles de Facturación',
-        continueShopping: 'Continuar Comprando',
+        continueShopping: 'Continuar',
         creatingOrder: 'Creando encomienda',
         customerDetails: 'Detalles del Cliente',
         myAccount: 'Mi cuenta',

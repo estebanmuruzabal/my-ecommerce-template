@@ -44,9 +44,9 @@ class ImageLibrary extends React.Component {
         images.splice(idx, 1);
         this.props.onChange(images);
     };
-    
+
     //*** Template ***//
-    
+
     render() {
         let intlStore = this.context.getStore(IntlStore);
         return (
@@ -68,7 +68,7 @@ class ImageLibrary extends React.Component {
                                             <FormattedMessage message={intlStore.getMessage(intlData, 'delete')}
                                                               locales={intlStore.getCurrentLocale()} />
                                         </Button>
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

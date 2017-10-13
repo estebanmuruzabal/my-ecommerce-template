@@ -28,6 +28,9 @@ class BaseHtml extends React.Component {
                 <body>
                     <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
                     <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
+                    <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuZlJw5myNVPM8YgqFbinf46xrJUi8Q6E&libraries=geometry,places">
+                    </script>
                     {this.props.scripts.map((src, idx) => <script src={src} key={idx}></script>)}
                     <script src={`${this.props.staticURL}/vendor/switch-2.latest.min.js`}></script>
                     {config.facebookPixel && config.facebookPixel.enabled === true ?

@@ -5,13 +5,15 @@ import React from 'react';
 
 // Instantiate logger
 let debug = require('debug')('tienda765');
-
+import ApplicationStore from '../../../stores/Application/ApplicationStore';
 /**
  * Component
  */
 class Button extends React.Component {
 
-    //*** Component Lifecycle ***//
+    static contextTypes = {
+        getStore: React.PropTypes.func.isRequired
+    };
 
     componentDidMount() {
 
@@ -32,6 +34,7 @@ class Button extends React.Component {
     render() {
 
         let buttonClass = 'button';
+        let id = `button-field-${this.context.getStore(ApplicationStore).uniqueId()}`;
 
         if (['default', 'primary'].indexOf(this.props.type) != -1) {
             buttonClass += ` button-${this.props.type}`;
@@ -58,7 +61,7 @@ class Button extends React.Component {
         }
 
         return (
-            <button className={buttonClass} key={this.props.idx} onClick={this.handleClick}>
+            <button id={id} className={buttonClass} onClick={this.handleClick}>
                 {this.props.children}
             </button>
         );

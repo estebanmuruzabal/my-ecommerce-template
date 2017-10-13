@@ -25,7 +25,7 @@ export default {
         anilladoHeading: 'Anillado'
     },
     es: {
-        billingDetails: 'Dados de facturacción',
+        billingDetails: 'Datos de facturacción',
         createdAt: 'Creada en',
         customer: 'Cliente',
         id: 'ID',
