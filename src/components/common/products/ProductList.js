@@ -127,16 +127,9 @@ class ProductList extends React.Component {
                           </div>
                           <div className="product-list__collection-description">
                               <Text weight="bold" size="medium" >
-                                  IMPORTANTE: Envío gratis adentro de las 4 avenidas principales. Fuera de las 4 avenidas $10. Para ver las zonas exactas haga click aqui abajo.
+                                  IMPORTANTE: Envío gratis adentro de las 4 avenidas principales. Fuera de las 4 avenidas $10. Para ver las zonas de envio haga click <a href="https://goo.gl/fGVXkq" target="_blank"><Text weight="bold" color="red" size="medium" >aquí</Text></a>.
                               </Text>
                           </div>
-                          <a href="https://goo.gl/fGVXkq" target="_blank">
-                            <div className="product-list__collection-description">
-                                <Text weight="bold" size="medium" >
-                                    ZONAS DE ENVÍO, CLICK AQUÍ
-                                </Text>
-                            </div>
-                          </a>
                           {this.props.children ?
                               <div className="product-list__content">
                                   {this.props.children}

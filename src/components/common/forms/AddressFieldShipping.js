@@ -14,7 +14,6 @@ import InlineItems from './InlineItems';
 import InputField from './InputField';
 import Select from './Select';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-import {Helmet} from "react-helmet";
 
 // Translation data for this component
 import intlData from './AddressFieldShipping.intl';
