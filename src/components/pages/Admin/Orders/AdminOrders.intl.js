@@ -1,7 +1,7 @@
 export default {
     en: {
         dateHeading: 'Date',
-        emailHeading: 'Email',
+        nameHeading: 'Client',
         idHeading: 'ID',
         noResults: 'No results',
         showAll: 'Show All',
@@ -10,7 +10,7 @@ export default {
     },
     es: {
         dateHeading: 'Fecha',
-        emailHeading: 'Email',
+        nameHeading: 'Cliente',
         idHeading: 'ID',
         noResults: 'No existen Ordenes momentaneamente',
         showAll: 'Mostrar Todo',

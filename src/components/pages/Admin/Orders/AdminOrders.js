@@ -89,7 +89,7 @@ class AdminOrders extends React.Component {
                 message={intlStore.getMessage(intlData, 'idHeading')}
                 locales={intlStore.getCurrentLocale()} />,
             <FormattedMessage
-                message={intlStore.getMessage(intlData, 'emailHeading')}
+                message={intlStore.getMessage(intlData, 'nameHeading')}
                 locales={intlStore.getCurrentLocale()} />,
             <FormattedMessage
                 message={intlStore.getMessage(intlData, 'statusHeading')}
@@ -98,6 +98,7 @@ class AdminOrders extends React.Component {
 
         // Order list table rows
         let rows = this.state.orders.map(function (order) {
+          console.log("orderr:",order);
             return {
                 data: [
                     <Text size="medium">{moment(order.createdAt).format('YYYY/MM/DD HH:mm:ss')}</Text>,
@@ -107,7 +108,7 @@ class AdminOrders extends React.Component {
                         </Link>
                     </span>,
                     <Text size="medium">
-                        {order.customer.email}
+                        {order.customer.name}
                         {order.customer.userId ?
                             <span className="adm-orders__user-icon">
                                 <i className="fa fa-user" aria-hidden="true" />

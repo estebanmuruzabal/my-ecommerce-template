@@ -100,25 +100,25 @@ class ProductListItem extends React.Component {
         return (
             <div className="product-list-item" itemScope itemType="http://schema.org/Product">
                 <div className="product-list-item__name" itemProp="name">
-                    <Text size="large" weight="bold">
+                    <Text size="medium" weight="bold">
                         <FormattedMessage
                             message={intlStore.getMessage(this.props.product.name)}
                             locales={intlStore.getCurrentLocale()} />
                     </Text>
                     <span style={{display: 'none'}} itemProp="sku">{this.props.product.sku}</span>
                 </div>
-                <div className="product-list-item__image">
+                <div>
                     {this.props.product.images && this.props.product.images.length > 0 ?
-                        <span style={{display: 'none'}} itemProp="image">
+                        <span className="product-list-item__image" itemProp="image">
                             {`//${this.props.product.images[0].url}`}
                         </span>
                         :
                         null
                     }
                     {this.props.product.images && this.props.product.images.length > 0 ?
-                        <img src={`//${this.props.product.images[0].url}`} />
+                        <img className="product-list-item__image-2" src={`//${this.props.product.images[0].url}`} />
                         :
-                        <img src={this.state.productPlaceholderImage} />
+                        <img className="product-list-item__image-2" src={this.state.productPlaceholderImage} />
                     }
                 </div>
                 {this.props.product.pricing ?

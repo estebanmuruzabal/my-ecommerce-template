@@ -33,6 +33,11 @@
     text-shadow: none;
     text-transform: uppercase;
 
+    @include breakpoint(handhelds) {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+
     &-font-small {
         font-size: 10px;
     }
