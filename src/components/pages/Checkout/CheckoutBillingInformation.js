@@ -123,11 +123,6 @@ class CheckoutBillingInformation extends React.Component {
         //
         return (
             <div className="checkout-billing-information">
-                <div className="checkout-billing-information__use-shipping-address">
-                    <Checkbox label={intlStore.getMessage(intlData, 'useShippingAddress')}
-                              onChange={this.props.onUseShippingAddressChange}
-                              checked={this.props.useShippingAddress} />
-                </div>
                 {this.props.editingAddress && !this.props.useShippingAddress ?
                     <div className="checkout-billing-information__content">
                         <AddressField labelWeight="normal"
@@ -147,18 +142,15 @@ class CheckoutBillingInformation extends React.Component {
                         {paymentOptions ?
                            <div>
                               <div className="checkout-billing-information__select-payment-method">
-                                  <CheckoutSection number="3.1"
-                                                   size="small"
-                                                   title={intlStore.getMessage(intlData, 'paymentMethodLabel')} />
-                                  <RadioSelect options={paymentOptions}
-                                               onChange={this.handlePaymentOptionsChange}
-                                               value={this.props.paymentMethod} />
-                              </div>
-                              <div className="checkout-summary__warning">
-                                  <Heading size="small">
-                                    <FormattedMessage message={intlStore.getMessage(intlData, 'creditCardAclaration')}
-                                                      locales={intlStore.getCurrentLocale()} />
-                                  </Heading>
+                                <RadioSelect options={paymentOptions}
+                                             onChange={this.handlePaymentOptionsChange}
+                                             value={this.props.paymentMethod} />
+                                 <div className="checkout-summary__warning">
+                                     <Heading size="small">
+                                       <FormattedMessage message={intlStore.getMessage(intlData, 'creditCardAclaration')}
+                                                         locales={intlStore.getCurrentLocale()} />
+                                     </Heading>
+                                 </div>
                               </div>
                             </div>
                             :

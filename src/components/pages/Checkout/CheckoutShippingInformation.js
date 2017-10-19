@@ -124,37 +124,35 @@ class CheckoutShippingInformation extends React.Component {
         };
 
         let dayOptions = [
-            {name: 'Martes 17 de Octubre', value: 'Martes 17 de Octubre'},
-            {name: 'Miércoles 18 de Octubre', value: 'Miércoles 18 de Octubre'}
+            {name: 'Martes 24 de Octubre', value: 'Martes 24 de Octubre'},
+            {name: 'Miércoles 25 de Octubre', value: 'Miércoles 25 de Octubre'}
         ];
 
         return (
-            <div>
+            <div className="checkout-shipping-information__select-method">
             {shippingOptions ?
-                <div className="checkout-shipping-information__select-method">
-                  <div className="checkout-shipping-information__column">
-                      <div className="checkout-shipping-information__row">
-                        <CheckoutSection number="2.1"
-                                       size="small"
-                                       title={intlStore.getMessage(intlData, 'shippingMethodLabel')}>
-                           <RadioSelect options={shippingOptions}
-                                        onChange={this.props.onShippingOptionChange}
-                                        value={this.props.shippingMethod} />
-                        </CheckoutSection>
-                       </div>
-                       <div className="checkout-shipping-information__row">
-                           <div className="image-zone-image-container" onClick={this.handleOpenModalClick}>
-                             <div className="image-shipping-zones"></div>
-                           </div>
-                       </div>
-                  </div>
+                <div className="checkout-shipping-information__column">
+                    <div className="checkout-shipping-information__row">
+                      <CheckoutSection number="2.1"
+                                     size="small"
+                                     title={intlStore.getMessage(intlData, 'shippingMethodLabel')}>
+                         <RadioSelect options={shippingOptions}
+                                      onChange={this.props.onShippingOptionChange}
+                                      value={this.props.shippingMethod} />
+                      </CheckoutSection>
+                     </div>
+                     <div className="checkout-shipping-information__row">
+                         <div className="image-zone-image-container" onClick={this.handleOpenModalClick}>
+                           <div className="image-shipping-zones"></div>
+                         </div>
+                     </div>
                 </div>
                 :
                 null
             }
               {showModal()}
                 {this.props.shippingMethod === 'free-pickup' ?
-                    <div className="checkout-shipping-information__select-method">
+                    <div>
                         <CheckoutSection number="2.2"
                                        size="small"
                                        title={intlStore.getMessage(intlData, 'takeoutDateLabel')}>
@@ -198,10 +196,10 @@ class CheckoutShippingInformation extends React.Component {
                             </CheckoutSection>
                     </div>
                     :
-                    <div className="checkout-shipping-information__select-method">
+                    <div>
                         <CheckoutSection number="2.2"
                                        size="small"
-                                       title={intlStore.getMessage(intlData, 'shippingDateLabel')}>
+                                       title={intlStore.getMessage(intlData, 'shippingDateLabel')} />
                           <InlineItems>
                               <Select label={intlStore.getMessage(intlData, 'day')}
                                       placeholder
@@ -216,10 +214,9 @@ class CheckoutShippingInformation extends React.Component {
                                       value={this.props.shippingTime}
                                       onChange={this.props.handleShippingTimeChange} />
                               </InlineItems>
-                          </CheckoutSection>
                           <CheckoutSection number="2.3"
                                          size="small"
-                                         title={intlStore.getMessage(intlData, 'clientInfoLabel')}>
+                                         title={intlStore.getMessage(intlData, 'clientInfoLabel')} />
                           {this.props.editingAddress ?
                               <div>
                                   <AddressFieldShipping labelWeight="normal"
@@ -239,7 +236,6 @@ class CheckoutShippingInformation extends React.Component {
                               </div>
                           }
                           {showWarningText()}
-                          </CheckoutSection>
                     </div>
                 }
             </div>
