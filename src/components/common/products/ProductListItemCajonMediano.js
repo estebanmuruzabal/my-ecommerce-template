@@ -299,10 +299,6 @@ class ProductListItemCajonMediano extends React.Component {
                              <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
                            <tr className="mediano-groups-table__row">
-                             <td className="mediano-groups-table__data"><Text size="medium">Batata</Text></td>
-                             <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
-                           </tr>
-                           <tr className="mediano-groups-table__row">
                              <td className="mediano-groups-table__data"><Text size="medium">Papa</Text></td>
                              <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
@@ -343,8 +339,8 @@ class ProductListItemCajonMediano extends React.Component {
                              <td className="mediano-groups-table__data"><Text size="medium">1 kg.</Text></td>
                            </tr>
                            <tr className="mediano-groups-table__row">
-                             <td className="mediano-groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
-                             <td className="mediano-groups-table__data"><Text size="medium">1 atado</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">Tapas Pamp tarta</Text></td>
+                             <td className="mediano-groups-table__data"><Text size="medium">2 uni.</Text></td>
                            </tr>
                          </tbody>
                      </table>

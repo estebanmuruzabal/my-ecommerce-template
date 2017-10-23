@@ -299,10 +299,6 @@ class ProductListItemCajonGrande extends React.Component {
                              <td className="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                            </tr>
                            <tr className="grande-groups-table__row">
-                             <td className="grande-groups-table__data"><Text size="medium">Batata</Text></td>
-                             <td className="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
-                           </tr>
-                           <tr className="grande-groups-table__row">
                              <td className="grande-groups-table__data"><Text size="medium">Papa</Text></td>
                              <td className="grande-groups-table__data"><Text size="medium">1.2 kg.</Text></td>
                            </tr>
@@ -343,8 +339,8 @@ class ProductListItemCajonGrande extends React.Component {
                              <td className="grande-groups-table__data"><Text size="medium">1.5 kg.</Text></td>
                            </tr>
                            <tr className="grande-groups-table__row">
-                             <td className="grande-groups-table__data"><Text size="medium">Lechuga Romana</Text></td>
-                             <td className="grande-groups-table__data"><Text size="medium">2 atados</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">Tapas Pamp tarta</Text></td>
+                             <td className="grande-groups-table__data"><Text size="medium">2 uni.</Text></td>
                            </tr>
                          </tbody>
                      </table>

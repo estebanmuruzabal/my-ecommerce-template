@@ -124,8 +124,8 @@ class CheckoutShippingInformation extends React.Component {
         };
 
         let dayOptions = [
-            {name: 'Martes 24 de Octubre', value: 'Martes 24 de Octubre'},
-            {name: 'Miércoles 25 de Octubre', value: 'Miércoles 25 de Octubre'}
+            {name: 'Martes 31 de Octubre', value: 'Martes 31 de Octubre'},
+            {name: 'Miércoles 1 de Noviembre', value: 'Miércoles 1 de Noviembre'}
         ];
 
         return (
