@@ -35,5 +35,8 @@ export default {
         enabled: false,
         environment: 'https://api-test.switchpayments.com/v2/',
         publicKey: process.env.SWITCH_PUBLIC_KEY
+    },
+    mercadoPago: {
+        publicKey: 'TEST-96678a3d-588a-4cbe-b627-e5ae4d07551f'
     }
 };

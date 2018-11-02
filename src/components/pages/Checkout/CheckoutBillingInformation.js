@@ -8,6 +8,7 @@ import {FormattedMessage} from 'react-intl';
 import IntlStore from '../../../stores/Application/IntlStore';
 
 // Required components
+import CreditCardForm from '../../common/forms/CreditCardForm';
 import AddressField from '../../common/forms/AddressField';
 import AddressPreview from '../../common/forms/AddressPreview';
 import Checkbox from '../../common/forms/Checkbox';
@@ -94,10 +95,6 @@ class CheckoutBillingInformation extends React.Component {
 
     render() {
 
-        //
-        // Helper methods & variables
-        //
-
         let intlStore = this.context.getStore(IntlStore);
 
         let paymentOptions = (this.props.paymentOptions) ? this.props.paymentOptions.map((paymentMethod) => {
@@ -123,6 +120,7 @@ class CheckoutBillingInformation extends React.Component {
         //
         return (
             <div className="checkout-billing-information">
+                <CreditCardForm handleTestMercadoPagoSubmit={this.props.handleTestMercadoPagoSubmit} />
                 {this.props.editingAddress && !this.props.useShippingAddress ?
                     <div className="checkout-billing-information__content">
                         <AddressField labelWeight="normal"

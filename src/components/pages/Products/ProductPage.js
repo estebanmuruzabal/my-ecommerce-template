@@ -237,15 +237,6 @@ class ProductPage extends React.Component {
                     stock: parseInt(product.stock),
                     tags: product.tags,
                     collections: product.collections,
-                    copies: {
-                        pagetype: this.state.pagetype,
-                        pagesnum: parseFloat(this.state.pagesnum),
-                        files: this.state.files,
-                        comments: product.copies.comments,
-                        price: copyPriceTotal,
-                        anillado: this.state.anillado,
-                        doblefaz: this.state.doblefaz
-                    },
                     metadata: product.metadata
                 }
             });

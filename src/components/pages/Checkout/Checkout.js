@@ -20,6 +20,7 @@ import createCart from '../../../actions/Cart/createCart';
 import createCheckout from '../../../actions/Checkout/createCheckout';
 import createOrder from '../../../actions/Orders/createOrder';
 import updateCheckout from '../../../actions/Checkout/updateCheckout';
+import mercadoPagoPay from '../../../actions/Checkout/mercadoPagoPay';
 import updateProduct from '../../../actions/Admin/updateProduct';
 
 // Required components
@@ -38,6 +39,7 @@ import CheckoutSummary from './CheckoutSummary';
 
 // Translation data for this component
 import intlData from './Checkout.intl';
+import { log } from 'util';
 
 /**
  * Component
@@ -300,6 +302,11 @@ class Checkout extends React.Component {
         this.setState({billingAddressUpdateRequested: true});
     };
 
+    handleTestMercadoPagoSubmit = (payload) => {
+        console.log(payload);
+        this.context.executeAction(mercadoPagoPay, payload);
+    };
+
     handleBillingAddressEditClick = () => {
         this.setState({editingBillingAddress: true});
     };
@@ -358,15 +365,6 @@ class Checkout extends React.Component {
                         stock: parseInt(product.details.stock),
                         tags: product.details.tags,
                         collections: product.details.collections,
-                        copies: {
-                            pagetype: '',
-                            pagesnum: 0,
-                            files: [],
-                            comments: '',
-                            price: 0,
-                            anillado: false,
-                            doblefaz: true
-                        },
                         metadata: product.details.metadata
                     }
                 });
@@ -554,6 +552,7 @@ class Checkout extends React.Component {
                             </CheckoutSection>
                             <CheckoutSection className="checkout__section" number="3" title={intlStore.getMessage(intlData, 'billingInformation')}>
                                 <CheckoutBillingInformation user={this.state.user}
+                                                            handleTestMercadoPagoSubmit={this.handleTestMercadoPagoSubmit}
                                                             address={this.state.checkout.billingAddress}
                                                             useShippingAddress={this.state.useShippingAddressForBilling}
                                                             onUseShippingAddressChange={this.handleUseShippingAddressForBillingChange}

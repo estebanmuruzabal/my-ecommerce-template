@@ -155,6 +155,7 @@ server.use(async function (req, res, next) {
             }
 
             // Fire navigate action
+            
             context.executeAction(navigateAction, state, function (err) {
 
                 debug('Exposing context state');

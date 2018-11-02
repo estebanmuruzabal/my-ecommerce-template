@@ -2,6 +2,7 @@
  * Imports
  */
 import superagent from 'superagent';
+import { log } from 'util';
 
 /**
  * Atlas Collections API wrapper
@@ -27,6 +28,7 @@ class CollectionsAPI {
             request.set('Authorization', this.getAuthToken());
         }
         request.end(function (err, result) {
+            console.log(request, result);
             if (err) {
                 reject({status: err.status, result: (result) ? result.body : null});
             } else {
@@ -41,6 +43,7 @@ class CollectionsAPI {
     create(payload) {
         return new Promise((resolve, reject) => {
             let request = superagent.post(`${this.baseUrl}/collections`).send(payload);
+            console.log(request);
             this._wrapAndRequest(request, resolve, reject);
         });
     }

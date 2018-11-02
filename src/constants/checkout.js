@@ -5,6 +5,10 @@ export default keyMirror({
     CHECKOUT_CREATE_SUCCESS: null,
     CHECKOUT_CREATE_ERROR: null,
 
+    CHECKOUT_CC_CREATE: null,
+    CHECKOUT_CC_CREATE_SUCCESS: null,
+    CHECKOUT_CC_CREATE_ERROR: null,
+
     CHECKOUT_SET_PAYMENT_OPTIONS: null,
 
     CHECKOUT_UPDATE: null,

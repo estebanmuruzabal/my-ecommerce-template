@@ -2,6 +2,7 @@
  * Imports
  */
 import superagent from 'superagent';
+import { log } from 'util';
 
 /**
  * Atlas Checkouts API wrapper
@@ -53,6 +54,17 @@ class CheckoutsAPI {
     }
 
     /**
+     * Partial Checkout updates
+     */
+    pay(payload) {
+        console.log('payingg:', payload);
+        return new Promise((resolve, reject) => {
+            let request = superagent.post(`https://api.mercadopago.com/oauth/${token}`).send(payload);
+            this._wrapAndRequest(request, resolve, reject);
+        });
+    }
+
+        /**
      * Partial Checkout updates
      */
     patch(checkoutId, payload, cartAccessToken) {

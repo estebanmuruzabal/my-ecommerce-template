@@ -2,8 +2,8 @@
  * Imports
  */
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
-import { Link} from 'react-router';
+import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router';
 
 // Flux
 import IntlStore from '../../../stores/Application/IntlStore';
@@ -46,7 +46,7 @@ class DeleteHandler extends React.Component {
         // Helper methods & variables
         //
         let intlStore = this.context.getStore(IntlStore);
-        let routeParams = {locale: intlStore.getCurrentLocale()}; // Base route params
+        let routeParams = { locale: intlStore.getCurrentLocale() }; // Base route params
 
         //
         // Return
@@ -62,13 +62,13 @@ class DeleteHandler extends React.Component {
                         </Button>
                     </div>
                     <div className="admin-products-upload__button">
-                      <Link to="admin-panel" params={routeParams}>
-                        <Button type="primary" onClick={this.props.onSubmitClick}>
-                            <FormattedMessage
-                                message={intlStore.getMessage(intlData, 'delete')}
-                                locales={intlStore.getCurrentLocale()} />
-                        </Button>
-                      </Link>
+                        <Link to="admin-panel" params={routeParams}>
+                            <Button type="primary" onClick={this.props.onSubmitClick}>
+                                <FormattedMessage
+                                    message={intlStore.getMessage(intlData, 'delete')}
+                                    locales={intlStore.getCurrentLocale()} />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -77,12 +77,12 @@ class DeleteHandler extends React.Component {
 }
 
 /**
- * Default Props
- */
+* Default Props
+*/
 DeleteHandler.defaultProps = {
     onCancelClick: function () { debug('onCancelClick not defined'); }
 };
 /**
- * Exports
- */
+* Exports
+*/
 export default DeleteHandler;
